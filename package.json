@@ -1,8 +1,9 @@
 {
-  "name": "upwind",
+  "name": "rewiring-hope",
   "private": true,
-  "version": "3.0.0",
-  "description": "Upwind React Tailwind CSS Landing Page Template",
+  "version": "1.0.0",
+  "description": "Rewiring Hope Website",
+  "homepage": "https://rewiringhope.or.id",
   "type": "module",
   "scripts": {
     "dev": "vite",
