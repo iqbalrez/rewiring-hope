@@ -1,0 +1,39 @@
+{
+  "name": "upwind",
+  "private": true,
+  "version": "3.0.0",
+  "description": "Upwind React Tailwind CSS Landing Page Template",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.13",
+    "aos": "^2.3.4",
+    "react": "^19.1.1",
+    "react-countup": "^6.5.3",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.3",
+    "react-scroll": "^1.9.3",
+    "react-type-animation": "^3.2.0",
+    "swiper": "^12.0.2",
+    "tailwindcss": "^4.1.13",
+    "tiny-slider-react": "^0.5.7",
+    "type-js": "^1.0.0",
+    "yet-another-react-lightbox": "^3.25.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.36.0",
+    "@types/react": "^19.1.14",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.3",
+    "eslint": "^9.36.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.22",
+    "globals": "^16.4.0",
+    "vite": "^7.1.7"
+  }
+}
