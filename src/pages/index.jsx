@@ -5,6 +5,7 @@ import BackgroudImage from '../assets/images/bg/5.jpg';
 import Services from '../component/Services';
 import About from '../component/About';
 import Pricing from '../component/Pricing';
+import Team from '../component/Team';
 import Blog from '../component/Blog';
 import Contact from '../component/Contact';
 import Footer from '../component/Footer';
@@ -32,20 +33,19 @@ export default function Index() {
           <div className='container relative'>
             <div className='grid grid-cols-1 mt-12'>
               <h4 className='text-white lg:text-5xl text-3xl lg:leading-normal leading-normal font-medium mb-7 position-relative'>
-                Rewiring Hope and Relationship <br />
-                through
+                Teaching the <br />
                 <TypeAnimation
                   sequence={[
                     // Same substring at the start will only be typed out once, initially
-                    'Neuroscience',
+                    'Healing Brain',
                     1000, // wait 1s before replacing "Mice" with "Hamsters"
-                    '',
+                    'H',
                     100,
                   ]}
                   wrapper='span'
                   speed={10}
                   repeat={Infinity}
-                  className='typewrite relative text-type-element ms-2'
+                  className='typewrite relative text-type-element'
                   cursor={false}
                 />
               </h4>
@@ -63,7 +63,7 @@ export default function Index() {
                   duration={500}
                   className='animate-bounce py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-full'
                 >
-                  Learn More
+                  Selengkapnya
                 </ScrollLink>
               </div>
             </div>
@@ -71,7 +71,7 @@ export default function Index() {
         </section>
 
         {/* About section */}
-        {/* <About /> */}
+        <About />
 
         {/* Service section */}
         {/* <Services /> */}
@@ -85,6 +85,9 @@ export default function Index() {
         {/* Pricing section */}
         {/* <Pricing /> */}
 
+        {/* Team */}
+        <Team />
+
         {/* Blog section */}
         {/* <Blog /> */}
 
@@ -92,7 +95,7 @@ export default function Index() {
         {/* <Contact /> */}
 
         {/* Footer section */}
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </>
   );
