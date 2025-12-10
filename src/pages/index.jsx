@@ -43,7 +43,7 @@ export default function Index() {
                     100,
                   ]}
                   wrapper='span'
-                  speed={10}
+                  speed={12}
                   repeat={Infinity}
                   className='typewrite relative text-type-element'
                   cursor={false}
