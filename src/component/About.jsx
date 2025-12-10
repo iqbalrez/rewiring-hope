@@ -1,6 +1,6 @@
 // import React, { useState } from 'react';
 
-import AboutImage from '../assets/images/about2.jpg';
+import AboutImage from '../assets/images/about4.jpg';
 import Sign from '../assets/images/sign.png';
 import { Link } from 'react-router-dom';
 
@@ -37,7 +37,7 @@ export default function About() {
   return (
     <>
       <section
-        className='relative md:py-24 py-16 bg-slate-100 dark:bg-slate-800'
+        className='relative py-24 bg-slate-100 dark:bg-slate-800'
         id='about'
       >
         <div className='container mx-auto'>

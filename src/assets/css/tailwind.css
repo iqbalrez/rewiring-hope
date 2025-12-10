@@ -60,6 +60,15 @@
    --z-999: 999;
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in-element {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
 /* Custom */
 @import "./custom/_general.css";
 @import "./custom/pages/_helper.css";

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
-import { Link as Link2 } from 'react-router-dom';
+import { Link as Link2, NavLink } from 'react-router-dom';
 
 import LogoLight from '../assets/images/logo-light.png';
 import LogoDark from '../assets/images/logo-dark.png';
@@ -43,12 +43,12 @@ export default function Navbar({ navdark, bg }) {
               <span>
                 <img
                   src={LogoDark}
-                  className='w-24 py-1 inline-block dark:hidden'
+                  className='w-36 lg:w-48 py-2 inline-block dark:hidden'
                   alt=''
                 />
                 <img
                   src={LogoLight}
-                  className='w-24 py-1 hidden dark:inline-block'
+                  className='w-36 lg:w-48 py-2 hidden dark:inline-block'
                   alt=''
                 />
               </span>
@@ -71,14 +71,14 @@ export default function Navbar({ navdark, bg }) {
           <div className='nav-icons flex items-center lg_992:order-2 ms-auto'>
             {navdark && (
               <ul className='list-none menu-social mb-0'>
-                <li className='inline ms-1'>
+                {/* <li className='inline ms-1'>
                   <Link2
                     to='#'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
                     <i className='uil uil-github'></i>
                   </Link2>
-                </li>
+                </li> */}
                 <li className='inline ms-1'>
                   <Link2
                     to='#'
@@ -149,16 +149,14 @@ export default function Navbar({ navdark, bg }) {
               className={`navbar-nav ${navdark ? '' : 'nav-light'}`}
               id='navbar-navlist'
             >
-              <Link
-                className='nav-item'
-                to='about'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
+              <NavLink
+                to='/about'
+                className={({ isActive }) =>
+                  ` ${isActive ? 'text-primary p-2' : 'nav-link'}`
+                }
               >
-                <span className='nav-link'>About</span>
-              </Link>
+                About
+              </NavLink>
               {/* <Link
                 className='nav-item'
                 activeclassname='active'

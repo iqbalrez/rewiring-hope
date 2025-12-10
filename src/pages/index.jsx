@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import BackgroudImage from '../assets/images/bg/5.jpg';
@@ -20,13 +20,21 @@ import { TypeAnimation } from 'react-type-animation';
  * Index Component
  */
 export default function Index() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setMounted(true), 10);
+    return () => clearTimeout(t);
+  }, []);
   return (
     <>
       <div>
         <Navbar />
         <section
           style={{ backgroundImage: `url(${BackgroudImage})` }}
-          className='py-36 lg:py-64 w-full table relative bg-center bg-cover'
+          className={`py-36 lg:py-64 w-full table relative bg-center bg-cover transition-all duration-700 ease-out ${
+            mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
+          }`}
           id='home'
         >
           <div className='absolute inset-0 bg-dark/40'></div>
@@ -71,7 +79,7 @@ export default function Index() {
         </section>
 
         {/* About section */}
-        <About />
+        {/* <About /> */}
 
         {/* Service section */}
         {/* <Services /> */}
@@ -86,7 +94,7 @@ export default function Index() {
         {/* <Pricing /> */}
 
         {/* Team */}
-        <Team />
+        {/* <Team /> */}
 
         {/* Blog section */}
         {/* <Blog /> */}
