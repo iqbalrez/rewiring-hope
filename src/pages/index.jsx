@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
-import BackgroudImage from '../assets/images/bg/5.jpg';
+import BackgroudImage from '../assets/images/bg/main-hero.jpg';
 import Services from '../component/Services';
 import About from '../component/About';
 import Pricing from '../component/Pricing';
@@ -37,7 +37,7 @@ export default function Index() {
           }`}
           id='home'
         >
-          <div className='absolute inset-0 bg-dark/40'></div>
+          <div className='absolute inset-0 bg-gradient-to-tr from-black  to-transparent '></div>
           <div className='container relative'>
             <div className='grid grid-cols-1 mt-12'>
               <h4 className='text-white lg:text-5xl text-3xl lg:leading-normal leading-normal font-medium mb-7 position-relative'>
