@@ -11,7 +11,7 @@ import avatarHesti from '../assets/images/client/Hesti.jpg';
 import avatarChristy from '../assets/images/client/christy.jpg';
 import avatarFely from '../assets/images/client/fely.jpg';
 import TELImage from '../assets/images/client/TELImage.jpg';
-import IBROImage from '../assets/images/client/ibro.jpg';
+import IBROImage from '../assets/images/client/IBROImage.jpg';
 
 export default function Team() {
   const team = [
