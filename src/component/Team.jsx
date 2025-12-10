@@ -7,7 +7,7 @@ import avatarTantri from '../assets/images/client/tantri.jpg';
 import avatarChristine from '../assets/images/client/christine.jpg';
 import avatarLaura from '../assets/images/client/laura.jpg';
 import avatarLinda from '../assets/images/client/linda.jpg';
-import avatarHesti from '../assets/images/client/Hesti.jpg';
+import avatarHesti from '../assets/images/client/hesti.jpg';
 import avatarChristy from '../assets/images/client/christy.jpg';
 import avatarFely from '../assets/images/client/fely.jpg';
 import TELImage from '../assets/images/client/TELImage.jpg';
