@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 import BackgroudImage from '../assets/images/bg/4.jpg';
 
-import About from '../component/About';
-import Team from '../component/Team';
+import About from '../component/about-aos';
+import Team from '../component/team-aos';
 import Footer from '../component/Footer';
 import Navbar from '../component/navbar';
 
