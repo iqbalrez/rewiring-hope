@@ -206,15 +206,19 @@ export default function Team() {
         </div> */}
 
         <div className='container mt-12'>
-          <div className='flex flex-row gap-6'>
-            <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg'>
-              <img src={TELImage} className='h-20 md:h-36 aspect-auto' alt='' />
+          <div className='flex flex-col lg:flex-row max-w-2xl mx-auto gap-6'>
+            <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+              <img
+                src={TELImage}
+                className='max-w-full h-full object-contain'
+                alt=''
+              />
             </div>
 
-            <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg'>
+            <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
               <img
                 src={IBROImage}
-                className='h-20 md:h-36 aspect-auto'
+                className='max-w-full h-full object-contain'
                 alt=''
               />
             </div>
