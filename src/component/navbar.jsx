@@ -81,15 +81,17 @@ export default function Navbar({ navdark, bg }) {
                 </li> */}
                 <li className='inline ms-1'>
                   <Link2
-                    to='#'
+                    to='https://linkedin.com/'
+                    target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
-                    <i className='uil uil-twitter'></i>
+                    <i className='uil uil-linkedin'></i>
                   </Link2>
                 </li>
                 <li className='inline ms-1'>
                   <Link2
-                    to='#'
+                    to='https://instagram.com/'
+                    target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
                     <i className='uil uil-instagram'></i>
@@ -100,21 +102,21 @@ export default function Navbar({ navdark, bg }) {
             {!navdark && (
               <ul className='list-none menu-social mb-0'>
                 <li className='inline ms-1'>
-                  <Link2 to='#'>
+                  <Link2 to='https://linkedin.com/' target='_blank'>
                     <span className='login-btn-primary'>
                       <span className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'>
-                        <i className='uil uil-twitter'></i>
+                        <i className='uil uil-linkedin'></i>
                       </span>
                     </span>
                     <span className='login-btn-light'>
                       <span className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-gray-50 hover:bg-gray-200 text-slate-900 dark:text-white dark:bg-slate-900 dark:hover:bg-gray-700 border-gray-100 dark:border-gray-700'>
-                        <i className='uil uil-twitter'></i>
+                        <i className='uil uil-linkedin'></i>
                       </span>
                     </span>
                   </Link2>
                 </li>
                 <li className='inline ms-1'>
-                  <Link2 to='#'>
+                  <Link2 to='https://instagram.com/' target='_blank'>
                     <span className='login-btn-primary'>
                       <span className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'>
                         <i className='uil uil-instagram'></i>
