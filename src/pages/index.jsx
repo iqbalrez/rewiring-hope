@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import BackgroudImage from '../assets/images/bg/main-hero.jpg';
 import Services from '../component/Services';
-import About from '../component/About';
+import EventAbout from '../component/EventAbout';
 import Pricing from '../component/Pricing';
-import Team from '../component/Team';
+import Speaker from '../component/Speaker';
 import Blog from '../component/Blog';
 import Contact from '../component/Contact';
 import Footer from '../component/Footer';
@@ -63,7 +63,7 @@ export default function Index() {
                 Societeit, Taman Budaya Yogyakarta
               </p>
 
-              <div className='relative mt-10'>
+              {/* <div className='relative mt-10'>
                 <ScrollLink
                   to='about'
                   smooth={true}
@@ -73,13 +73,16 @@ export default function Index() {
                 >
                   Selengkapnya
                 </ScrollLink>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
 
-        {/* About section */}
-        {/* <About /> */}
+        {/* Event About section */}
+        <EventAbout />
+
+        {/* Speaker section */}
+        <Speaker />
 
         {/* Service section */}
         {/* <Services /> */}
