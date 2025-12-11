@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import AboutImage from '../assets/images/about.jpg';
+import AboutImage from '../assets/images/about4.jpg';
 import Sign from '../assets/images/sign.png';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
