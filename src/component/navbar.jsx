@@ -81,7 +81,7 @@ export default function Navbar({ navdark, bg }) {
                 </li> */}
                 <li className='inline ms-1'>
                   <Link2
-                    to='https://linkedin.com/'
+                    to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
                     target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
@@ -90,7 +90,7 @@ export default function Navbar({ navdark, bg }) {
                 </li>
                 <li className='inline ms-1'>
                   <Link2
-                    to='https://instagram.com/'
+                    to='https://instagram.com/teachingthehealingbrain'
                     target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
@@ -102,7 +102,10 @@ export default function Navbar({ navdark, bg }) {
             {!navdark && (
               <ul className='list-none menu-social mb-0'>
                 <li className='inline ms-1'>
-                  <Link2 to='https://linkedin.com/' target='_blank'>
+                  <Link2
+                    to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
+                    target='_blank'
+                  >
                     <span className='login-btn-primary'>
                       <span className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'>
                         <i className='uil uil-linkedin'></i>
@@ -116,7 +119,10 @@ export default function Navbar({ navdark, bg }) {
                   </Link2>
                 </li>
                 <li className='inline ms-1'>
-                  <Link2 to='https://instagram.com/' target='_blank'>
+                  <Link2
+                    to='https://instagram.com/teachingthehealingbrain'
+                    target='_blank'
+                  >
                     <span className='login-btn-primary'>
                       <span className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'>
                         <i className='uil uil-instagram'></i>
