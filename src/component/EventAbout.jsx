@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-import AboutImage from '../assets/images/logo-dark.png';
+import BrainImage from '../assets/images/brain.jpg';
+
 import TeamAos from './team-aos';
 import Sign from '../assets/images/sign.png';
 import { Link } from 'react-router-dom';
@@ -43,43 +44,57 @@ export default function EventAbout() {
       <section
         className='relative py-24 bg-slate-100 dark:bg-slate-800'
         id='about'
-        data-aos='fade-up'
-        data-aos-delay='200'
       >
-        <div className='container mx-auto'>
+        <div
+          className='container mx-auto'
+          data-aos='fade-up'
+          data-aos-delay='200'
+        >
           <div className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 gap-10 items-start'>
             <div className='lg:col-span-7'>
               <div className='lg:ms-7'>
                 <h6 className='text-primary text-base font-medium uppercase mb-2'>
-                  Teaching the Healing Brain
+                  Teaching the Healing Brain: 27 Juni 2026
                 </h6>
                 <h3 className='mb-4 md:text-2xl text-xl font-medium dark:text-white'>
-                  Rewiring Hope and Relationship through Neuroscience
+                  Sebuah Perjalanan Menuju Harapan
                 </h3>
 
-                <p className='text-slate-500 dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                  “Bayangkan seorang anak di Indonesia. Dia duduk di kelas,
-                  tetapi pikirannya jauh melayang. Bukan karena dia malas,
-                  tetapi karena dia kehilangan harapan. Dia pernah gagal, dia
-                  pernah diremehkan, dan sekarang dia percaya bahwa belajar
-                  bukan untuknya. Ada ribuan anak seperti dia. Mereka datang ke
-                  sekolah setiap hari, tetapi hati mereka patah dan otak mereka
-                  lelah. Mereka tidak butuh lebih banyak ujian. Mereka butuh
-                  harapan.
+                <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
+                  Di tengah meningkatnya tantangan kesehatan mental dan motivasi
+                  belajar, pendidikan harus berevolusi untuk menjawab kebutuhan
+                  emosional dan kognitif siswa.{' '}
+                  <span className='font-bold'>Teaching the Healing Brain</span>{' '}
+                  bukan sekadar seminar ini adalah ruang pertemuan antara ilmu
+                  otak dan kehidupan nyata. Forum ini mengajak pendidik, orang
+                  tua, pembuat kebijakan, dan profesional kesehatan mental untuk
+                  memahami bagaimana neuroplastisitas, STEM, dan strategi budaya
+                  dapat menumbuhkan ketahanan, harapan, dan motivasi.
                 </p>
 
                 <div className='relative mt-8'>
-                  <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                    Satu Hari Forum Publik 27 Juni 2026
-                    <br></br>Militaire Societeit, Taman Budaya Yogyakarta
+                  <p className='text-dark font-bold dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
+                    Diselenggarakan di Militaire Societeit,
+                    <br></br>Taman Budaya Yogyakarta
                   </p>
                 </div>
               </div>
             </div>
 
             <div className='lg:col-span-5'>
-              <div className='relative'>
-                <img src={AboutImage} className='relative' alt='' />
+              <div className='bg-white flex flex-col items-center text-center rounded-lg justify-center py-8 relative'>
+                <img src={BrainImage} className='relative max-h-48' alt='' />
+                <div className='font-semibold mt-2 text-lg md:text-xl leading-tight text-dark/80 dark:text-slate-100'>
+                  Teaching <br /> The Healing Brain
+                </div>
+                <div className='font-light mt-2 text-lg md:text-xl leading-tight text-dark/80 dark:text-slate-300'>
+                  Rewiring Hope and Relationship
+                  <br /> through Neuroscience
+                </div>
+                <div className=' mt-4 text-lg md:text-xl leading-tight text-slate-900/80 dark:text-slate-100'>
+                  27 Juni 2026
+                  <br /> Yogyakarta, Indonesia
+                </div>
                 {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
                   <Link
                     to='#'
