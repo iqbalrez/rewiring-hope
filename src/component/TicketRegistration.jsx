@@ -1,125 +1,182 @@
 import Aos from 'aos';
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-export default function TicketRegistration() {
-  const ticket = {
+export default function TicketRegistration({ initialType }) {
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
+
+  const ticketInfo = {
     title: 'Teaching The Healing Brain: 27 Juni 2026',
-    price: 30000,
     features: [
-      'Fullday Pass',
-      'Exclusive VIP materials',
-      'Meet & greet with speakers',
-      'Access to after-party',
+      'Isi Nama Lengkap & Email Anda',
+      'Pilih Kategori Tiket',
+      'Klik Daftar',
+      'Selesaikan Pembayaran',
+      'Tiket akan dikirim ke email Anda',
     ],
   };
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [type, setType] = useState('MHS');
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
     setSubmitted(true);
-    // Simulasikan pengiriman data, bisa dikembangkan untuk backend atau API call
+    setLoading(false);
+    // try {
+    //   // 1️⃣ Call backend untuk create order + snap token
+    //   const res = await axios.post(`${VITE_API_URL}/payment/create`, {
+    //     name,
+    //     email,
+    //     eventId: ticket.eventId,
+    //   });
+
+    //   const { token } = res.data;
+
+    //   // 2️⃣ Trigger Midtrans Snap Popup
+    //   window.snap.pay(token, {
+    //     onSuccess: function () {
+    //       setSubmitted(true);
+    //     },
+    //     onPending: function () {
+    //       alert('Menunggu pembayaran...');
+    //     },
+    //     onError: function () {
+    //       alert('Pembayaran gagal');
+    //     },
+    //     onClose: function () {
+    //       console.log('Popup ditutup');
+    //     },
+    //   });
+    // } catch (err) {
+    //   alert('Gagal memproses pembayaran');
+    //   console.error(err);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   useEffect(() => {
     Aos.init();
   }, []);
 
+  // Sync parent-provided initial type (when user clicks pricing) into local state
+  useEffect(() => {
+    if (initialType) setType(initialType);
+  }, [initialType]);
+
   return (
     <section
       id='register'
       className='py-16 md:py-24 bg-gray-50 dark:bg-gray-900'
     >
-      <div
-        className='container mx-auto'
-        data-aos='fade-up'
-        data-aos-delay='200'
-      >
-        {/* Layout dengan dua kolom */}
+      <div className='container mx-auto' data-aos='fade-up'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-          {/* Kolom Kiri - Info Tiket */}
+          {/* INFO EVENT */}
           <div className='bg-dark rounded-lg shadow-lg p-8'>
-            <h3 className='text-md uppercase font-semibold text-primary dark:text-slate-100 mb-4'>
-              {ticket.title}
+            <h3 className='text-md uppercase font-semibold text-primary mb-4'>
+              {ticketInfo.title}
             </h3>
             <div className='mb-6 flex items-center'>
-              <span className='text-3xl font-semibold text-slate-100 '>
-                Rp{ticket.price.toLocaleString('id-ID')}
-              </span>
-              <span className='text-xl ml-2 text-slate-100 dark:text-gray-400'>
-                / ticket
+              <span className='text-2xl text-slate-100'>
+                Langkah Registrasi
               </span>
             </div>
-            <ul className='space-y-3 mb-6 text-left text-slate-100 dark:text-slate-300'>
-              {ticket.features.map((feature, index) => (
-                <li className='flex items-center' key={index}>
-                  <i className='uil uil-check-circle text-lg text-green-600 mr-2'></i>
+
+            <ul className='space-y-3 text-slate-100'>
+              {ticketInfo.features.map((feature, i) => (
+                <li key={i} className='flex items-center'>
+                  <span className=' text-green-600 mr-2 border border-primary w-6 pl-1 h-6 rounded-full'>
+                    {i + 1}.
+                  </span>
                   {feature}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Kolom Kanan - Formulir Pendaftaran */}
-          <div className='bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8'>
-            <h3 className='text-2xl font-semibold text-gray-800 dark:text-white mb-6'>
-              Register Now
-            </h3>
+          {/* FORM */}
+          <div className='bg-white rounded-lg shadow-lg p-8 h-full flex flex-col'>
+            <h3 className='text-2xl font-semibold mb-6'>Register Now</h3>
 
-            <form onSubmit={handleSubmit}>
-              <div className='mb-6'>
-                <label
-                  htmlFor='name'
-                  className='block text-lg font-medium text-gray-700 dark:text-gray-300'
-                >
-                  Nama Lengkap
-                </label>
-                <input
-                  type='text'
-                  id='name'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className='w-full p-4 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-600'
-                  placeholder='Enter your full name'
-                  required
-                />
+            {!submitted ? (
+              <form onSubmit={handleSubmit}>
+                <div className='mb-6'>
+                  <label className='block font-medium'>Nama Lengkap</label>
+                  <input
+                    type='text'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className='w-full p-4 mt-2 border rounded-md'
+                    placeholder='Masukkan nama lengkap'
+                    required
+                  />
+                </div>
+
+                <div className='mb-6'>
+                  <label className='block font-medium'>Email</label>
+                  <input
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className='w-full p-4 mt-2 border rounded-md'
+                    placeholder='Masukkan email aktif'
+                    required
+                  />
+                </div>
+
+                <div className='mb-6'>
+                  <label className='block font-medium'>Kategori</label>
+                  <select
+                    value={type}
+                    onChange={(e) => setType(e.target.value)}
+                    className='w-full p-4 mt-2 border rounded-md'
+                    required
+                  >
+                    <option value='MHS'>Mahasiswa</option>
+                    <option value='OTGR'>Guru & Orang Tua</option>
+                    <option value='PRO'>Profesional</option>
+                    <option value='FF'>Fully Funded</option>
+                  </select>
+                </div>
+
+                {type !== 'FF' ? (
+                  <button
+                    type='submit'
+                    disabled={loading}
+                    className='w-full py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700'
+                  >
+                    {loading ? 'Memproses...' : 'Daftar'}
+                  </button>
+                ) : (
+                  <div className='text-gray-600 flex flex-col text-center items-center my-auto'>
+                    <h4 className='text-xl font-semibold mb-2'>
+                      Program Fully Funded sedang dikembangkan
+                    </h4>
+                    <p>Mohon menunggu informasi selanjutnya.</p>
+                  </div>
+                )}
+              </form>
+            ) : (
+              <div className='text-gray-600 flex flex-col text-center items-center my-auto'>
+                <h4 className='text-xl font-semibold mb-2'>
+                  Sistem pendaftaran & pembayaran sedang dikembangkan
+                </h4>
+                <p>Mohon menunggu info lebih lanjut.</p>
               </div>
-
-              <div className='mb-6'>
-                <label
-                  htmlFor='email'
-                  className='block text-lg font-medium text-gray-700 dark:text-gray-300'
-                >
-                  Alamat Email
-                </label>
-                <input
-                  type='email'
-                  id='email'
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className='w-full p-4 mt-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-600'
-                  placeholder='Enter your email'
-                  required
-                />
-              </div>
-
-              <button
-                type='submit'
-                className='w-full py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-all duration-300'
-              >
-                Daftar Sekarang
-              </button>
-            </form>
-
-            {submitted && (
-              <div className='mt-6 text-green-500'>
-                <p className='font-semibold'>
-                  Thank you for registering! A confirmation email will be sent
-                  to you shortly.
-                </p>
-              </div>
+              // <div className='text-green-600 text-center'>
+              //   <h4 className='text-xl font-semibold mb-2'>
+              //     🎉 Pembayaran Berhasil
+              //   </h4>
+              //   <p>
+              //     Tiket akan dikirim ke email <b>{email}</b>
+              //   </p>
+              // </div>
             )}
           </div>
         </div>

@@ -33,6 +33,9 @@ import CountUp from 'react-countup';
 export default function Index() {
   const [mounted, setMounted] = useState(false);
 
+  // Ticket type lifted to parent so other components can set it
+  const [ticketType, setTicketType] = useState('MHS');
+
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 10);
     return () => clearTimeout(t);
@@ -227,8 +230,9 @@ export default function Index() {
           <i className='uil uil-arrow-up'></i>
         </Link>
 
+        <Pricing setType={setTicketType} />
         {/* Pricing section */}
-        <TicketRegistration />
+        <TicketRegistration initialType={ticketType} />
 
         {/* Footer section */}
         <Footer />
