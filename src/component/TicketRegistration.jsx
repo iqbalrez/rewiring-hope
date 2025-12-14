@@ -1,6 +1,6 @@
 import Aos from 'aos';
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default function TicketRegistration({ initialType }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
