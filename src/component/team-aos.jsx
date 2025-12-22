@@ -9,7 +9,6 @@ import avatarChristine from '../assets/images/client/christine.jpg';
 import avatarLaura from '../assets/images/client/laura.jpg';
 import avatarLinda from '../assets/images/client/linda.jpg';
 import avatarHesti from '../assets/images/client/hesti.jpg';
-import avatarChristy from '../assets/images/client/christy.jpg';
 import avatarFely from '../assets/images/client/fely.jpg';
 import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
 import avatarMaria from '../assets/images/client/maria.jpg';
@@ -43,11 +42,6 @@ export default function TeamAos() {
     {
       name: 'Hesti Miranda',
       profile: avatarHesti,
-      designation: 'Role',
-    },
-    {
-      name: 'Christy',
-      profile: avatarChristy,
       designation: 'Role',
     },
     {

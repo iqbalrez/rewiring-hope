@@ -1,39 +1,39 @@
 import React, { useEffect } from 'react';
 
-import AboutImage from '../assets/images/about4.jpg';
+import AboutImage from '../assets/images/about2.png';
 import Sign from '../assets/images/sign.png';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
 
 export default function AboutAos() {
   // const [isOpen, setOpen] = useState(false)
-  function toggleAccordion(index) {
-    const content = document.getElementById(`content-${index}`);
-    const icon = document.getElementById(`icon-${index}`);
+  // function toggleAccordion(index) {
+  //   const content = document.getElementById(`content-${index}`);
+  //   const icon = document.getElementById(`icon-${index}`);
 
-    // SVG for Minus icon
-    const minusSVG = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
-          <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
-        </svg>
-      `;
+  //   // SVG for Minus icon
+  //   const minusSVG = `
+  //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+  //         <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
+  //       </svg>
+  //     `;
 
-    // SVG for Plus icon
-    const plusSVG = `
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
-          <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
-        </svg>
-      `;
+  //   // SVG for Plus icon
+  //   const plusSVG = `
+  //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+  //         <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+  //       </svg>
+  //     `;
 
-    // Toggle the content's max-height for smooth opening and closing
-    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
-      content.style.maxHeight = '0';
-      icon.innerHTML = plusSVG;
-    } else {
-      content.style.maxHeight = content.scrollHeight + 'px';
-      icon.innerHTML = minusSVG;
-    }
-  }
+  //   // Toggle the content's max-height for smooth opening and closing
+  //   if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+  //     content.style.maxHeight = '0';
+  //     icon.innerHTML = plusSVG;
+  //   } else {
+  //     content.style.maxHeight = content.scrollHeight + 'px';
+  //     icon.innerHTML = minusSVG;
+  //   }
+  // }
 
   useEffect(() => {
     Aos.init();
@@ -45,41 +45,52 @@ export default function AboutAos() {
         className='relative py-24 bg-slate-100 dark:bg-slate-800'
         id='about'
       >
-        <div className='container mx-auto'>
-          <div className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 gap-10 items-start'>
-            <div className='lg:col-span-7'>
-              <div className='lg:ms-7'>
-                <h6
-                  className='text-primary text-base font-medium uppercase mb-2'
-                  data-aos='fade-up'
-                  data-aos-delay='300'
-                >
-                  Rewiring Hope
-                </h6>
-                <h3
-                  className='mb-4 md:text-2xl text-xl font-medium dark:text-white'
-                  data-aos='fade-up'
-                  data-aos-delay='400'
-                >
-                  Reconnect. Resilience. Renew.
-                </h3>
+        <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto'>
+          <h3
+            className='mb-8 md:text-2xl text-xl font-bold text-dark text-center'
+            data-aos='fade-up'
+            data-aos-delay='200'
+          >
+            When Hope Leaves. Learning Stops
+          </h3>
+          <div
+            className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 md:gap-10 items-start'
+            data-aos='fade-up'
+            data-aos-delay='300'
+          >
+            <div className='lg:col-span-5 h-full order-last md:order-first'>
+              <div className='border-b-1 border-dark relative h-full '>
+                <div className='absolute -z-10 rounded-full w-84 h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
+                <img
+                  src={AboutImage}
+                  className='h-full relative object-cover object-bottom  saturate-80'
+                  alt=''
+                />
+              </div>
+            </div>
 
-                <p
-                  className='text-slate-400 dark:text-slate-300 max-w-2xl mx-auto md:text-lg'
-                  data-aos='fade-up'
-                  data-aos-delay='500'
-                >
-                  “Bayangkan seorang anak di Indonesia. Dia duduk di kelas,
-                  tetapi pikirannya jauh melayang. Bukan karena dia malas,
-                  tetapi karena dia kehilangan harapan. Dia pernah gagal, dia
-                  pernah diremehkan, dan sekarang dia percaya bahwa belajar
-                  bukan untuknya. Ada ribuan anak seperti dia. Mereka datang ke
-                  sekolah setiap hari, tetapi hati mereka patah dan otak mereka
-                  lelah. Mereka tidak butuh lebih banyak ujian. Mereka butuh
-                  harapan.
+            <div className='lg:col-span-7'>
+              <div className=''>
+                <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto text-base text-center md:text-end'>
+                  Di balik angka dan ujian, ada anak yang diam. <br /> Mereka
+                  bukan malas; mereka kehilangan harapan. <br /> Dan ketika
+                  harapan hilang, belajar berhenti. <br /> Pendidikan tidak
+                  boleh hanya mengukur pengetahuan, <br /> tetapi harus
+                  memulihkan hati. <br /> Kami percaya harapan adalah bahan
+                  bakar belajar, <br />
+                  tanpanya ilmu tidak tinggal di hati. <br /> Rewiring Hope
+                  hadir untuk menyalakan kembali harapan agar setiap anak
+                  percaya: masa depan adalah miliknya.
                 </p>
 
-                <div
+                <div className='mt-8 flex flex-col w-full text-center md:text-end mb-8'>
+                  <div className='w-full flex justify-center md:justify-end'>
+                    <img src={Sign} className='w-36 p-2' />
+                  </div>
+                  <p className='text-dark font-bold '>Anastasia Tantri</p>
+                  <p className='text-slate-500'>CEO & Founder</p>
+                </div>
+                {/* <div
                   className='relative mt-8'
                   data-aos='fade-up'
                   data-aos-delay='600'
@@ -90,9 +101,9 @@ export default function AboutAos() {
                   >
                     Mulai Perubahan Bersama Kami
                   </a>
-                </div>
+                </div> */}
 
-                {/* Accordion */}
+                {/* Accordion
                 <div className='border-b border-slate-200 mt-10'>
                   <button
                     onClick={() => toggleAccordion(1)}
@@ -130,7 +141,7 @@ export default function AboutAos() {
                   </div>
                 </div>
 
-                {/* Accordion 2*/}
+                Accordion 2
                 <div className='border-b border-slate-200 mt-2'>
                   <button
                     onClick={() => toggleAccordion(2)}
@@ -180,44 +191,20 @@ export default function AboutAos() {
                       </div>
                     </div>
                   </div>
-                </div>
-
-                <div
-                  className='mt-8 flex flex-col w-fit'
-                  data-aos='fade-up'
-                  data-aos-delay='200'
-                >
-                  <img src={Sign} className='w-36 p-2' />
-                  <p className='text-dark font-bold '>Anastasia Tantri</p>
-                  <p className='text-slate-500'>CEO & Founder</p>
-                </div>
+                </div> */}
               </div>
             </div>
 
-            <div
-              className='lg:col-span-5'
-              data-aos='fade-up'
-              data-aos-delay='200'
-            >
-              <div className='relative'>
-                <img
-                  src={AboutImage}
-                  className='rounded-lg shadow-lg relative'
-                  alt=''
-                />
-                {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
-                    <Link
-                      to='#'
-                      onClick={() => setOpen(true)}
-                      className='lightbox h-20 w-20 rounded-full shadow-lg shadow-slate-100 dark:shadow-slate-800 inline-flex items-center justify-center bg-white dark:bg-slate-900 text-primary'
-                    >
-                      <i className='mdi mdi-play inline-flex items-center justify-center text-2xl'></i>
-                    </Link>
-                  </div> */}
-              </div>
-            </div>
             {/* end col */}
           </div>
+          <h3
+            className='mt-8 text-xl text-dark text-center'
+            data-aos='fade-up'
+            data-aos-delay='200'
+            data-aos-duration='500'
+          >
+            Mengapa harapan lebih penting daripada sekedar nilai?
+          </h3>
         </div>
       </section>
       {/* <!-- End --> */}
