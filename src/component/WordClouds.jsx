@@ -6,7 +6,7 @@ import AddWord from './AddWord';
 
 export default function WordClouds() {
   const [words, setWords] = useState([]);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const VITE_API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
