@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import AboutImage from '../assets/images/about2.png';
+import AboutImage from '../assets/images/about4.jpg';
 import Sign from '../assets/images/sign.png';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
@@ -63,7 +63,7 @@ export default function AboutAos() {
                 <div className='absolute -z-10 rounded-full w-84 h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
                 <img
                   src={AboutImage}
-                  className='h-full relative object-cover object-bottom  saturate-80'
+                  className='h-full relative object-cover object-bottom  saturate-80 rounded-xl'
                   alt=''
                 />
               </div>
