@@ -15,9 +15,81 @@
 </head>
 
 <body class="font-inter text-base text-slate-900 dark:text-white dark:bg-slate-900">
+  <audio id="bg-music" src="/src/assets/audio/lagu.mp3" loop preload="auto"></audio>
+
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-IbV_fW2uwgIc5WOj">
+  <script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="Mid-client-IbV_fW2uwgIc5WOj"></script>
+
+  <!-- TOMBOL MUTE / UNMUTE -->
+  <button id="toggle-audio"
+    class="fixed z-40 bottom-4 right-4 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/85 border border-goldsoft/60 text-goldsoft shadow-lg backdrop-blur-md hover:bg-goldsoft hover:text-white transition"
+    aria-label="Mute atau unmute musik">
+    <!-- ikon sound on -->
+    <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5L6 9H3v6h3l5 4V5z" />
+      <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+      <path d="M18.07 5.93a9 9 0 0 1 0 12.73" />
+    </svg>
+    <!-- ikon muted -->
+    <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M11 5L6 9H3v6h3l5 4V5z" />
+      <line x1="18" y1="9" x2="22" y2="13" />
+      <line x1="22" y1="9" x2="18" y2="13" />
+    </svg>
+  </button>
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const toggleButton = document.getElementById('toggle-audio');
+    const iconSoundOn = document.getElementById('icon-sound-on');
+    const iconSoundOff = document.getElementById('icon-sound-off');
+
+    let isPlaying = false;
+    let isMuted = false;
+
+    // Function to update the mute/unmute icon based on the audio state
+    function updateIcon() {
+      if (isMuted) {
+        iconSoundOn.classList.add('hidden');
+        iconSoundOff.classList.remove('hidden');
+      } else {
+        iconSoundOn.classList.remove('hidden');
+        iconSoundOff.classList.add('hidden');
+      }
+    }
+
+    // Initialize audio settings
+    audio.muted = false;
+    isMuted = false;
+    audio.currentTime = 0;
+    audio.volume = 0.3;
+
+    if (!isPlaying) {
+      audio
+        .play()
+        .then(() => {
+          isPlaying = true;
+          updateIcon();
+        })
+        .catch((err) => {
+          console.log("Gagal memutar audio:", err);
+        });
+    } else {
+      updateIcon();
+    }
+
+    // Toggle mute/unmute on button click
+    toggleButton.addEventListener('click', () => {
+      isMuted = !isMuted;
+      audio.muted = isMuted;
+      updateIcon();
+    });
+
+    // Update the icon when the volume changes
+    audio.addEventListener('volumechange', updateIcon);
   </script>
 
 </body>
