@@ -62,24 +62,28 @@
     }
 
     // Initialize audio settings
-    audio.muted = false;
-    isMuted = false;
-    audio.currentTime = 0;
+    audio.muted = true;
+    isMuted = true;
+    audio.currentTime = 4.265;
     audio.volume = 0.3;
 
-    if (!isPlaying) {
-      audio
-        .play()
-        .then(() => {
-          isPlaying = true;
-          updateIcon();
-        })
-        .catch((err) => {
-          console.log("Gagal memutar audio:", err);
-        });
-    } else {
-      updateIcon();
-    }
+    // Play audio only after user interaction (click or any interaction)
+    document.addEventListener('click', () => {
+      if (!isPlaying) {
+        audio
+          .play()
+          .then(() => {
+            console.log("Audio diputar");
+            isPlaying = true;
+            isMuted = false;
+            audio.muted = false;
+            updateIcon();
+          })
+          .catch((err) => {
+            console.log("Gagal memutar audio:", err);
+          });
+      }
+    });
 
     // Toggle mute/unmute on button click
     toggleButton.addEventListener('click', () => {

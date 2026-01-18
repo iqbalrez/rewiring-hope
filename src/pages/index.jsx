@@ -224,7 +224,7 @@ export default function Index() {
           to='#'
           onClick={() => scrollToTop()}
           id='back-to-top'
-          className='back-to-top fixed text-lg rounded-full z-10 bottom-5 end-5 h-9 w-9 text-center bg-primary text-white leading-9 '
+          className='back-to-top fixed text-lg rounded-full z-10 bottom-16 end-5 h-9 w-9 text-center bg-primary text-white leading-9 '
           style={{ display: visible ? 'inline' : 'none' }}
         >
           <i className='uil uil-arrow-up'></i>
