@@ -4,6 +4,7 @@ import { Link as Link2, NavLink } from 'react-router-dom';
 
 import LogoLight from '../assets/images/logo-light.png';
 import LogoDark from '../assets/images/logo-dark.png';
+import IBROImage from '../assets/images/client/IBROImage.jpg'; // Impor logo IBRO
 
 export default function Navbar({ navdark, bg }) {
   const [isOpen, setMenu] = useState(true);
@@ -22,63 +23,47 @@ export default function Navbar({ navdark, bg }) {
 
   function windowScroll() {
     const navbar = document.getElementById('navbar');
-    if (
-      document.body.scrollTop >= 50 ||
-      document.documentElement.scrollTop >= 50
-    ) {
+    if (window.scrollY >= 300) {
       navbar.classList.add('is-sticky');
     } else {
       navbar.classList.remove('is-sticky');
     }
   }
+
   return (
     <>
       <nav
         className={`navbar ${bg ? '!bg-white dark:!bg-dark' : ''}`}
         id='navbar'
       >
-        <div className='container flex flex-wrap items-center justify-between'>
-          {navdark && (
-            <Link2 className='navbar-brand' to='/'>
-              <span>
-                <img
-                  src={LogoDark}
-                  className='w-36 lg:w-48 py-2 inline-block dark:hidden'
-                  alt=''
-                />
-                <img
-                  src={LogoLight}
-                  className='w-36 lg:w-48 py-2 hidden dark:inline-block'
-                  alt=''
-                />
-              </span>
-            </Link2>
-          )}
-          {!navdark && (
-            <Link2 className='navbar-brand' to='/'>
-              <span className='inline-block dark:hidden'>
-                <img src={LogoDark} className='l-dark' alt='' />
-                <img src={LogoLight} className='l-light' alt='' />
-              </span>
+        <div className='flex flex-wrap items-center justify-between'>
+          {/* Logo Section */}
+          <div className='flex items-center bg-white px-4 md:px-6 py-4 rounded-br-2xl w-fit mr-6'>
+            <Link2
+              className='navbar-brand flex-row flex space-x-2 md:space-x-6'
+              to='/'
+            >
+              <img
+                src={LogoDark}
+                className='max-w-full max-h-8 md:max-h-12 py-1 inline-block dark:hidden'
+                alt='Logo Dark'
+              />
               <img
                 src={LogoLight}
-                className='hidden dark:inline-block'
-                alt=''
+                className='max-w-full max-h-8 md:max-h-12 py-1 hidden dark:inline-block'
+                alt='Logo Light'
+              />
+              <img
+                src={IBROImage}
+                className='max-h-8 md:max-h-12 py-1 w-auto object-contain'
+                alt='IBRO Logo'
               />
             </Link2>
-          )}
+          </div>
 
           <div className='nav-icons flex items-center lg_992:order-2 ms-auto'>
             {navdark && (
               <ul className='list-none menu-social mb-0'>
-                {/* <li className='inline ms-1'>
-                  <Link2
-                    to='#'
-                    className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
-                  >
-                    <i className='uil uil-github'></i>
-                  </Link2>
-                </li> */}
                 <li className='inline ms-1'>
                   <Link2
                     to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
@@ -139,18 +124,18 @@ export default function Navbar({ navdark, bg }) {
             )}
             <button
               type='button'
-              className='collapse-btn inline-flex items-center ms-3 text-dark dark:text-white lg_992:hidden'
+              className='collapse-btn inline-flex items-center ms-1 bg-white rounded-full px-2 p-1 text-primary dark:text-white lg_992:hidden'
               onClick={toggleMenu}
             >
               <span className='sr-only'>Navigation Menu</span>
-              <i className='mdi mdi-menu mdi-24px'></i>
+              <i className='mdi mdi-menu mdi-22px'></i>
             </button>
           </div>
 
           <div
             className={`${
               isOpen === true ? 'hidden' : 'block'
-            } navigation lg_992:order-1 lg_992:flex`}
+            } navigation bg-white h-fit lg_992:order-1 lg_992:flex animate-[fadeDown_0.4s_ease-in-out] lg_992:bg-transparent lg_992:h-auto lg_992:shadow-none lg_992:!mt-0 lg_992:!p-0`}
             id='menu-collapse'
           >
             <ul
@@ -165,76 +150,6 @@ export default function Navbar({ navdark, bg }) {
               >
                 About
               </NavLink>
-              {/* <Link
-                className='nav-item'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-                to='about'
-              >
-                <span className='nav-link'>Impact</span>
-              </Link>
-              <Link
-                className='nav-item'
-                to='features'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <span className='nav-link'>Conference</span>
-              </Link> */}
-              {/* <Link
-                className='nav-item'
-                to='portfolio'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <span className='nav-link'>Portfolio</span>
-              </Link>
-              <Link
-                className='nav-item'
-                to='testi'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <span className='nav-link'>Review</span>
-              </Link>
-              <Link
-                className='nav-item'
-                to='pricing'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <span className='nav-link'>Pricing</span>
-              </Link>
-              <Link
-                className='nav-item'
-                to='blog'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <span className='nav-link'>Blog</span>
-              </Link>
-              <Link
-                className='nav-item'
-                to='contact'
-                activeclassname='active'
-                spy={true}
-                smooth={true}
-                duration={500}
-              >
-                <span className='nav-link'>Contact us</span>
-              </Link> */}
             </ul>
           </div>
         </div>

@@ -32,9 +32,8 @@ import CountUp from 'react-countup';
  */
 export default function Index() {
   const [mounted, setMounted] = useState(false);
-
-  // Ticket type lifted to parent so other components can set it
   const [ticketType, setTicketType] = useState('MHS');
+  const [popupVisible, setPopupVisible] = useState(true);
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 10);
@@ -43,14 +42,22 @@ export default function Index() {
 
   const [visible, setVisible] = useState(false);
 
-  const toggleVisible = () => {
-    const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 300) {
-      setVisible(true);
-    } else if (scrolled <= 300) {
-      setVisible(false);
-    }
-  };
+  // Event listener cleanup
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = document.documentElement.scrollTop;
+      if (scrolled > 300) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Cleanup event listener
+    };
+  }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -59,7 +66,9 @@ export default function Index() {
     });
   };
 
-  window.addEventListener('scroll', toggleVisible);
+  const handlePopupClose = () => {
+    setPopupVisible(false); // Set popup visibility to false
+  };
 
   const renderer = ({ days, hours, minutes }) => (
     <div className='grid grid-cols-3 gap-4'>
@@ -97,7 +106,23 @@ export default function Index() {
     <>
       <div>
         <Navbar />
-
+        {/* Popup Welcome */}
+        {popupVisible && (
+          <div className='fixed inset-0 bg-black/10 bg-opacity-50 z-50 flex items-center justify-center'>
+            <div className='bg-white p-8 rounded-lg max-w-md w-full'>
+              <h2 className='text-xl font-bold mb-4'>
+                Welcome to Rewiring Hope
+              </h2>
+              <p className='mb-4'>We're excited to have you here!</p>
+              <button
+                onClick={handlePopupClose} // Close popup when clicked
+                className='bg-primary text-white px-4 py-2 rounded mx-auto animate-boune'
+              >
+                Explore
+              </button>
+            </div>
+          </div>
+        )}
         <section
           style={{ backgroundImage: `url(${BackgroundImage})` }}
           className={`py-36 lg:py-64 w-full table relative bg-center bg-cover transition-all duration-700 ease-out ${
@@ -105,21 +130,20 @@ export default function Index() {
           }`}
           id='home'
         >
-          <div className='absolute inset-0 bg-gradient-to-tr from-black  to-transparent '></div>
+          <div className='absolute inset-0 bg-gradient-to-tr from-black to-transparent '></div>
           <div className='container relative space-y-8 md:space-y-0 md:flex md:justify-between h-full items-end'>
             <div className='grid grid-cols-1 mt-12'>
               <h1 className='text-white lg:text-5xl text-3xl lg:leading-normal leading-normal font-medium md:mb-7 mb-4 position-relative'>
                 Teaching the <br />
                 <TypeAnimation
                   sequence={[
-                    // Same substring at the start will only be typed out once, initially
                     'Healing Brain',
-                    1000, // wait 1s before replacing "Mice" with "Hamsters"
+                    1000, // wait 1s before replacing "Healing Brain"
                     'H',
                     100,
                   ]}
                   wrapper='span'
-                  speed={12}
+                  speed={12} // Faster speed for typing effect
                   repeat={Infinity}
                   className='typewrite relative text-type-element'
                   cursor={false}
@@ -161,10 +185,10 @@ export default function Index() {
         {/* Speaker section */}
         <Speaker />
 
-        {/* Speaker section */}
+        {/* Event Audience section */}
         <EventAudience />
 
-        {/* Theme section */}
+        {/* Event Theme section */}
         <EventTheme />
 
         {/* Ending section */}
@@ -192,7 +216,7 @@ export default function Index() {
         </section>
 
         <section
-          className='relative  py-16 md:py-24 bg-slate-100 dark:bg-slate-800'
+          className='relative py-16 md:py-24 bg-slate-100 dark:bg-slate-800'
           id='partners'
         >
           <div
@@ -222,7 +246,7 @@ export default function Index() {
 
         <Link
           to='#'
-          onClick={() => scrollToTop()}
+          onClick={scrollToTop}
           id='back-to-top'
           className='back-to-top fixed text-lg rounded-full z-10 bottom-16 end-5 h-9 w-9 text-center bg-primary text-white leading-9 '
           style={{ display: visible ? 'inline' : 'none' }}
