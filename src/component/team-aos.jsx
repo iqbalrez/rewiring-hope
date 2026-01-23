@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 import Aos from 'aos';
 
-import avatarTantri from '../assets/images/client/tantri.jpg';
+import avatarTantri from '../assets/images/client/tantri (2).jpg';
 import avatarMarina from '../assets/images/client/marina.jpg';
 import avatarLaura from '../assets/images/client/laura.jpg';
 import avatarLinda from '../assets/images/client/linda.jpg';
