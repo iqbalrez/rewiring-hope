@@ -5,64 +5,55 @@ import CountUp from 'react-countup';
 import Aos from 'aos';
 
 import avatarTantri from '../assets/images/client/tantri.jpg';
-import avatarChristine from '../assets/images/client/christine.jpg';
+import avatarMarina from '../assets/images/client/marina.jpg';
 import avatarLaura from '../assets/images/client/laura.jpg';
 import avatarLinda from '../assets/images/client/linda.jpg';
 import avatarHesti from '../assets/images/client/hesti.jpg';
-import avatarFely from '../assets/images/client/fely.jpg';
 import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
 import avatarMaria from '../assets/images/client/maria.jpg';
 import avatarVega from '../assets/images/client/vega.jpg';
 
-import TELImage from '../assets/images/client/TELImage.jpg';
-import IBROImage from '../assets/images/client/IBROImage.jpg';
-
 export default function TeamAos() {
   const team = [
     {
-      name: 'Anastasia Tantri',
+      name: 'Anastasia Tantri, M.Ed',
       profile: avatarTantri,
-      designation: 'CEO & Founder',
+      designation: 'Founder & Program Director',
     },
     {
-      name: 'Christine W.',
-      profile: avatarChristine,
-      designation: 'Role',
-    },
-    {
-      name: 'Laura',
-      profile: avatarLaura,
-      designation: 'Role',
-    },
-    {
-      name: 'Linda Devi',
-      profile: avatarLinda,
-      designation: 'Role',
-    },
-    {
-      name: 'Hesti Miranda',
-      profile: avatarHesti,
-      designation: 'Role',
-    },
-    {
-      name: 'Fely',
-      profile: avatarFely,
-      designation: 'Role',
-    },
-    {
-      name: 'Christiyanti',
-      profile: avatarChristiyanti,
-      designation: 'Role',
-    },
-    {
-      name: 'Maria',
-      profile: avatarMaria,
-      designation: 'Role',
-    },
-    {
-      name: 'dr. Vega',
+      name: 'dr. Vega Pratiwi Putri, Sp.N, M.Sc',
       profile: avatarVega,
-      designation: 'Role',
+      designation: 'Neurosciene & Clinical Neurology Advisor',
+    },
+    {
+      name: 'Christiyanti Aprinastuti, M.Pd',
+      profile: avatarChristiyanti,
+      designation: 'Mathematical Thinking & Quality Assurance Specialist',
+    },
+    {
+      name: 'Linda Devi Fitriana, PhD',
+      profile: avatarLinda,
+      designation: 'Cognitive Pedagogy Specialist',
+    },
+    {
+      name: 'Laurensia Aptik Evanjeli,  M.A',
+      profile: avatarLaura,
+      designation: 'Media, Communication & Inclusive Education Coordinator',
+    },
+    {
+      name: 'Marina Hardiyanti, M.Sc',
+      profile: avatarMarina,
+      designation: 'Food Science & Nutrition Coordinator',
+    },
+    {
+      name: 'Hesti Miranda, M. Ed',
+      profile: avatarHesti,
+      designation: 'Community Engagement Coordinator',
+    },
+    {
+      name: 'Maria Nirmala Putri, M.Pd',
+      profile: avatarMaria,
+      designation: 'Operations Coordinator I Play-Based Learning Contributor',
     },
   ];
 
@@ -83,17 +74,20 @@ export default function TeamAos() {
               Tim Kami
             </h6>
             <h3 className='mb-4 md:text-2xl text-xl font-medium dark:text-white'>
-              Bersama Menumbuhkan Harapan
+              Bergerak Bersama Untuk Memulihkan Harapan
             </h3>
 
-            <p className='text-slate-400 dark:text-slate-300 max-w-xl mx-auto'>
-              Kami percaya bahwa setiap individu memiliki kapasitas untuk
-              belajar, bertumbuh, dan pulih. Kami bekerja secara kolaboratif
-              untuk menghadirkan ruang yang aman, inklusif, dan membumi.
+            <p className='text-dark dark:text-slate-300 max-w-5xl mx-auto'>
+              Rewiring Hope merupakan wadah bagi para pendidik, ilmuwan,
+              psikolog, dan praktisi yang meyakini bahwa proses belajar dapat
+              menjadi sarana pemulihan. Mereka berada di garis depan dalam
+              menegaskan kembali bahwa ketika otak merasa aman, hubungan dapat
+              dipulihkan, dan motivasi kembali tumbuh, maka belajar menjadi
+              perjalanan menuju keutuhan diri.
             </p>
           </div>
 
-          <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5  gap-6 mt-8'>
+          <div className='max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8'>
             {team.map((member, index) => (
               <div
                 key={index}
@@ -101,45 +95,19 @@ export default function TeamAos() {
               >
                 <img
                   src={member.profile}
-                  className='group-hover:origin-center group-hover:scale-105 object-cover aspect-[3/4] object-top transition duration-500'
+                  className='group-hover:origin-center group-hover:scale-105 object-cover aspect-[5/7] lg:aspect-[4/5] object-top transition duration-500'
                   alt=''
                 />
                 <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/30 z-0 transition duration-500'></div>
-                {/* <ul className='list-none absolute z-10 opacity-0 group-hover:opacity-100 top-4 end-4 mb-0 transition-all duration-500'>
-                         <li className='mb-1'>
-                           <Link
-                             to='#'
-                             className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-full'
-                           >
-                             <i className='uil uil-facebook-f'></i>
-                           </Link>
-                         </li>
-                         <li className='mb-1'>
-                           <Link
-                             to='#'
-                             className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-full'
-                           >
-                             <i className='uil uil-instagram'></i>
-                           </Link>
-                         </li>
-                         <li className='mb-1'>
-                           <Link
-                             to='#'
-                             className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-full'
-                           >
-                             <i className='uil uil-twitter'></i>
-                           </Link>
-                         </li>
-                       </ul> */}
 
-                <div className='content absolute start-0 end-0 -bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500'>
+                <div className='content absolute start-0 end-0 top-8/11 lg:top-5/7 bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
                   <Link
                     to='#'
-                    className='h5 text-md text-dark dark:text-white hover:text-primary dark:hover:text-primary font-medium'
+                    className='line-clamp-1 hover:line-clamp-none h5 text-md text-dark dark:text-white hover:text-primary dark:hover:text-primary font-medium'
                   >
                     {member.name}
                   </Link>
-                  <h6 className='text-slate-400 dark:text-slate-300 mb-0 font-light'>
+                  <h6 className='text-dark dark:text-slate-300 mb-0 text-xs font-light'>
                     {member.designation}
                   </h6>
                 </div>
@@ -211,26 +179,6 @@ export default function TeamAos() {
                    </div>
                  </div>
                </div> */}
-
-        <div className='container mt-12'>
-          <div className='flex flex-col lg:flex-row max-w-2xl mx-auto gap-6'>
-            <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-              <img
-                src={TELImage}
-                className='max-w-full h-full object-contain'
-                alt=''
-              />
-            </div>
-
-            <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-              <img
-                src={IBROImage}
-                className='max-w-full h-full object-contain'
-                alt=''
-              />
-            </div>
-          </div>
-        </div>
         {/* <!--end container--> */}
       </section>
     </>

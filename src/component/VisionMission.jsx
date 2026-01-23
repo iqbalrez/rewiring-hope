@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import AboutImage from '../assets/images/about4.jpg';
 import VisionImage from '../assets/images/vision.png';
-import MissionImage from '../assets/images/mission.png';
+import MissionImage from '../assets/images/mission.jpeg';
 import Aos from 'aos';
 
 export default function VisionMission() {
@@ -13,7 +13,7 @@ export default function VisionMission() {
   return (
     <>
       <section
-        className='relative py-24 md:py-48 bg-dark dark:bg-slate-800'
+        className='relative py-8 md:py-16 bg-gray-100 dark:bg-slate-800'
         id='vision'
       >
         <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto'>
@@ -21,14 +21,14 @@ export default function VisionMission() {
             <div className='lg:col-span-7'>
               <div className=''>
                 <h3
-                  className='pt-8 md:pt-0 mb-4 text-4xl font-semibold text-white'
+                  className='pt-8 md:pt-0 mb-4 text-4xl font-semibold text-dark'
                   data-aos='fade-up'
                   data-aos-delay='400'
                 >
-                  Vision
+                  Visi
                 </h3>
                 <h6
-                  className='text-primary text-xl font-medium italic mb-2'
+                  className='text-primary text-xl font-medium italic mb-4'
                   data-aos='fade-up'
                   data-aos-delay='300'
                 >
@@ -37,13 +37,14 @@ export default function VisionMission() {
                 </h6>
 
                 <p
-                  className='text-slate-400 dark:text-slate-300 max-w-2xl mx-auto md:text-lg'
+                  className='text-dark italic font-semibold dark:text-slate-300 max-w-2xl mx-auto md:text-lg'
                   data-aos='fade-up'
                   data-aos-delay='500'
                 >
-                  Kami percaya pendidikan harus memulihkan, bukan melukai. Mari
-                  sambungkan kembali hati dan otak, agar anak kembali percaya
-                  masa depan adalah miliknya.
+                  Kami meyakini bahwa pendidikan seharusnya memulihkan, bukan
+                  melukai. Dengan menyelaraskan kembali hati dan pikiran, anak
+                  dapat kembali percaya bahwa masa depan adalah hak dan tanggung
+                  jawabnya.
                 </p>
               </div>
             </div>
@@ -53,10 +54,10 @@ export default function VisionMission() {
               data-aos='fade-up'
               data-aos-delay='200'
             >
-              <div className='relative'>
+              <div className='relative flex justify-center'>
                 <img
                   src={VisionImage}
-                  className='rounded-lg aspect-[4/3] saturate-120 object-cover relative'
+                  className='md:w-full w-1/2 rounded-lg saturate-120 object-cover relative'
                   alt=''
                 />
               </div>
@@ -66,45 +67,44 @@ export default function VisionMission() {
       </section>
 
       <section
-        className='relative py-24 md:py-48 bg-[#f39c12] dark:bg-slate-800'
+        className='relative py-12 md:py-20 bg-dark dark:bg-slate-800'
         id='mission'
       >
         <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto'>
           <div className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 gap-10 items-center '>
             <div
-              className='lg:col-span-5'
+              className='lg:col-span-7'
               data-aos='fade-up'
               data-aos-delay='200'
             >
               <div className='relative'>
                 <img
                   src={MissionImage}
-                  className='rounded-lg aspect-[4/3] saturate-120 object-cover object-left relative'
+                  className='rounded-lg w-full saturate-120 object-cover object-left relative'
                   alt=''
                 />
               </div>
             </div>
 
             <div
-              className='lg:col-span-7 h-full'
+              className='lg:col-span-5 h-full'
               data-aos='fade-up'
               data-aos-delay='400'
             >
-              <div className='rounded-xl bg-white p-8 h-full place-content-end'>
-                <h3 className='mb-4 text-4xl font-semibold text-dark'>
-                  Mission
-                </h3>
+              <div className='h-full place-content-end'>
+                <h3 className='mb-4 text-4xl font-semibold text-white'>Misi</h3>
 
-                <p className='text-dark max-w-2xl mx-auto md:text-lg'>
-                  To ignite hope and transform classrooms into spaces that heal,
-                  guiding schools and families to nurture resilience, integrity,
-                  and the courage to dream again.
+                <p className='text-white max-w-2xl mx-auto md:text-lg'>
+                  Menumbuhkan harapan dan mengubah ruang kelas menjadi tempat
+                  yang memulihkan, dengan membimbing sekolah dan keluarga untuk
+                  menumbuhkan ketangguhan, integritas, serta keberanian anak
+                  untuk kembali bermimpi
                 </p>
               </div>
             </div>
           </div>
           <h3
-            className='mt-8 text-xl font-bold text-center text-dark'
+            className='mt-8 text-xl font-bold text-center text-white'
             data-aos='fade-up'
             data-aos-delay='500'
           >

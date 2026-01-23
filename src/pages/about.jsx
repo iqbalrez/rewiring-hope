@@ -10,6 +10,9 @@ import VisionMission from '../component/VisionMission';
 import AddWord from '../component/AddWord';
 import WordClouds from '../component/WordClouds';
 
+import EndImage from '../assets/images/end.png';
+import LogoDark from '../assets/images/logo-dark.png';
+
 export default function AboutPage() {
   const [mounted, setMounted] = useState(false);
 
@@ -22,6 +25,9 @@ export default function AboutPage() {
     <>
       <Navbar />
 
+      {/* Word Cloud */}
+      <WordClouds />
+
       <section
         className={`transition-all duration-700 ease-out ${
           mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
@@ -32,11 +38,25 @@ export default function AboutPage() {
         {/* About section */}
         <About />
 
-        {/* Word Cloud */}
-        <WordClouds />
-
         {/* Team */}
         <Team />
+      </section>
+
+      <section className='w-screen relative'>
+        <div className='flex flex-col lg:flex-row gap-6 w-full aspect-video'>
+          <img
+            src={EndImage}
+            className='w-full h-full object-bottom object-cover'
+            alt=''
+          />
+        </div>
+        <div className='absolute top-20 translate-x-1/2 right-1/2 flex flex-col w-sm gap-6 justify-center'>
+          <img src={LogoDark} className='w-full' />
+          <p className='font-bold text-dark text-center'>
+            Kami ada untuk menyalakan kembali harapan satu kelas, satu guru,
+            satu anak pada satu waktu.
+          </p>
+        </div>
       </section>
       {/* Footer section */}
       <Footer />

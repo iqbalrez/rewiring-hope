@@ -33,14 +33,15 @@ export default function WordClouds() {
   return (
     <>
       <section
-        className='relative py-24 bg-slate-200 dark:bg-slate-800'
+        className='h-[80dvh] relative py-24 bg-slate-200 dark:bg-slate-800 flex items-center'
         id='about'
       >
-        <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto'>
-          <h2 className='text-center text-dark text-2xl'>
-            Tulis suaramu. Satu kalimat bisa menyalakan harapan banyak anak.
+        <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto my-auto '>
+          <h2 className='text-center text-dark text-2xl font-bold'>
+            Tulis suaramu. <br /> Satu kalimat bisa menyalakan harapan banyak
+            anak.
           </h2>
-          <h6 className='text-primary text-center my-4 text-2xl font-bold italic'>
+          <h6 className='text-primary text-center my-4 text-2xl font-bold italic mb-8'>
             Kami percaya masa depan pendidikan adalah ...
           </h6>
           {isOpen ? (

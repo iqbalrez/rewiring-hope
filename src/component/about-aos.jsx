@@ -46,20 +46,13 @@ export default function AboutAos() {
         id='about'
       >
         <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto'>
-          <h3
-            className='mb-8 md:text-2xl text-xl font-bold text-dark text-center'
-            data-aos='fade-up'
-            data-aos-delay='200'
-          >
-            When Hope Leaves. Learning Stops
-          </h3>
           <div
             className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 md:gap-10 items-start'
             data-aos='fade-up'
             data-aos-delay='300'
           >
             <div className='lg:col-span-5 h-full order-last md:order-first'>
-              <div className='border-b-1 border-dark relative h-full '>
+              <div className='relative h-full '>
                 <div className='absolute -z-10 rounded-full w-84 h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
                 <img
                   src={AboutImage}
@@ -70,21 +63,33 @@ export default function AboutAos() {
             </div>
 
             <div className='lg:col-span-7'>
+              <h3
+                className='mb-8 md:text-2xl text-xl font-bold text-dark'
+                data-aos='fade-up'
+                data-aos-delay='200'
+              >
+                Rewiring Hope adalah Gerakan maupun Rumah.
+              </h3>
               <div className=''>
-                <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto text-base text-center md:text-end'>
-                  Di balik angka dan ujian, ada anak yang diam. <br /> Mereka
-                  bukan malas; mereka kehilangan harapan. <br /> Dan ketika
-                  harapan hilang, belajar berhenti. <br /> Pendidikan tidak
-                  boleh hanya mengukur pengetahuan, <br /> tetapi harus
-                  memulihkan hati. <br /> Kami percaya harapan adalah bahan
-                  bakar belajar, <br />
-                  tanpanya ilmu tidak tinggal di hati. <br /> Rewiring Hope
-                  hadir untuk menyalakan kembali harapan agar setiap anak
-                  percaya: masa depan adalah miliknya.
+                <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto text-base text-justify'>
+                  Rewiring Hope adalah ruang yang kami bangun dengan hati.
+                  Sebuah rumah bagi pendidik yang ingin melihat perubahan.
+                  <br />
+                  Sebuah rumah bagi anak-anak yang ingin merasa aman kembali.
+                  <br />
+                  Sebuah rumah bagi siapa pun yang percaya bahwa harapan bukan
+                  hanya kata kerja tetapi keputusan untuk bangkit lagi. <br />{' '}
+                  Kami ada agar setiap orang di ekosistem pendidikan tahu:
+                  <br />
+                  <span className='font-bold'>
+                    {' '}
+                    kita tidak sendirian dalam memperjuangkan masa depan
+                    anak-anak.
+                  </span>
                 </p>
 
-                <div className='mt-8 flex flex-col w-full text-center md:text-end mb-8'>
-                  <div className='w-full flex justify-center md:justify-end'>
+                <div className='mt-2 flex flex-col w-full mb-8'>
+                  <div className='w-full flex'>
                     <img src={Sign} className='w-36 p-2' />
                   </div>
                   <p className='text-dark font-bold '>Anastasia Tantri</p>
@@ -197,14 +202,6 @@ export default function AboutAos() {
 
             {/* end col */}
           </div>
-          <h3
-            className='mt-8 text-xl text-dark text-center'
-            data-aos='fade-up'
-            data-aos-delay='200'
-            data-aos-duration='500'
-          >
-            Mengapa harapan lebih penting daripada sekedar nilai?
-          </h3>
         </div>
       </section>
       {/* <!-- End --> */}
