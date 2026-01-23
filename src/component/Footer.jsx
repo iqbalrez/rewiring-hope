@@ -21,10 +21,16 @@ export default function Footer() {
             </div>
 
             <div className='md:col-span-7 md:mt-0 mt-8'>
-              <div className='text-center'>
-                <p className='text-gray-400'>
+              <div className='text-center text-primary'>
+                <p className=''>
                   © {new Date().getFullYear()} Rewiring Hope by The Excellent
                   Study.
+                </p>
+                <p className='text-gray-400'>
+                  For more information:{' '}
+                  <a href='mailto:info@rewiringhope.or.id'>
+                    <span className='underline'>info@rewiringhope.or.id</span>
+                  </a>
                 </p>
               </div>
             </div>

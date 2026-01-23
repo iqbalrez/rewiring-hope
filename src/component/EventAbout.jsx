@@ -54,28 +54,40 @@ export default function EventAbout() {
             <div className='lg:col-span-7'>
               <div className='lg:ms-7'>
                 <h6 className='text-primary text-base font-medium uppercase mb-2'>
-                  Teaching the Healing Brain: 27 Juni 2026
+                  Teaching the Healing Brain: 4 Juli 2026
                 </h6>
                 <h3 className='mb-4 md:text-2xl text-xl font-medium dark:text-white'>
                   Sebuah Perjalanan Menuju Harapan
                 </h3>
 
                 <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                  Di tengah meningkatnya tantangan kesehatan mental dan motivasi
-                  belajar, pendidikan harus berevolusi untuk menjawab kebutuhan
-                  emosional dan kognitif siswa.{' '}
-                  <span className='font-bold'>Teaching the Healing Brain</span>{' '}
-                  bukan sekadar seminar ini adalah ruang pertemuan antara ilmu
-                  otak dan kehidupan nyata. Forum ini mengajak pendidik, orang
-                  tua, pembuat kebijakan, dan profesional kesehatan mental untuk
-                  memahami bagaimana neuroplastisitas, STEM, dan strategi budaya
-                  dapat menumbuhkan ketahanan, harapan, dan motivasi.
+                  Di era yang serba cepat, banyak anak kehilangan harapan. Kita
+                  ada disini untuk menyalakannya kembali.
+                  <br />
+                  <br />
+                  Pendidikan bukan hanya perkara mengajar, mendidik, dan membuat
+                  sistem, namun tentang membangun hubungan yang memulihkan,
+                  menumbuhkan motivasi, dan mengoptimalkan cara otak bekerja.
+                  <br />
+                  <br />{' '}
+                  <span className='font-bold'>
+                    Teaching the Healing Brain
+                  </span>{' '}
+                  hadir karena kita percaya:
+                  <br />
+                  <span className='font-bold text-primary italic'>
+                    Setiap anak bisa pulih.
+                    <br />
+                    Setiap otak bisa berubah.
+                    <br />
+                    Harapan bisa diciptakan.
+                  </span>
                 </p>
 
                 <div className='relative mt-8'>
                   <p className='text-dark font-bold dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                    Diselenggarakan di Militaire Societeit,
-                    <br></br>Taman Budaya Yogyakarta
+                    Mari bersama membangun generasi yang lebih kuat. <br />
+                    Dimulai dari satu hubungan. Satu langkah. Satu harapan.
                   </p>
                 </div>
               </div>
@@ -92,8 +104,8 @@ export default function EventAbout() {
                   <br /> through Neuroscience
                 </div>
                 <div className=' mt-4 text-lg md:text-xl leading-tight text-slate-900/80 dark:text-slate-100'>
-                  27 Juni 2026
-                  <br /> Yogyakarta, Indonesia
+                  4 Juli 2026
+                  <br /> Taman Budaya Yogyakarta, INDONESIA
                 </div>
                 {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
                   <Link

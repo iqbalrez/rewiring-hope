@@ -26,6 +26,7 @@ import EventAudience from '../component/EventAudience';
 import EventTheme from '../component/EventTheme';
 import Countdown from 'react-countdown';
 import CountUp from 'react-countup';
+import Why from '../component/Why';
 
 /**
  * Index Component
@@ -108,17 +109,20 @@ export default function Index() {
         <Navbar />
         {/* Popup Welcome */}
         {popupVisible && (
-          <div className='fixed inset-0 bg-black/10 bg-opacity-50 z-50 flex items-center justify-center'>
-            <div className='bg-white p-8 rounded-lg max-w-md w-full'>
+          <div
+            onClick={handlePopupClose}
+            className='fixed inset-0 bg-black/10 bg-opacity-50 z-50 flex items-center justify-center'
+          >
+            <div className='bg-white p-8 mx-6 rounded-lg max-w-md w-full text-center'>
               <h2 className='text-xl font-bold mb-4'>
                 Welcome to Rewiring Hope
               </h2>
               <p className='mb-4'>We're excited to have you here!</p>
               <button
                 onClick={handlePopupClose} // Close popup when clicked
-                className='bg-primary text-white px-4 py-2 rounded mx-auto animate-boune'
+                className='cursor-pointer hover:bg-primary-dark bg-primary text-white px-4 py-2 rounded mx-auto animate-boune'
               >
-                Explore
+                Continue
               </button>
             </div>
           </div>
@@ -191,6 +195,9 @@ export default function Index() {
         {/* Event Theme section */}
         <EventTheme />
 
+        {/* Why section */}
+        <Why />
+
         {/* Ending section */}
         <section className='relative py-16 md:py-24 bg-dark' id='ending'>
           <div
@@ -207,16 +214,31 @@ export default function Index() {
                 />
               </div>
 
-              <p className='text-slate-200 text-center dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                Mari bersama-sama membangun masa depan di mana otak dan empati
-                berjalan beriringan untuk memulihkan generasi.
+              <p className='text-slate-200 text-center dark:text-slate-300 max-w-5xl mx-auto md:text-lg'>
+                Warisan terbesar bukanlah harta, melainkan jejak harapan yang
+                kita tinggalkan di hati generasi berikutnya.
               </p>
             </div>
           </div>
         </section>
 
+        <Link
+          to='#'
+          onClick={scrollToTop}
+          id='back-to-top'
+          className='back-to-top fixed text-lg rounded-full z-10 bottom-16 end-5 h-9 w-9 text-center bg-primary text-white leading-9 '
+          style={{ display: visible ? 'inline' : 'none' }}
+        >
+          <i className='uil uil-arrow-up'></i>
+        </Link>
+
+        <Pricing setType={setTicketType} />
+
+        {/* Pricing section */}
+        <TicketRegistration initialType={ticketType} />
+
         <section
-          className='relative py-16 md:py-24 bg-slate-100 dark:bg-slate-800'
+          className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'
           id='partners'
         >
           <div
@@ -243,20 +265,6 @@ export default function Index() {
             </div>
           </div>
         </section>
-
-        <Link
-          to='#'
-          onClick={scrollToTop}
-          id='back-to-top'
-          className='back-to-top fixed text-lg rounded-full z-10 bottom-16 end-5 h-9 w-9 text-center bg-primary text-white leading-9 '
-          style={{ display: visible ? 'inline' : 'none' }}
-        >
-          <i className='uil uil-arrow-up'></i>
-        </Link>
-
-        <Pricing setType={setTicketType} />
-        {/* Pricing section */}
-        <TicketRegistration initialType={ticketType} />
 
         {/* Footer section */}
         <Footer />

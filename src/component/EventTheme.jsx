@@ -7,17 +7,70 @@ export default function EventTheme() {
     {
       title: `Unlocking the Brain’s Hidden Language of Learning`,
       icon: 'adjust-circle',
-      content: `Menjelajahi bagaimana otak belajar secara alami melalui hubungan, pola, dan analogi, serta mengapa pemahaman ini penting untuk membangun fondasi pendidikan yang sehat.`,
+      content: (
+        <>
+          <p>
+            Bagaimana sebenarnya otak dapat berkembang?
+            <br />
+            Jawabannya sederhana:
+            <br />
+            Melalui hubungan yang aman, pola yang jelas, dan tantangan yang
+            tepat (tidak berlebihan, tidak kurang).
+            <br />
+            <br />
+            <span class='font-bold'>
+              Ini fondasi yang menentukan apakah seorang anak bisa fokus,
+              memahami, mengingat, dan akhirnya bertumbuh.
+            </span>
+          </p>
+        </>
+      ),
     },
     {
       title: `Rewiring Hope: STEM and Neuroplasticity in Indonesian Education`,
       icon: 'circuit',
-      content: `Menggali bagaimana prinsip neuroplastisitas dan pendekatan STEM dapat membangkitkan motivasi, membangun ketahanan, dan menciptakan ruang belajar yang penuh harapan.`,
+      content: (
+        <>
+          <p>
+            Bangun karakter, fokus, dan ketangguhan anak dengan pola pikir
+            ilmiah:
+            <span class='font-bold'>
+              curiosity, problem‑solving, trial & error, dan grit.
+              <br />
+              <br />
+            </span>
+            <span class='font-bold'>
+              Tetap hadir secara emosional, bahkan di tengah jadwal profesional
+              yang padat.
+            </span>
+            <br />
+            <br />
+            Sederhana. Relevan. Inspiratif.
+          </p>
+        </>
+      ),
     },
     {
       title: `Neurocognitive Pathways to Student Resilience`,
       icon: 'fire',
-      content: `Memahami jalur neurokognitif yang mendukung regulasi emosi dan ketahanan mental siswa, serta bagaimana strategi berbasis otak dapat diterapkan dalam konteks budaya Indonesia.`,
+      content: (
+        <>
+          <p>
+            Anak-anak tidak tumbuh kuat hanya karena “disuruh kuat.”{' '}
+            <span className='font-bold'>
+              Mereka kuat ketika otaknya merasa aman.{' '}
+            </span>
+            <br />
+            <br />
+            Resiliensi bukan keberuntungan. Ia adalah jalur neurokognitif yang
+            bisa dipahami, diasah dan dibangun.
+            <br />
+            <br />
+            Anak butuh orang dewasa yang berani melihat lebih dalam, bukan hanya
+            menilai dari apa yang tampak.
+          </p>
+        </>
+      ),
     },
   ];
 
@@ -53,13 +106,11 @@ export default function EventTheme() {
                   <i className={`uil uil-${item.icon}`}></i>
                 </div> */}
 
-                <div className='content mt-7'>
-                  <h7 className='text-lg text-dark dark:text-white transition-all duration-500 ease-in-out font-bold'>
+                <div className='content mt-7 text-dark'>
+                  <h6 className='text-lg text-dark dark:text-white transition-all duration-500 ease-in-out font-bold mb-4'>
                     {item.title}
-                  </h7>
-                  <p className='text-dark mt-3 leading-relaxed'>
-                    {item.content}
-                  </p>
+                  </h6>
+                  {item.content && item.content}
                 </div>
               </div>
             ))}

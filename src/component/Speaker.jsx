@@ -48,7 +48,7 @@ export default function Speaker() {
         >
           <div className='col-span-2 flex flex-col gap-2 text-start'>
             <h6 className='text-primary text-base font-medium uppercase'>
-              Teaching The Healing Brain: 27 Juni 2026
+              Teaching the Healing Brain: 4 Juli 2026
             </h6>
             <h3 className='md:text-2xl text-xl font-medium dark:text-white'>
               Keynote Speakers
@@ -56,19 +56,59 @@ export default function Speaker() {
 
             <p className='text-md lg:text-lg text-slate-500 dark:text-slate-300 w-full mx-auto'>
               <span className='font-bold'>
-                Ini bukan seminar neurosains biasa.
+                Ketika ilmu bertemu keberanian, kami percaya hal besar akan
+                terjadi.
+                <br />
+                <br />
               </span>{' '}
-              Ini adalah{' '}
+              Energi yang dihadirkan oleh para pembicara ini akan membuat kita
+              melihat pendidikan sebagai peluang perubahan.
+              <br />
+              <br />
               <span className='font-bold'>
-                ruang bertemu antara ilmu mendalam dan realitas sehari-hari,
+                Mereka datang untuk membuka jalan,
               </span>{' '}
-              tempat teori berpadu dengan praktik, dan sains menjadi solusi yang
-              menyentuh kehidupan. <br></br>
-              <br></br>Setiap sesi dirancang untuk meninggalkan{' '}
-              <span className='font-bold'>jejak emosional</span> dan{' '}
-              <span className='font-bold'>jejak kognitif</span> yang bertahan
-              lama.
+              memberi inspirasi dan perspektif baru, serta mengingatkan kita
+              bahwa harapan bisa dibangun dengan pengetahuan yang akurat,
+              langkah yang tepat, dan hubungan yang kuat.
+              <br />
+              <br />
+              Ini bukan tentang sesuatu yang rumit, namun bagaimana kita bisa
+              menciptakan pendidikan sebagai peluang perubahan.
             </p>
+          </div>
+
+          <div className='col-span-3'>
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+              {speaker.map((member, index) => (
+                <div
+                  key={index}
+                  className='relative hover:scale-105 transition rounded-md overflow-hidden group flex flex-col h-full' // Flex dengan h-full untuk memastikan tinggi 100%
+                >
+                  <img
+                    src={member.profile}
+                    className='object-cover w-full aspect-square object-top'
+                    alt=''
+                  />
+                  {/* <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-primary/30 z-0 transition duration-500'></div> */}
+
+                  <div className='content bg-white dark:bg-dark p-3 rounded-md text-start transition-all duration-500 flex flex-col h-full'>
+                    <Link
+                      to='#'
+                      className='md:text-md font-bold text-dark dark:text-white leading-tight mb-1'
+                    >
+                      {member.name}
+                    </Link>
+                    <h6 className='text-dark text-md md:text-xs dark:text-slate-300 mb-0 font-light'>
+                      {member.designation}
+                    </h6>
+                    <h6 className='text-primary text-md md:text-xs font-medium dark:text-slate-300 mt-2'>
+                      {member.expertise}
+                    </h6>
+                  </div>
+                </div>
+              ))}
+            </div>
 
             <ScrollLink
               to='register'
@@ -79,37 +119,6 @@ export default function Speaker() {
             >
               Daftar Sekarang
             </ScrollLink>
-          </div>
-
-          <div className='col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6'>
-            {speaker.map((member, index) => (
-              <div
-                key={index}
-                className='relative hover:scale-105 transition rounded-md overflow-hidden group flex flex-col h-full' // Flex dengan h-full untuk memastikan tinggi 100%
-              >
-                <img
-                  src={member.profile}
-                  className='object-cover w-full aspect-square object-top'
-                  alt=''
-                />
-                {/* <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-primary/30 z-0 transition duration-500'></div> */}
-
-                <div className='content bg-white dark:bg-dark p-3 rounded-md text-start transition-all duration-500 flex flex-col h-full'>
-                  <Link
-                    to='#'
-                    className='md:text-md font-bold text-dark dark:text-white leading-tight mb-1'
-                  >
-                    {member.name}
-                  </Link>
-                  <h6 className='text-dark text-md md:text-xs dark:text-slate-300 mb-0 font-light'>
-                    {member.designation}
-                  </h6>
-                  <h6 className='text-primary text-md md:text-xs font-medium dark:text-slate-300 mt-2'>
-                    {member.expertise}
-                  </h6>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

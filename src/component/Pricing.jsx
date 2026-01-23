@@ -6,35 +6,29 @@ export default function Pricing({ setType }) {
       id: 1,
       key: 'MHS',
       title: 'Mahasiswa',
-      price: 250000,
-      for: 'Kategori Mahasiswa S1 & S2',
-      features: [
-        'Complete documentation',
-        'Working materials in Figma',
-        '100GB cloud storage',
-        '500 team members',
-      ],
+      price: 150000,
+      for: 'Kategori Mahasiswa (S1/S2)',
     },
     {
       id: 2,
       key: 'OTGR',
       title: 'Guru/Orang Tua',
-      price: 500000,
-      for: 'Kategori Guru & Orang Tua',
+      price: 350000,
+      for: 'Kategori Guru, Konselor Sekolah, Fasilitator Komunitas, Orang tua',
     },
     {
       id: 3,
       key: 'PRO',
       title: 'Professional',
-      price: 750000,
-      for: 'Kategori Dokter, Psikolog, Mahasiswa S3, Psikiater',
+      price: 500000,
+      for: 'Kategori Psikolog, Dokter, Mahasiswa S3, Peneliti, Akademisi',
     },
     {
       id: 4,
       key: 'FF',
       title: 'Fully Funded',
       price: 0,
-      for: '25 Kuota Gratis untuk Guru maupun Orang Tua Berdampak',
+      for: 'Guru, orang tua, mahasiswa, dan fasilitator komunitas',
     },
   ];
 
@@ -46,59 +40,64 @@ export default function Pricing({ setType }) {
         <div className='container'>
           <div className='grid grid-cols-1 pb-8 text-center'>
             <h6 className='text-primary text-base font-medium uppercase mb-2'>
-              TEACHING THE HEALING BRAIN: 27 JUNI 2026
+              TEACHING THE HEALING BRAIN: 4 JULI 2026
             </h6>
             <h3 className='mb-4 md:text-2xl text-xl font-medium dark:text-white'>
               Daftarkan Diri Anda
             </h3>
           </div>
 
-          <div className='flex flex-wrap'>
+          <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 h-full'>
             {pricing.map((item, key) => (
               <div
-                className='w-full md:w-1/2 lg:w-1/4 px-0 md:px-3 mt-8'
+                className='p-8 h-full flex flex-col justify-between bg-zinc-50 hover:bg-white dark:bg-gray-800 dark:hover:bg-slate-900 rounded-md shadow-sm shadow-slate-200 dark:shadow-slate-700 transition duration-500'
                 key={key}
               >
-                <div className='h-auto flex flex-col pt-8 pb-8 bg-zinc-50 hover:bg-white dark:bg-gray-800 dark:hover:bg-slate-900 rounded-md shadow-sm shadow-slate-200 dark:shadow-slate-700 transition duration-500'>
-                  <div className='px-8 pb-8'>
-                    <h3 className='mb-3 text-lg md:text-xl font-medium dark:text-white'>
-                      {item.title}
-                    </h3>
-                    <div className='mb-3 dark:text-white/70'>
-                      <span className='relative text-2xl'>Rp</span>
-                      <span className='text-2xl font-semibold dark:text-white'>
-                        {item.price == 0
-                          ? 'Gratis'
-                          : item.price.toLocaleString('id-ID')}
-                      </span>
-                    </div>
+                <div className='h-full flex flex-col text-center'>
+                  <h3 className='text-lg md:text-xl font-medium dark:text-white '>
+                    {item.title}
+                  </h3>
+                  {item.key == 'FF' && (
+                    <p className='mt-1 text-xs text-dark italic'>
+                      Pendaftaran sampai <br />
+                      tanggal 15 Maret 2026
+                    </p>
+                  )}
+                  <div className='my-3 dark:text-white/70'>
+                    <span className='relative text-2xl'>Rp</span>
+                    <span className='text-2xl font-semibold dark:text-white'>
+                      {item.price.toLocaleString('id-ID')}
+                    </span>
+                  </div>
+                  {item.key == 'FF' ? (
+                    <>
+                      <p className='font-bold text-lg'>25 Kuota</p>
+                      <p className='mb-3 text-slate-430 dark:text-slate-300'>
+                        Prioritas: <span className='font-bold'>{item.for}</span>
+                      </p>
+                    </>
+                  ) : (
                     <p className='mb-3 text-slate-430 dark:text-slate-300'>
                       {item.for}
                     </p>
-                    <a
-                      href='#register'
-                      onClick={() => setType && setType(item.key)}
-                      className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md w-full'
-                    >
-                      Daftar Sekarang
-                    </a>
-                  </div>
-                  {/* <div className='border-b border-slate-200 dark:border-slate-700'></div> */}
-                  {/* <ul className='self-start px-8 pt-8'>
-                    {item.features.map((subitem, index) => (
-                      <li
-                        className='flex items-center my-1 text-slate-400 dark:text-slate-300'
-                        key={index}
-                      >
-                        <i className='uil uil-check-circle text-lg text-green-600 me-1'></i>
-                        <span>{subitem}</span>
-                      </li>
-                    ))}
-                  </ul> */}
+                  )}
                 </div>
+                <a
+                  href='#register'
+                  onClick={() => setType && setType(item.key)}
+                  className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md w-full'
+                >
+                  Daftar Sekarang
+                </a>
               </div>
             ))}
           </div>
+          <p className='text-center text-sm text-dark font-semibold italic mt-4'>
+            Penetapan harga tiket dilakukan untuk menjaga keberlanjutan acara
+            serta membuka akses bagi peserta dari berbagai latar belakang.
+            <br /> Kami percaya setiap peserta dapat memilih kategori tiket yang
+            paling sesuai dengan kondisi masing-masing.
+          </p>
         </div>
       </section>
     </>
