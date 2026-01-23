@@ -5,6 +5,7 @@ export default function FullyFundedModal({
   onClose,
   formData,
   setFormData,
+  setFormMessage,
 }) {
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,19 +18,23 @@ export default function FullyFundedModal({
   const handleSubmit = (e) => {
     e.preventDefault();
     onClose();
+    setFormMessage('Sistem pendaftaran sedang dikembangkan.');
   };
 
   return (
     isOpen && (
-      <div
-        onClick={onClose}
-        className='fixed inset-0 bg-black/20 text-dark bg-opacity-50 flex justify-center items-center z-50'
-      >
+      <div className='fixed inset-0 bg-black/20 text-dark bg-opacity-50 flex justify-center items-center z-50'>
         <div className='bg-white p-6 rounded-lg w-4/5 md:w-3/5 max-h-[80%] mt-20 overflow-auto'>
           <div className='w-full flex justify-between'>
             <h3 className='text-2xl font-semibold mb-4 text-primary'>
               Form Seleksi Fully Funded <br /> Teaching the Healing Brain
             </h3>
+            <button
+              onClick={onClose}
+              className='p-2 rounded-md h-fit cursor-pointer hover:bg-primary hover:text-white'
+            >
+              <i className='mdi mdi-close'></i>
+            </button>
           </div>
           <form onSubmit={handleSubmit}>
             <div className='mb-4'>

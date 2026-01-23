@@ -7,6 +7,9 @@ export default function TicketRegistration({ initialType }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
 
   const [isFFModalOpen, setIsFFModalOpen] = useState(false);
+  const [formMessage, setFormMessage] = useState(
+    'Sistem Pembayaran sedang dikembangkan.',
+  );
 
   const handleFFClick = () => {
     if (
@@ -233,9 +236,7 @@ export default function TicketRegistration({ initialType }) {
                 </form>
               ) : (
                 <div className='text-gray-600 flex flex-col text-center items-center my-auto'>
-                  <h4 className='text-xl font-semibold mb-2'>
-                    Sistem pendaftaran & pembayaran sedang dikembangkan
-                  </h4>
+                  <h4 className='text-xl font-semibold mb-2'>{formMessage}</h4>
                   <p>Mohon menunggu info lebih lanjut.</p>
                 </div>
               )}
@@ -249,6 +250,7 @@ export default function TicketRegistration({ initialType }) {
         onClose={closeModal}
         formData={formData}
         setFormData={setFormData}
+        setFormMessage={setFormMessage}
       />
     </>
   );
