@@ -68,6 +68,11 @@ export default function Pricing({ setType }) {
                     <span className='text-2xl font-semibold dark:text-white'>
                       {item.price.toLocaleString('id-ID')}
                     </span>
+                    {item.key == 'FF' && (
+                      <p className='text-xs'>
+                        (termasuk akomodasi, pendaftaran, dan transportasi)
+                      </p>
+                    )}
                   </div>
                   {item.key == 'FF' ? (
                     <>

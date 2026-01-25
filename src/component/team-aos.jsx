@@ -31,7 +31,7 @@ export default function TeamAos() {
       designation: 'Mathematical Thinking & Quality Assurance Specialist',
     },
     {
-      name: 'Linda Devi Fitriana, PhD',
+      name: 'Linda Devi Fitriana, Ph.D',
       profile: avatarLinda,
       designation: 'Cognitive Pedagogy Specialist',
     },
@@ -46,7 +46,7 @@ export default function TeamAos() {
       designation: 'Food Science & Nutrition Coordinator',
     },
     {
-      name: 'Hesti Miranda, M. Ed',
+      name: 'Hesti Miranda, M.Ed',
       profile: avatarHesti,
       designation: 'Community Engagement Coordinator',
     },

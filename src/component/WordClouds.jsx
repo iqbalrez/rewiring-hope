@@ -42,7 +42,7 @@ export default function WordClouds() {
             anak.
           </h2>
           <h6 className='text-primary text-center my-4 text-2xl font-bold italic mb-8'>
-            Kami percaya masa depan pendidikan adalah ...
+            Bagi saya, masa depan pendidikan itu ...
           </h6>
           {isOpen ? (
             <>

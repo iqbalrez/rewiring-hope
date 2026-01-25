@@ -6,6 +6,8 @@ import CountUp from 'react-countup';
 import avatarStella from '../assets/images/client/stella.jpg';
 import avatarFely from '../assets/images/client/fely.jpg';
 import avatarChristine from '../assets/images/client/christine.jpg';
+
+import preliminaryAgenda from '../assets/docs/Preliminary Agenda - Teaching The Healing Brain - 4 Juli 2026.pdf';
 import { Link as ScrollLink } from 'react-scroll';
 import Aos from 'aos';
 
@@ -78,7 +80,7 @@ export default function Speaker() {
             </p>
           </div>
 
-          <div className='col-span-3'>
+          <div className='col-span-3 flex flex-col'>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
               {speaker.map((member, index) => (
                 <div
@@ -109,7 +111,13 @@ export default function Speaker() {
                 </div>
               ))}
             </div>
-
+            <Link
+              to={preliminaryAgenda}
+              target='_blank'
+              className='mt-4 p-3 w-fit inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md'
+            >
+              Preliminary Agenda <i className='mdi mdi-arrow-top-right'></i>
+            </Link>
             <ScrollLink
               to='register'
               smooth={true}
@@ -117,7 +125,7 @@ export default function Speaker() {
               duration={500}
               className='mt-4 p-3 w-fit inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md'
             >
-              Daftar Sekarang
+              Register Now
             </ScrollLink>
           </div>
         </div>

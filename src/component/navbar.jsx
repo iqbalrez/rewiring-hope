@@ -143,9 +143,17 @@ export default function Navbar({ navdark, bg }) {
               id='navbar-navlist'
             >
               <NavLink
+                to='/'
+                className={({ isActive }) =>
+                  ` p-3 px-4 ${isActive ? 'bg-white text-primary rounded-md' : 'nav-link'}`
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
                 to='/about'
                 className={({ isActive }) =>
-                  ` ${isActive ? 'text-primary p-2' : 'nav-link'}`
+                  ` p-3 px-4 ${isActive ? 'bg-white text-primary rounded-md' : 'nav-link'}`
                 }
               >
                 About
