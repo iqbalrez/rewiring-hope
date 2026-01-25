@@ -27,9 +27,11 @@ export default function Footer() {
                   Study.
                 </p>
                 <p className='text-gray-400'>
-                  For more information:{' '}
+                  Hubungi kami:{' '}
                   <a href='mailto:info@rewiringhope.or.id'>
-                    <span className='underline'>info@rewiringhope.or.id</span>
+                    <span className='underline'>info@rewiringhope.or.id </span>
+                    <br />
+                    <span className=''>+62-896-888-333-07</span>
                   </a>
                 </p>
               </div>

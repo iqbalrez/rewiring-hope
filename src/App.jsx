@@ -28,6 +28,7 @@ import IndexTen from './pages/index-ten.jsx';
 import IndexTwelve from './pages/index-twelve.jsx';
 import IndexEleven from './pages/index-eleven.jsx';
 import NotFound from './pages/not-found.jsx';
+import TermsAndConditionsPage from './pages/tnc.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -48,6 +49,12 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Index />} />
         <Route path='/about' element={<AboutPage />} />
+        <Route
+          path='/terms-and-conditions'
+          element={<TermsAndConditionsPage />}
+        />
+        <Route path='/assets' element={<NotFound />} />
+        <Route path='/src/assets' element={<NotFound />} />
         <Route path='*' element={<NotFound />} />
         {/* <Route path='/index' element={<Index />} />
             <Route path='/index-two' element={<IndexTwo />} />

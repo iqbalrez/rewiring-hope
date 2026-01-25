@@ -6,6 +6,7 @@ import FullyFundedModal from './Modal/FullyFundedModal';
 export default function TicketRegistration({ initialType }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
 
+  const [agreeTerms, setAgreeTerms] = useState(false);
   const [isFFModalOpen, setIsFFModalOpen] = useState(false);
   const [formMessage, setFormMessage] = useState(
     'Sistem Pembayaran sedang dikembangkan.',
@@ -183,7 +184,7 @@ export default function TicketRegistration({ initialType }) {
                         setType(e.target.value);
                         setFormData({ ...formData, type: e.target.value });
                       }}
-                      className='w-full p-4 mt-2 border rounded-md'
+                      className='w-full p-4 mt-2 border rounded-md h-14'
                       required
                     >
                       <option value='MHS'>Mahasiswa</option>
@@ -215,10 +216,42 @@ export default function TicketRegistration({ initialType }) {
                   </p>
                   {type !== 'FF' ? (
                     <>
+                      {/* Checkbox Terms */}
+                      <div className='mb-4 flex items-start gap-3'>
+                        <input
+                          id='agreeTerms'
+                          type='checkbox'
+                          className='mt-1 h-4 w-4 accent-amber-600'
+                          checked={agreeTerms}
+                          onChange={(e) => setAgreeTerms(e.target.checked)}
+                          disabled={loading}
+                          required
+                        />
+                        <label
+                          htmlFor='agreeTerms'
+                          className='text-sm text-slate-700 leading-relaxed'
+                        >
+                          Saya telah membaca dan menyetujui{' '}
+                          <a
+                            href='/terms-and-conditions'
+                            target='_blank'
+                            rel='noreferrer'
+                            className='font-semibold text-amber-700 underline hover:text-amber-800'
+                          >
+                            Syarat & Ketentuan
+                          </a>
+                          .
+                        </label>
+                      </div>
+
                       <button
                         type='submit'
-                        disabled={loading}
-                        className='w-full py-3 bg-amber-600 text-white rounded-full hover:bg-amber-700'
+                        disabled={loading || !agreeTerms}
+                        className={`w-full py-3 text-white rounded-full transition ${
+                          loading || !agreeTerms
+                            ? 'bg-slate-300 cursor-not-allowed'
+                            : 'bg-amber-600 hover:bg-amber-700'
+                        }`}
                       >
                         {loading ? 'Memproses...' : 'Daftar'}
                       </button>
