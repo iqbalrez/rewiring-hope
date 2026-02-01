@@ -130,7 +130,10 @@ export default function TicketRegistration({ initialType }) {
 
             {/* FORM */}
             <div className='bg-white rounded-lg shadow-lg p-8 h-full flex flex-col'>
-              <h3 className='text-2xl font-semibold mb-6'>Register Now</h3>
+              <p className='mx-auto my-auto font-semibold text-xl text-center'>
+                Pendaftaran akan dibuka mulai tanggal<br></br>9 Februari 2026
+              </p>
+              {/* <h3 className='text-2xl font-semibold mb-6'>Register Now</h3>
 
               {!submitted ? (
                 <form onSubmit={handleSubmit}>
@@ -216,7 +219,6 @@ export default function TicketRegistration({ initialType }) {
                   </p>
                   {type !== 'FF' ? (
                     <>
-                      {/* Checkbox Terms */}
                       <div className='mb-4 flex items-start gap-3'>
                         <input
                           id='agreeTerms'
@@ -272,7 +274,7 @@ export default function TicketRegistration({ initialType }) {
                   <h4 className='text-xl font-semibold mb-2'>{formMessage}</h4>
                   <p>Mohon menunggu info lebih lanjut.</p>
                 </div>
-              )}
+              )} */}
             </div>
           </div>
         </div>

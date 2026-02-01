@@ -20,6 +20,7 @@ import Switcher from '../component/Switcher';
 import Navbar from '../component/navbar';
 import GetInTouch from '../component/GetInTouch';
 import TicketRegistration from '../component/TicketRegistration';
+import WordClouds from '../component/WordClouds';
 
 import { TypeAnimation } from 'react-type-animation';
 import EventAudience from '../component/EventAudience';
@@ -109,23 +110,17 @@ export default function Index() {
         <Navbar />
         {/* Popup Welcome */}
         {popupVisible && (
-          <div
-            onClick={handlePopupClose}
-            className='fixed inset-0 bg-black/10 bg-opacity-50 z-50 flex items-center justify-center'
-          >
-            <div className='bg-white p-8 mx-6 rounded-lg max-w-md w-full text-center'>
-              <h2 className='text-xl font-bold mb-4'>
-                Welcome to Rewiring Hope
-              </h2>
-              <p className='mb-4'>We're excited to have you here!</p>
-              <button
-                onClick={handlePopupClose} // Close popup when clicked
-                className='cursor-pointer hover:bg-primary-dark bg-primary text-white px-4 py-2 rounded mx-auto animate-boune'
-              >
-                Continue
-              </button>
+          <>
+            <div className='fixed inset-0 bg-opacity-50 z-50 flex items-center justify-center'>
+              <div className='bg-white p-6 mx-6 rounded-lg max-w-3xl w-full text-center'>
+                <WordClouds handlePopupClose={handlePopupClose} />
+              </div>
+              <div
+                className='absolute inset-0 -z-1 bg-black/20 w-screen h-screen'
+                onClick={handlePopupClose}
+              ></div>
             </div>
-          </div>
+          </>
         )}
         <section
           style={{ backgroundImage: `url(${BackgroundImage})` }}

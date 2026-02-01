@@ -4,7 +4,7 @@ import axios from 'axios';
 import { ReactWordcloud } from '@cp949/react-wordcloud';
 import AddWord from './AddWord';
 
-export default function WordClouds() {
+export default function WordClouds({ handlePopupClose }) {
   const [words, setWords] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const VITE_API_URL = import.meta.env.VITE_API_URL;
@@ -33,7 +33,7 @@ export default function WordClouds() {
   return (
     <>
       <section
-        className='h-[80dvh] relative py-24 bg-slate-200 dark:bg-slate-800 flex items-center'
+        className='h-fit relative px-6 py-24 bg-slate-200 dark:bg-slate-800 flex items-center'
         id='about'
       >
         <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto my-auto '>
@@ -51,7 +51,10 @@ export default function WordClouds() {
               </div>
             </>
           ) : (
-            <AddWord setIsOpen={setIsOpen} />
+            <AddWord
+              setIsOpen={setIsOpen}
+              handlePopupClose={handlePopupClose}
+            />
           )}
         </div>
       </section>

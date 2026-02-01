@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const AddWord = ({ setIsOpen }) => {
+const AddWord = ({ setIsOpen, handlePopupClose }) => {
   const [word, setWord] = useState('');
   const [message, setMessage] = useState('');
 
@@ -10,6 +10,7 @@ const AddWord = ({ setIsOpen }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    handlePopupClose && handlePopupClose();
 
     try {
       const response = await axios.post(`${VITE_API_URL}/polling/add-word`, {
