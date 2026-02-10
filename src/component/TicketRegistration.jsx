@@ -131,7 +131,7 @@ export default function TicketRegistration({ initialType }) {
             {/* FORM */}
             <div className='bg-white rounded-lg shadow-lg p-8 h-full flex flex-col'>
               <p className='mx-auto my-auto font-semibold text-xl text-center'>
-                Pendaftaran akan dibuka mulai tanggal<br></br>9 Februari 2026
+                Pendaftaran akan dibuka mulai tanggal<br></br>11 Februari 2026
               </p>
               {/* <h3 className='text-2xl font-semibold mb-6'>Register Now</h3>
 
