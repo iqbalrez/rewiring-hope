@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function FullyFundedModal({
   isOpen,
@@ -6,7 +7,12 @@ export default function FullyFundedModal({
   formData,
   setFormData,
   setFormMessage,
+  setSubmitted,
+  eventId,
 }) {
+  const [loading, setLoading] = useState(false);
+  const VITE_API_URL = import.meta.env.VITE_API_URL;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -15,10 +21,67 @@ export default function FullyFundedModal({
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    onClose();
-    setFormMessage('Sistem pendaftaran sedang dikembangkan.');
+    setLoading(true);
+
+    try {
+      // 1. Ekstrak jawaban pertanyaan ke dalam format JSON
+      const responses = {
+        personal_info: {
+          address: formData.address,
+          age: formData.age,
+          city: formData.city,
+          currentRole: formData.currentRole,
+          community: formData.community,
+        },
+        section_b: {
+          impact: formData.impact,
+          duration: formData.duration,
+        },
+        section_c: {
+          strategy: formData.strategy,
+          condition: formData.condition,
+        },
+        section_d: {
+          challenge: formData.challenge,
+        },
+        section_e: {
+          importance: formData.importance,
+          contribution: formData.contribution,
+          collaboration: formData.collaboration,
+          change: formData.change,
+        },
+      };
+
+      // 2. Siapkan Body API sesuai permintaan
+      const apiBody = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.waNumber,
+        eventId: eventId, // Pastikan ID ini sesuai
+        category: 'fully_funded',
+        submissionData: JSON.stringify(responses), // Diubah ke string JSON
+      };
+
+      // 3. Eksekusi Post ke API
+      console.log(apiBody);
+      await axios.post(`${VITE_API_URL}/orders/register`, apiBody);
+
+      onClose();
+      setFormMessage(
+        'Aplikasi Fully Funded berhasil dikirim. Mohon informasi lebih lanjut via email.',
+      );
+      setSubmitted(true);
+    } catch (err) {
+      const errorMsg =
+        err.response?.data?.message || 'Gagal mengirim pendaftaran.';
+      alert(errorMsg);
+      onClose();
+      setFormMessage(errorMsg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -165,9 +228,9 @@ export default function FullyFundedModal({
                 Anda hadapi untuk dapat mengikuti acara ini?
               </label>
               <textarea
-                name='challenges'
+                name='condition'
                 placeholder='Isi jawaban Anda'
-                value={formData.challenges}
+                value={formData.condition}
                 onChange={handleChange}
                 className='w-full p-2 border rounded-md mt-2'
                 required
@@ -182,9 +245,9 @@ export default function FullyFundedModal({
                 meski dalam kondisi sulit.
               </label>
               <textarea
-                name='challenges'
+                name='challenge'
                 placeholder='Isi jawaban Anda'
-                value={formData.challenges}
+                value={formData.challenge}
                 onChange={handleChange}
                 className='w-full p-2 border rounded-md mt-2'
                 required
@@ -253,7 +316,7 @@ export default function FullyFundedModal({
                 type='submit'
                 className='bg-green-600 text-white w-full py-3 rounded-md'
               >
-                Submit
+                {loading ? 'Submitting...' : 'Submit Aplikasi'}
               </button>
             </div>
           </form>

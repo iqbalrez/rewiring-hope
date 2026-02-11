@@ -1,13 +1,17 @@
 import Aos from 'aos';
 import React, { useEffect, useState } from 'react';
 import FullyFundedModal from './Modal/FullyFundedModal';
-// import axios from 'axios';
+import axios from 'axios';
 
 export default function TicketRegistration({ initialType }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
+  const eventId = 'c2314b19-6311-4f4a-9e46-12723df7f74d';
 
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isFFModalOpen, setIsFFModalOpen] = useState(false);
+  const [file, setFile] = useState(null);
+  const [errorMsg, setErrorMsg] = useState('');
+
   const [formMessage, setFormMessage] = useState(
     'Sistem Pembayaran sedang dikembangkan.',
   );
@@ -56,41 +60,60 @@ export default function TicketRegistration({ initialType }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (type === 'FF') {
+      handleFFClick();
+      return;
+    }
     setLoading(true);
-    setSubmitted(true);
-    setLoading(false);
+    setErrorMsg('');
 
-    // try {
-    //   // 1️⃣ Call backend untuk create order + snap token
-    //   const res = await axios.post(`${VITE_API_URL}/payment/create`, {
-    //     name,
-    //     email,
-    //     eventId: ticket.eventId,
-    //   });
+    try {
+      // 1️⃣ Call backend untuk create order + snap token
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('phone', formData.waNumber);
+      data.append('category', type); // MHS, OTGR, PRO
+      data.append('eventId', eventId); // Pastikan ID Event benar
 
-    //   const { token } = res.data;
+      if (file) {
+        data.append('paymentProof', file);
+      }
 
-    //   // 2️⃣ Trigger Midtrans Snap Popup
-    //   window.snap.pay(token, {
-    //     onSuccess: function () {
-    //       setSubmitted(true);
-    //     },
-    //     onPending: function () {
-    //       alert('Menunggu pembayaran...');
-    //     },
-    //     onError: function () {
-    //       alert('Pembayaran gagal');
-    //     },
-    //     onClose: function () {
-    //       console.log('Popup ditutup');
-    //     },
-    //   });
-    // } catch (err) {
-    //   alert('Gagal memproses pembayaran');
-    //   console.error(err);
-    // } finally {
-    //   setLoading(false);
-    // }
+      await axios.post(`${VITE_API_URL}/orders/register`, data, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      setFormMessage(
+        'Pendaftaran Berhasil! Mohon cek email Anda untuk instruksi selanjutnya.',
+      );
+      setSubmitted(true);
+
+      // const { token } = res.data;
+
+      // 2️⃣ Trigger Midtrans Snap Popup
+      // window.snap.pay(token, {
+      //   onSuccess: function () {
+      //     setSubmitted(true);
+      //   },
+      //   onPending: function () {
+      //     alert('Menunggu pembayaran...');
+      //   },
+      //   onError: function () {
+      //     alert('Pembayaran gagal');
+      //   },
+      //   onClose: function () {
+      //     console.log('Popup ditutup');
+      //   },
+      // });
+    } catch (err) {
+      const msg = err.response?.data?.message || 'Gagal memproses pendaftaran';
+      setErrorMsg(msg);
+      alert(msg);
+      console.error(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -130,10 +153,7 @@ export default function TicketRegistration({ initialType }) {
 
             {/* FORM */}
             <div className='bg-white rounded-lg shadow-lg p-8 h-full flex flex-col'>
-              <p className='mx-auto my-auto font-semibold text-xl text-center'>
-                Pendaftaran akan dibuka mulai tanggal<br></br>11 Februari 2026
-              </p>
-              {/* <h3 className='text-2xl font-semibold mb-6'>Register Now</h3>
+              <h3 className='text-2xl font-semibold mb-6'>Register Now</h3>
 
               {!submitted ? (
                 <form onSubmit={handleSubmit}>
@@ -213,12 +233,30 @@ export default function TicketRegistration({ initialType }) {
                       required
                     />
                   </div>
-                  <p className='text-center text-dark mb-2'>
+                  <p className='text-center text-dark mb-4'>
                     Kami percaya Anda dapat memilih kategori yang paling sesuai
                     dengan kondisi Anda.
                   </p>
                   {type !== 'FF' ? (
                     <>
+                      <div className='mb-6'>
+                        <label className='block font-medium'>
+                          Bukti Transfer (JPG/PNG)
+                        </label>
+                        <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                          <input
+                            type='file'
+                            accept='image/*'
+                            onChange={(e) => setFile(e.target.files[0])}
+                            className='w-full'
+                            required={type !== 'FF'}
+                          />
+                          <p className='text-xs text-gray-500 mt-2'>
+                            *Silakan transfer ke Rek Mandiri 1360037231120 a/n
+                            ANASTASIA AJENG WULAN TANTRI
+                          </p>
+                        </div>
+                      </div>
                       <div className='mb-4 flex items-start gap-3'>
                         <input
                           id='agreeTerms'
@@ -261,6 +299,7 @@ export default function TicketRegistration({ initialType }) {
                   ) : (
                     <div className='text-gray-600 flex flex-col text-center items-center my-auto'>
                       <button
+                        type='button'
                         onClick={handleFFClick}
                         className='w-full py-3 bg-green-600 text-white rounded-full hover:bg-green-700 mt-4'
                       >
@@ -274,7 +313,12 @@ export default function TicketRegistration({ initialType }) {
                   <h4 className='text-xl font-semibold mb-2'>{formMessage}</h4>
                   <p>Mohon menunggu info lebih lanjut.</p>
                 </div>
-              )} */}
+              )}
+              {errorMsg && (
+                <div className='mb-4 p-3 bg-red-100 text-red-700 text-sm rounded-md'>
+                  {errorMsg}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -286,6 +330,8 @@ export default function TicketRegistration({ initialType }) {
         formData={formData}
         setFormData={setFormData}
         setFormMessage={setFormMessage}
+        eventId={eventId}
+        setSubmitted={setSubmitted}
       />
     </>
   );
