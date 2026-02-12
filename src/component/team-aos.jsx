@@ -10,8 +10,8 @@ import avatarLaura from '../assets/images/client/laura.jpg';
 import avatarLinda from '../assets/images/client/linda.jpg';
 import avatarHesti from '../assets/images/client/hesti.jpg';
 import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
-import avatarMaria from '../assets/images/client/maria.jpg';
 import avatarVega from '../assets/images/client/vega.jpg';
+import avatarFransiska from '../assets/images/client/fransiska.jpeg';
 
 export default function TeamAos() {
   const team = [
@@ -51,9 +51,9 @@ export default function TeamAos() {
       designation: 'Community Engagement Coordinator',
     },
     {
-      name: 'Maria Nirmala Putri, M.Pd',
-      profile: avatarMaria,
-      designation: 'Operations Coordinator I Play-Based Learning Contributor',
+      name: 'Fransiska Atika Indriyani, S.Si',
+      profile: avatarFransiska,
+      designation: 'Strategic Partnerships Lead',
     },
   ];
 
