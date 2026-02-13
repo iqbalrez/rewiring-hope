@@ -3,19 +3,19 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import CountUp from 'react-countup';
 
-import avatarTantri from '../assets/images/client/tantri.jpg';
-import avatarChristine from '../assets/images/client/christine.jpg';
-import avatarLaura from '../assets/images/client/laura.jpg';
-import avatarLinda from '../assets/images/client/linda.jpg';
-import avatarHesti from '../assets/images/client/hesti.jpg';
-import avatarChristy from '../assets/images/client/christy.jpg';
-import avatarFely from '../assets/images/client/fely.jpg';
-import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
-import avatarMaria from '../assets/images/client/maria.jpg';
-import avatarVega from '../assets/images/client/vega.jpg';
+import avatarTantri from '../../assets/images/client/tantri.jpg';
+import avatarChristine from '../../assets/images/client/christine.jpg';
+import avatarLaura from '../../assets/images/client/laura.jpg';
+import avatarLinda from '../../assets/images/client/linda.jpg';
+import avatarHesti from '../../assets/images/client/hesti.jpg';
+import avatarChristy from '../../assets/images/client/christy.jpg';
+import avatarFely from '../../assets/images/client/fely.jpg';
+import avatarChristiyanti from '../../assets/images/client/christiyanti.jpg';
+import avatarMaria from '../../assets/images/client/maria.jpg';
+import avatarVega from '../../assets/images/client/vega.jpg';
 
-import TELImage from '../assets/images/client/TELImage.jpg';
-import IBROImage from '../assets/images/client/IBROImage.jpg';
+import TELImage from '../../assets/images/client/TELImage.jpg';
+import IBROImage from '../../assets/images/client/IBROImage.jpg';
 
 export default function Team() {
   const team = [

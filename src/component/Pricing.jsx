@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Pricing({ setType }) {
+export default function Pricing({ setType, setPrice }) {
   const pricing = [
     {
       id: 1,
@@ -89,7 +89,10 @@ export default function Pricing({ setType }) {
                 </div>
                 <a
                   href='#register'
-                  onClick={() => setType && setType(item.key)}
+                  onClick={() => {
+                    setType && setType(item.key);
+                    setPrice && setPrice(item.price);
+                  }}
                   className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md w-full'
                 >
                   Daftar Sekarang

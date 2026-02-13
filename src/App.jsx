@@ -7,28 +7,28 @@ import { scrollSpy } from 'react-scroll';
 import { Routes, Route } from 'react-router-dom';
 
 import Index from './pages/index.jsx';
-import IndexTwo from './pages/index-two.jsx';
-import IndexThree from './pages/index-three.jsx';
-
-import IndexFour from './pages/index-four.jsx';
-import IndexFive from './pages/index-five.jsx';
-import IndexSix from './pages/index-six.jsx';
-import IndexSeven from './pages/index-seven.jsx';
-import IndexEight from './pages/index-eight.jsx';
-import IndexNine from './pages/index-nine.jsx';
-
 import AboutPage from './pages/about.jsx';
+import Loader from './component/Loader.jsx';
+import NotFound from './pages/not-found.jsx';
+import TermsAndConditionsPage from './pages/tnc.jsx';
+
+import IndexTwo from './pages/template/index-two.jsx';
+import IndexThree from './pages/template/index-three.jsx';
+import IndexFour from './pages/template/index-four.jsx';
+import IndexFive from './pages/template/index-five.jsx';
+import IndexSix from './pages/template/index-six.jsx';
+import IndexSeven from './pages/template/index-seven.jsx';
+import IndexEight from './pages/template/index-eight.jsx';
+import IndexNine from './pages/template/index-nine.jsx';
+
 import Login from './pages/auth/login.jsx';
 import Signup from './pages/auth/signup.jsx';
 import ResetPassword from './pages/auth/reset-password.jsx';
-import Loader from './component/Loader.jsx';
-import BlogDetail from './pages/blog-detail.jsx';
-import PortfolioDetail from './pages/portfolio-detail.jsx';
-import IndexTen from './pages/index-ten.jsx';
-import IndexTwelve from './pages/index-twelve.jsx';
-import IndexEleven from './pages/index-eleven.jsx';
-import NotFound from './pages/not-found.jsx';
-import TermsAndConditionsPage from './pages/tnc.jsx';
+import BlogDetail from './pages/template/blog-detail.jsx';
+import PortfolioDetail from './pages/template/portfolio-detail.jsx';
+import IndexTen from './pages/template/index-ten.jsx';
+import IndexTwelve from './pages/template/index-twelve.jsx';
+import IndexEleven from './pages/template/index-eleven.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);

@@ -1,7 +1,7 @@
 // import React, { useState } from 'react';
 
-import AboutImage from '../assets/images/about4.jpg';
-import Sign from '../assets/images/sign.png';
+import AboutImage from '../../assets/images/about4.jpg';
+import Sign from '../../assets/images/sign.png';
 import { Link } from 'react-router-dom';
 
 export default function About() {

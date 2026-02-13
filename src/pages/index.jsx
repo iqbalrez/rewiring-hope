@@ -1,33 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
+import { TypeAnimation } from 'react-type-animation';
+import Countdown from 'react-countdown';
+import CountUp from 'react-countup';
 
 import BackgroundImage from '../assets/images/bg/main-hero.jpg';
 import TeamImage from '../assets/images/bg/team.jpg';
 import TELImage from '../assets/images/client/TELImage.jpg';
 import IBROImage from '../assets/images/client/IBROImage.jpg';
 
-import Services from '../component/Services';
 import EventAbout from '../component/EventAbout';
 import Pricing from '../component/Pricing';
 import Speaker from '../component/Speaker';
-import Blog from '../component/Blog';
-import Contact from '../component/Contact';
 import Footer from '../component/Footer';
-import Portfolio from '../component/Portfolio';
-import Review from '../component/Testimonial';
-import Switcher from '../component/Switcher';
 import Navbar from '../component/navbar';
-import GetInTouch from '../component/GetInTouch';
 import TicketRegistration from '../component/TicketRegistration';
 import WordClouds from '../component/WordClouds';
-
-import { TypeAnimation } from 'react-type-animation';
 import EventAudience from '../component/EventAudience';
 import EventTheme from '../component/EventTheme';
-import Countdown from 'react-countdown';
-import CountUp from 'react-countup';
 import Why from '../component/Why';
+
+import Services from '../component/template/Services';
+import Blog from '../component/template/Blog';
+import Contact from '../component/Contact';
+import Portfolio from '../component/template/Portfolio';
+import Review from '../component/template/Testimonial';
+import Switcher from '../component/Switcher';
+import GetInTouch from '../component/template/GetInTouch';
 
 /**
  * Index Component
@@ -35,6 +35,7 @@ import Why from '../component/Why';
 export default function Index() {
   const [mounted, setMounted] = useState(false);
   const [ticketType, setTicketType] = useState('MHS');
+  const [ticketPrice, setTicketPrice] = useState(150000);
   const [popupVisible, setPopupVisible] = useState(true);
 
   useEffect(() => {
@@ -227,10 +228,10 @@ export default function Index() {
           <i className='uil uil-arrow-up'></i>
         </Link>
 
-        <Pricing setType={setTicketType} />
+        <Pricing setType={setTicketType} setPrice={setTicketPrice} />
 
         {/* Pricing section */}
-        <TicketRegistration initialType={ticketType} />
+        <TicketRegistration initialType={ticketType} price={ticketPrice} />
 
         <section
           className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'

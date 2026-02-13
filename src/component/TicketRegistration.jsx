@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import FullyFundedModal from './Modal/FullyFundedModal';
 import axios from 'axios';
 
-export default function TicketRegistration({ initialType }) {
+export default function TicketRegistration({ initialType, price }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
   const eventId = 'c2314b19-6311-4f4a-9e46-12723df7f74d';
 
@@ -251,10 +251,26 @@ export default function TicketRegistration({ initialType }) {
                             className='w-full'
                             required={type !== 'FF'}
                           />
-                          <p className='text-xs text-gray-500 mt-2'>
-                            *Silakan transfer ke Rek Mandiri 1360037231120 a/n
-                            ANASTASIA AJENG WULAN TANTRI
-                          </p>
+                          <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
+                            <p className='text-xs text-gray-500'>
+                              Silakan transfer tepat sejumlah:
+                            </p>
+                            <p className='text-lg font-bold text-blue-600'>
+                              Rp{price.toLocaleString('id-ID')}
+                            </p>
+
+                            <div className='mt-2'>
+                              <p className='text-xs text-gray-500 uppercase tracking-wider'>
+                                Bank Mandiri
+                              </p>
+                              <p className='text-sm font-semibold text-gray-800 tracking-widest'>
+                                1360037231120
+                              </p>
+                              <p className='text-xs text-gray-500'>
+                                a/n ANASTASIA AJENG WULAN TANTRI
+                              </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <div className='mb-4 flex items-start gap-3'>
