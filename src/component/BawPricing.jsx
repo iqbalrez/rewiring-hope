@@ -1,4 +1,8 @@
 import React from 'react';
+import MWImage from '../assets/images/baw/MW.png';
+import STImage from '../assets/images/baw/ST.png';
+import RVImage from '../assets/images/baw/RV.png';
+import DIImage from '../assets/images/baw/DI.png';
 
 export default function Pricing({ setType, setPrice }) {
   const pricing = [
@@ -7,24 +11,28 @@ export default function Pricing({ setType, setPrice }) {
       key: 'MW',
       title: 'Mewarnai - TK',
       theme: 'Otak yang Berani Bermimpi',
+      image: MWImage,
     },
     {
       id: 2,
       key: 'ST',
       title: 'Storytelling - SD',
       theme: 'Kalau Otakku Bisa Bicara...',
+      image: STImage,
     },
     {
       id: 3,
       key: 'RV',
       title: 'Reels Video - SMP/SMA',
       theme: 'Brain, Resillience, and Me',
+      image: RVImage,
     },
     {
       id: 4,
       key: 'DI',
       title: 'Desain Infografis - SMP/SMA',
       theme: 'Bagaimana Otakku Belajar dan Menyembuh',
+      image: DIImage,
     },
   ];
 
@@ -55,7 +63,7 @@ export default function Pricing({ setType, setPrice }) {
                 <div className='h-full flex flex-col text-center'>
                   <img
                     className='mx-auto mb-3'
-                    src={`src/assets/images/baw/${item.key}.png`}
+                    src={item.image}
                     alt={item.title}
                   ></img>
                   <h3 className='text-lg md:text-xl font-bold text-dark dark:text-white '>
