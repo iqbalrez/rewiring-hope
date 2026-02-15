@@ -75,7 +75,7 @@ export default function BawPage() {
       <div className='flex flex-col items-center '>
         <CountUp
           start={200}
-          className='counter-value text-lg font-bold p-2 bg-dark/5 rounded-md'
+          className='counter-value text-lg font-bold p-2 bg-blue-dark/5 rounded-md'
           end={days}
           duration={2.75}
         />
@@ -84,7 +84,7 @@ export default function BawPage() {
       <div className='flex flex-col items-center '>
         <CountUp
           start={24}
-          className='counter-value text-lg font-bold p-2 bg-dark/5 rounded-md'
+          className='counter-value text-lg font-bold p-2 bg-blue-dark/5 rounded-md'
           end={hours}
           duration={2.75}
         />
@@ -93,7 +93,7 @@ export default function BawPage() {
       <div className='flex flex-col items-center '>
         <CountUp
           start={60}
-          className='counter-value text-lg font-bold p-2 bg-dark/5 rounded-md'
+          className='counter-value text-lg font-bold p-2 bg-blue-dark/5 rounded-md'
           end={minutes}
           duration={2.75}
         />
@@ -122,7 +122,7 @@ export default function BawPage() {
         )}
         <section
           // style={{ backgroundImage: `url(${BackgroundImage})` }}
-          className={`bg-dark py-24 md:py-48 w-full table relative bg-center bg-cover transition-all duration-700 ease-out ${
+          className={`bg-blue-dark py-24 md:py-48 w-full table relative bg-center bg-cover transition-all duration-700 ease-out ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
           id='home'

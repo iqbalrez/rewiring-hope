@@ -35,7 +35,7 @@ export default function BawWhy() {
           <h3 className='md:text-2xl text-xl text-center font-bold text-amber-600 dark:text-white'>
             Kisah Otak yang Tangguh: Refleksi, Imajinasi, dan Harapan
           </h3>
-          <p className='text-dark text-center md:text-xl text-lg  mb-8'>
+          <p className='text-blue-dark text-center md:text-xl text-lg  mb-8'>
             2 Juli 2026
           </p>
           <div className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 gap-10 items-center justify-center'>
@@ -47,7 +47,7 @@ export default function BawWhy() {
                   alt=''
                 />
               </div>
-              <p className='text-dark max-w-2xl mx-auto mt-4 md:text-lg text-center'>
+              <p className='text-blue-dark max-w-2xl mx-auto mt-4 md:text-lg text-center'>
                 Siswa TK - SMA
                 <br />
                 <span className='font-bold'>Rp 50.000</span>
@@ -65,12 +65,12 @@ export default function BawWhy() {
 
             <div className='lg:col-span-8'>
               <div className=''>
-                <p className='text-dark font-bold mb-3'>
+                <p className='text-blue-dark font-bold mb-3'>
                   Keuntungan bagi peserta:
                 </p>
                 <ul className='space-y-3 text-slate-100'>
                   {benefits.map((benefit, i) => (
-                    <li key={i} className='flex items-start text-dark'>
+                    <li key={i} className='flex items-start text-blue-dark'>
                       <i className='mdi mdi-star-four-points text-amber-600 mr-2'></i>{' '}
                       {benefit}
                     </li>

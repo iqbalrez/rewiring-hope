@@ -40,7 +40,7 @@ export default function BawNavbar() {
         >
           {/* Logo Section */}
           <div
-            className={`flex items-center px-2 md:px-6 py-3 md:py-4 min-w-0 flex-shrink transition-all duration-300 ${isSticky ? 'bg-gradient-to-b bg-dark' : ''}`}
+            className={`flex items-center px-2 md:px-6 py-3 md:py-4 min-w-0 flex-shrink transition-all duration-300 ${isSticky ? 'bg-gradient-to-b bg-blue-dark' : ''}`}
           >
             <Link2
               className='navbar-brand flex flex-row items-center gap-2 md:gap-4'
@@ -70,7 +70,7 @@ export default function BawNavbar() {
                 <Link2
                   to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
                   target='_blank'
-                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-dark text-white' : 'bg-white text-dark'} `}
+                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark'} `}
                 >
                   <i className='uil uil-linkedin'></i>
                 </Link2>
@@ -79,7 +79,7 @@ export default function BawNavbar() {
                 <Link2
                   to='https://instagram.com/rewiringhopeindonesia'
                   target='_blank'
-                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-dark text-white' : 'bg-white text-dark'} `}
+                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark'} `}
                 >
                   <i className='uil uil-instagram'></i>
                 </Link2>
@@ -87,7 +87,7 @@ export default function BawNavbar() {
             </ul>
             <button
               type='button'
-              className='collapse-btn inline-flex items-center ms-1 bg-white rounded-full px-2 p-1 text-dark dark:text-white lg_992:hidden'
+              className='collapse-btn inline-flex items-center ms-1 bg-white rounded-full px-2 p-1 text-blue-dark dark:text-white lg_992:hidden'
               onClick={toggleMenu}
             >
               <span className='sr-only'>Navigation Menu</span>
@@ -109,7 +109,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-dark text-white' : 'bg-dark text-white md:text-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
                 }
               >
                 Home
@@ -117,7 +117,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/brain-awareness-week'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-dark text-white' : 'bg-dark text-white md:text-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
                 }
               >
                 Brain Awareness Week
@@ -125,7 +125,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/about'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-dark text-white' : 'bg-dark text-white md:text-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
                 }
               >
                 About

@@ -41,7 +41,7 @@ export default function BawEventAbout() {
   // }
   return (
     <>
-      <section className='relative py-24 bg-dark' id='about'>
+      <section className='relative py-24 bg-blue-dark' id='about'>
         <div
           className='container mx-auto'
           data-aos='fade-up'
@@ -84,11 +84,11 @@ export default function BawEventAbout() {
             </div>
 
             <div className='lg:col-span-5'>
-              <div className='bg-white flex flex-col items-center text-center rounded-lg justify-center pb-8 relative overflow-hidden'>
+              <div className=' flex flex-col items-center text-center rounded-lg justify-center pb-8 relative overflow-hidden'>
                 <img src={BawEventImage} className='relative w-full' alt='' />
 
-                <div className=' mt-4 text-lg md:text-xl leading-tight text-slate-900/80 dark:text-slate-100'>
-                  Taman Budaya Yogyakarta
+                <div className=' mt-4 text-lg md:text-xl leading-tight text-amber-500 font-semibold'>
+                  📍 Taman Budaya Yogyakarta
                   <br />2 Juli 2026
                 </div>
                 {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
@@ -109,7 +109,7 @@ export default function BawEventAbout() {
         <div
           data-aos='fade-up'
           data-aos-duration='1000'
-          class='bg-dark flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8 text-white'
+          class='bg-blue-dark flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8 text-white'
         >
           <div class='text-center mb-16 max-w-3xl'>
             <h6 className='text-amber-500 text-base font-medium uppercase mb-2'>
@@ -122,30 +122,30 @@ export default function BawEventAbout() {
           </div>
 
           <div class='relative w-full max-w-5xl mx-auto'>
-            <div class='absolute left-1/2 top-6 bottom-36 border-l-4 border-dashed border-slate-900 -translate-x-1/2 md:hidden z-0'></div>
+            <div class='absolute left-1/2 top-6 bottom-36 border-l-4 border-dashed border-blue-800 -translate-x-1/2 md:hidden z-0'></div>
 
-            <div class='hidden md:block absolute top-6 left-[16%] right-[16%] border-t-4 border-dashed border-slate-900 z-0'></div>
+            <div class='hidden md:block absolute top-6 left-[16%] right-[16%] border-t-4 border-dashed border-blue-800 z-0'></div>
 
             <div class='relative z-10 flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0'>
               <div class='flex flex-col items-center text-center w-full md:w-1/3'>
-                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-slate-900 mb-4 shadow-md z-10'></div>
-                <div class='px-4 bg-dark'>
+                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
+                <div class='px-4 bg-blue-dark'>
                   <p class='leading-tight mb-1'>1 Maret – 31 Mei 2026</p>
                   <p class='font-bold text-lg'>Pengumpulan karya</p>
                 </div>
               </div>
 
               <div class='flex flex-col items-center text-center w-full md:w-1/3'>
-                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-slate-900 mb-4 shadow-md z-10'></div>
-                <div class='px-4 bg-dark'>
+                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
+                <div class='px-4 bg-blue-dark'>
                   <p class='leading-tight mb-1'>13 Juni 2026</p>
                   <p class='font-bold text-lg'>Pengumuman finalis</p>
                 </div>
               </div>
 
               <div class='flex flex-col items-center text-center w-full md:w-1/3'>
-                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-slate-900 mb-4 shadow-md z-10'></div>
-                <div class='px-4 bg-dark'>
+                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
+                <div class='px-4 bg-blue-dark'>
                   <p class='leading-tight mb-1'>2 Juli 2026</p>
                   <p class='font-bold text-lg'>FAIR + GRAND FINAL</p>
                   <p class='text-gray-200 text-sm uppercase tracking-wider'>

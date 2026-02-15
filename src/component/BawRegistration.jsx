@@ -222,7 +222,7 @@ export default function TicketRegistration({ initialType, price }) {
         <div className='container mx-auto' data-aos='fade-up'>
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
             {/* INFO EVENT */}
-            <div className='bg-dark rounded-lg shadow-lg p-8'>
+            <div className='bg-blue-dark rounded-lg shadow-lg p-8'>
               <div className='mb-6 flex items-center'>
                 <span className='text-2xl font-bold text-amber-500'>
                   {ticketInfo.title}

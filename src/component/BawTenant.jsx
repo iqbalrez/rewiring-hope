@@ -25,7 +25,7 @@ export default function BawTenant() {
 
   return (
     <>
-      <section className='relative py-24 bg-dark' id='about'>
+      <section className='relative py-24 bg-blue-dark' id='about'>
         <div
           className='container mx-auto'
           data-aos='fade-up'
@@ -61,7 +61,7 @@ export default function BawTenant() {
                   />
                 </div>
               </div>
-              <p className='text-dark max-w-2xl mx-auto md:text-lg text-center '>
+              <p className='text-blue-dark max-w-2xl mx-auto md:text-lg text-center '>
                 Rp350.000
               </p>
               <div className='flex justify-center mb-2'>

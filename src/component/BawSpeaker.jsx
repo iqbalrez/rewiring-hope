@@ -43,11 +43,11 @@ export default function Speaker() {
             <h6 className='text-amber-600 text-base font-medium uppercase'>
               Brain Awareness Week (Kisah Otak yang Tangguh)
             </h6>
-            <h3 className='md:text-2xl text-xl font-medium dark:text-white'>
+            <h3 className='md:text-2xl text-xl font-medium text-blue-dark dark:text-white'>
               Acara Puncak: FAIR + GRAND FINAL
             </h3>
 
-            <p className='text-md lg:text-lg text-slate-500 dark:text-slate-300 w-full mx-auto'>
+            <p className='text-md lg:text-lg text-blue-dark dark:text-slate-300 w-full mx-auto'>
               <span className='font-bold'>BRAIN ACTIVITY</span> (Hands-on
               Neuroscience Experience) - Kolaborasi dengan{' '}
               <span className='font-bold'>University of Queensland </span>
@@ -87,14 +87,14 @@ export default function Speaker() {
                   />
                   {/* <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-primary/30 z-0 transition duration-500'></div> */}
 
-                  <div className='content text-center md:text-start bg-white dark:bg-dark p-3 rounded-md transition-all duration-500 flex flex-col h-full'>
+                  <div className='content text-center md:text-start bg-white dark:bg-blue-dark p-3 rounded-md transition-all duration-500 flex flex-col h-full'>
                     <Link
                       to='#'
-                      className='md:text-md font-bold text-dark dark:text-white leading-tight mb-1'
+                      className='md:text-md font-bold text-blue-dark dark:text-white leading-tight mb-1'
                     >
                       {member.name}
                     </Link>
-                    <h6 className='text-dark text-md md:text-xs dark:text-slate-300 mb-0 font-light'>
+                    <h6 className='text-blue-dark text-md md:text-xs dark:text-slate-300 mb-0 font-light'>
                       {member.designation}
                     </h6>
                     <h6 className='text-primary text-md md:text-xs font-medium dark:text-slate-300 mt-2'>
@@ -104,7 +104,7 @@ export default function Speaker() {
                 </div>
               ))}
             </div>
-            <div className='mt-4 bg-white rounded-md p-2 text-md text-center text-dark'>
+            <div className='mt-4 bg-white rounded-md p-2 text-md text-center text-blue-dark'>
               📍 Taman Budaya Yogyakarta
               <br />2 Juli 2026
             </div>

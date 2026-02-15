@@ -13,7 +13,7 @@ export default function BawStory() {
     Aos.init();
   }, []);
 
-  const highlight = 'font-semibold bg-dark px-1 ronded-md';
+  const highlight = 'font-semibold bg-blue-dark px-1 ronded-md';
 
   return (
     <>

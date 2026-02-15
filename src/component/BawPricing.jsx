@@ -41,7 +41,7 @@ export default function Pricing({ setType, setPrice }) {
       {/* Start */}
 
       <section
-        className='relative md:py-24 py-16 space-y-4 bg-dark'
+        className='relative md:py-24 py-16 space-y-4 bg-blue-dark'
         id='pricing'
       >
         <div className='container space-y-4'>
@@ -66,7 +66,7 @@ export default function Pricing({ setType, setPrice }) {
                     src={item.image}
                     alt={item.title}
                   ></img>
-                  <h3 className='text-lg md:text-xl font-bold text-dark dark:text-white '>
+                  <h3 className='text-lg md:text-xl font-bold text-blue-dark dark:text-white '>
                     {item.title}
                   </h3>
                   <p className='mb-3 text-md text-slate-430 dark:text-slate-300'>
@@ -79,7 +79,7 @@ export default function Pricing({ setType, setPrice }) {
                     setType && setType(item.key);
                     setPrice && setPrice(item.price);
                   }}
-                  className='items-center py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-dark hover:bg-amber-700 border-dark hover:border-amber-700 text-white rounded-md w-full'
+                  className='items-center py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-blue-dark hover:bg-amber-700 border-blue-dark hover:border-amber-700 text-white rounded-md w-full'
                 >
                   <i className='mdi mdi-download mr-2'></i>Panduan Lomba
                 </a>
