@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Pricing({ setType, setPrice }) {
+export default function Pricing({ setType, setTicketPrice }) {
   const pricing = [
     {
       id: 1,
@@ -91,7 +91,7 @@ export default function Pricing({ setType, setPrice }) {
                   href='#register'
                   onClick={() => {
                     setType && setType(item.key);
-                    setPrice && setPrice(item.price);
+                    setTicketPrice && setTicketPrice(item.price);
                   }}
                   className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md w-full'
                 >

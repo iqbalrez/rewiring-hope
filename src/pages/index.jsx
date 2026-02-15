@@ -228,10 +228,13 @@ export default function Index() {
           <i className='uil uil-arrow-up'></i>
         </Link>
 
-        <Pricing setType={setTicketType} setPrice={setTicketPrice} />
+        <Pricing setType={setTicketType} setTicketPrice={setTicketPrice} />
 
         {/* Pricing section */}
-        <TicketRegistration initialType={ticketType} price={ticketPrice} />
+        <TicketRegistration
+          initialType={ticketType}
+          initialPrice={ticketPrice}
+        />
 
         <section
           className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'

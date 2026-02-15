@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import FullyFundedModal from './Modal/FullyFundedModal';
 import axios from 'axios';
 
-export default function TicketRegistration({ initialType, price }) {
+export default function TicketRegistration({ initialType, initialPrice }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
   const eventId = 'c2314b19-6311-4f4a-9e46-12723df7f74d';
 
@@ -47,8 +47,16 @@ export default function TicketRegistration({ initialType, price }) {
   };
 
   const [type, setType] = useState('MHS');
+  const [price, setPrice] = useState(initialPrice);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const priceMap = {
+    MHS: 150000,
+    OTGR: 350000,
+    PRO: 500000,
+    FF: 0,
+  };
 
   const [formData, setFormData] = useState({
     name: '',
@@ -123,7 +131,8 @@ export default function TicketRegistration({ initialType, price }) {
   // Sync parent-provided initial type (when user clicks pricing) into local state
   useEffect(() => {
     if (initialType) setType(initialType);
-  }, [initialType]);
+    if (initialPrice) setPrice(initialPrice);
+  }, [initialType, initialPrice]);
 
   return (
     <>
@@ -205,6 +214,7 @@ export default function TicketRegistration({ initialType, price }) {
                       value={type}
                       onChange={(e) => {
                         setType(e.target.value);
+                        setPrice(priceMap[e.target.value] || initialPrice || 0);
                         setFormData({ ...formData, type: e.target.value });
                       }}
                       className='w-full p-4 mt-2 border rounded-md h-14'
