@@ -29,6 +29,8 @@ import PortfolioDetail from './pages/template/portfolio-detail.jsx';
 import IndexTen from './pages/template/index-ten.jsx';
 import IndexTwelve from './pages/template/index-twelve.jsx';
 import IndexEleven from './pages/template/index-eleven.jsx';
+import BawPage from './pages/baw.jsx';
+import OrderPage from './pages/admin/OrderPage.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -47,12 +49,16 @@ export default function App() {
     <>
       {loading && <Loader />}
       <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/dashboard/orders' element={<OrderPage />} />
+
         <Route path='/' element={<Index />} />
         <Route path='/about' element={<AboutPage />} />
         <Route
           path='/terms-and-conditions'
           element={<TermsAndConditionsPage />}
         />
+        <Route path='/brain-awareness-week' element={<BawPage />} />
         <Route path='/assets' element={<NotFound />} />
         <Route path='/src/assets' element={<NotFound />} />
         <Route path='*' element={<NotFound />} />

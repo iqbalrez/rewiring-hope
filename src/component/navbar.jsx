@@ -75,7 +75,7 @@ export default function Navbar({ navdark, bg }) {
                 </li>
                 <li className='inline ms-1'>
                   <Link2
-                    to='https://instagram.com/teachingthehealingbrain'
+                    to='https://instagram.com/rewiringhopeindonesia'
                     target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
@@ -149,6 +149,14 @@ export default function Navbar({ navdark, bg }) {
                 }
               >
                 Home
+              </NavLink>
+              <NavLink
+                to='/brain-awareness-week'
+                className={({ isActive }) =>
+                  ` p-3 px-4 ${isActive ? 'bg-white text-primary rounded-md' : 'nav-link'}`
+                }
+              >
+                Brain Awareness Week
               </NavLink>
               <NavLink
                 to='/about'

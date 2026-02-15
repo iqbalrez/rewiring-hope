@@ -7,8 +7,8 @@ import Team from '../component/team-aos';
 import Footer from '../component/Footer';
 import Navbar from '../component/navbar';
 import VisionMission from '../component/VisionMission';
-import AddWord from '../component/AddWord';
 import WordClouds from '../component/WordClouds';
+import AddWord from '../component/AddWord';
 
 import EndImage from '../assets/images/end.png';
 import LogoDark from '../assets/images/logo-dark.png';

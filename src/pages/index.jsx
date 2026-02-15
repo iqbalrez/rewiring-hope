@@ -113,7 +113,7 @@ export default function Index() {
         {popupVisible && (
           <>
             <div className='fixed inset-0 bg-opacity-50 z-50 flex items-center justify-center'>
-              <div className='bg-white p-6 mx-6 rounded-lg max-w-3xl w-full text-center'>
+              <div className='bg-white p-2 mx-6 rounded-lg max-w-3xl w-11/12 md:w-full text-center'>
                 <WordClouds handlePopupClose={handlePopupClose} />
               </div>
               <div

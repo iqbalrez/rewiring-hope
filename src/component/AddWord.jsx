@@ -26,7 +26,10 @@ const AddWord = ({ setIsOpen, handlePopupClose }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit} className='flex justify-center gap-4'>
+      <form
+        onSubmit={handleSubmit}
+        className='flex flex-col md:flex-row justify-center gap-4'
+      >
         <input
           type='text'
           value={word}
