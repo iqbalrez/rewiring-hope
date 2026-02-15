@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import IBROImage from '../assets/images/client/IBROImage.jpg';
 import DanaFoundationImage from '../assets/images/client/DanaFoundationImageColor.png';
-import BAWColorImage from '../assets/images/client/BAWColor.svg';
+import BAWColorImage from '../assets/images/client/bawcolor.svg';
 
 import TeamAos from './team-aos';
 import Sign from '../assets/images/sign.png';
