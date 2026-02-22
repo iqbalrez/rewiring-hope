@@ -66,7 +66,7 @@ export default function Navbar({ navdark, bg }) {
               <ul className='list-none menu-social mb-0'>
                 <li className='inline ms-1'>
                   <Link2
-                    to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
+                    to='https://linkedin.com/company/rewiring-hope'
                     target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white'
                   >
@@ -88,7 +88,7 @@ export default function Navbar({ navdark, bg }) {
               <ul className='list-none menu-social mb-0'>
                 <li className='inline ms-1'>
                   <Link2
-                    to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
+                    to='https://linkedin.com/company/rewiring-hope'
                     target='_blank'
                   >
                     <span className='login-btn-primary'>
@@ -105,7 +105,7 @@ export default function Navbar({ navdark, bg }) {
                 </li>
                 <li className='inline ms-1'>
                   <Link2
-                    to='https://instagram.com/teachingthehealingbrain'
+                    to='https://instagram.com/rewiringhopeindonesia'
                     target='_blank'
                   >
                     <span className='login-btn-primary'>

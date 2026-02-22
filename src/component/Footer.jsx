@@ -46,7 +46,7 @@ export default function Footer() {
                                 <li className="inline ms-1"><Link to="https://www.facebook.com/shreethemes" target="_blank" className="size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-md border-slate-700 dark:border-slate-800 hover:border-primary bg-slate-800 dark:bg-gray-900 hover:bg-primary dark:hover:bg-primary text-gray-400 hover:text-white"><i className="uil uil-facebook-f align-middle" title="facebook"></i></Link></li> */}
                 <li className='inline ms-1'>
                   <Link
-                    to='https://www.linkedin.com/showcase/teachingthehealingbrain/'
+                    to='https://linkedin.com/company/rewiring-hope'
                     target='_blank'
                     className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-md border-slate-700 dark:border-slate-800 hover:border-primary bg-slate-800 dark:bg-gray-900 hover:bg-primary dark:hover:bg-primary text-gray-400 hover:text-white'
                   >
