@@ -5,35 +5,15 @@ import axios from 'axios';
 
 export default function TicketRegistration({ initialType, price }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
-  const eventId = 'c2314b19-6311-4f4a-9e46-12723df7f74d';
+  const eventId = '29bd3506-0a83-11f1-909d-0a002700000b';
 
   const [agreeTerms, setAgreeTerms] = useState(false);
-  const [isFFModalOpen, setIsFFModalOpen] = useState(false);
   const [file, setFile] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
 
   const [formMessage, setFormMessage] = useState(
     'Sistem Pembayaran sedang dikembangkan.',
   );
-
-  const handleFFClick = () => {
-    if (
-      formData.name &&
-      formData.email &&
-      formData.waNumber &&
-      formData.school
-    ) {
-      setIsFFModalOpen(true);
-    } else {
-      alert(
-        'Please fill out all required fields before selecting Fully Funded.',
-      );
-    }
-  };
-
-  const closeModal = () => {
-    setIsFFModalOpen(false);
-  };
 
   const ticketInfo = {
     title: 'FAQ',
@@ -72,17 +52,14 @@ export default function TicketRegistration({ initialType, price }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    waNumber: '',
-    school: '',
+    phone: '',
+    institution: '',
     type: type,
+    level: 'TK',
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (type === 'FF') {
-      handleFFClick();
-      return;
-    }
     setLoading(true);
     setErrorMsg('');
 
@@ -91,9 +68,26 @@ export default function TicketRegistration({ initialType, price }) {
       const data = new FormData();
       data.append('name', formData.name);
       data.append('email', formData.email);
-      data.append('phone', formData.waNumber);
-      data.append('category', type); // MHS, OTGR, PRO
+      data.append('phone', formData.phone);
+      data.append('category', type);
       data.append('eventId', eventId); // Pastikan ID Event benar
+
+      const finalSubmissionData = {
+        personal_info: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          institution: formData.institution,
+          level: formData.level,
+        },
+        submission: {
+          type: type,
+          title: '',
+          link: '',
+        },
+      };
+
+      data.append('submissionData', JSON.stringify(finalSubmissionData));
 
       if (file) {
         data.append('paymentProof', file);
@@ -277,7 +271,7 @@ export default function TicketRegistration({ initialType, price }) {
                         setFormData({
                           ...formData,
                           type: e.target.value,
-                          level: '',
+                          level: 'TK',
                         });
                       }}
                       className='w-full p-4 mt-2 border rounded-md h-14'
@@ -295,7 +289,10 @@ export default function TicketRegistration({ initialType, price }) {
                     <select
                       value={formData.level}
                       onChange={(e) =>
-                        setFormData({ ...formData, level: e.target.value })
+                        setFormData({
+                          ...formData,
+                          level: e.target.value,
+                        })
                       }
                       className='w-full p-4 mt-2 border rounded-md h-14'
                       required
@@ -322,9 +319,9 @@ export default function TicketRegistration({ initialType, price }) {
                     <label className='block font-medium'>No. WhatsApp</label>
                     <input
                       type='number'
-                      value={formData.waNumber}
+                      value={formData.phone}
                       onChange={(e) =>
-                        setFormData({ ...formData, waNumber: e.target.value })
+                        setFormData({ ...formData, phone: e.target.value })
                       }
                       className='w-full p-4 mt-2 border rounded-md'
                       placeholder='Masukkan No. WA aktif'
@@ -336,11 +333,11 @@ export default function TicketRegistration({ initialType, price }) {
                     <label className='block font-medium'>Sekolah</label>
                     <input
                       type='text'
-                      value={formData.school}
+                      value={formData.institution}
                       onChange={(e) =>
                         setFormData({
                           ...formData,
-                          school: e.target.value,
+                          institution: e.target.value,
                         })
                       }
                       className='w-full p-4 mt-2 border rounded-md'
@@ -359,7 +356,7 @@ export default function TicketRegistration({ initialType, price }) {
                         accept='image/*'
                         onChange={(e) => setFile(e.target.files[0])}
                         className='w-full'
-                        required={type !== 'FF'}
+                        required={true}
                       />
                       <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
                         <p className='text-xs text-gray-500'>
@@ -412,13 +409,11 @@ export default function TicketRegistration({ initialType, price }) {
 
                   <button
                     type='submit'
-                    // disabled={loading || !agreeTerms}
-                    disabled={true}
+                    disabled={loading || !agreeTerms}
                     className={`w-full py-3 text-white rounded-full transition ${
-                      // loading || !agreeTerms
-                      // ?
-                      'bg-slate-300 cursor-not-allowed'
-                      // : 'bg-amber-600 hover:bg-amber-700'
+                      loading || !agreeTerms
+                        ? 'bg-slate-300 cursor-not-allowed'
+                        : 'bg-amber-600 hover:bg-amber-700'
                     }`}
                   >
                     {loading ? 'Memproses...' : 'Daftar'}
@@ -439,16 +434,6 @@ export default function TicketRegistration({ initialType, price }) {
           </div>
         </div>
       </section>
-      {/* Modal for FF */}
-      <FullyFundedModal
-        isOpen={isFFModalOpen}
-        onClose={closeModal}
-        formData={formData}
-        setFormData={setFormData}
-        setFormMessage={setFormMessage}
-        eventId={eventId}
-        setSubmitted={setSubmitted}
-      />
     </>
   );
 }

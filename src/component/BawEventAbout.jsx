@@ -88,7 +88,7 @@ export default function BawEventAbout() {
                 <img src={BawEventImage} className='relative w-full' alt='' />
 
                 <div className=' mt-4 text-lg md:text-xl leading-tight text-amber-500 font-semibold'>
-                  📍 Taman Budaya Yogyakarta
+                  📍 Grhatama Pustaka DIY
                   <br />2 Juli 2026
                 </div>
                 {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
@@ -149,7 +149,7 @@ export default function BawEventAbout() {
                   <p class='leading-tight mb-1'>2 Juli 2026</p>
                   <p class='font-bold text-lg'>FAIR + GRAND FINAL</p>
                   <p class='text-gray-200 text-sm uppercase tracking-wider'>
-                    di Taman Budaya Yogyakarta
+                    di Grhatama Pustaka DIY
                   </p>
                 </div>
               </div>

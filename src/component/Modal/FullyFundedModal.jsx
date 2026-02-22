@@ -29,28 +29,34 @@ export default function FullyFundedModal({
       // 1. Ekstrak jawaban pertanyaan ke dalam format JSON
       const responses = {
         personal_info: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.waNumber,
           address: formData.address,
           age: formData.age,
           city: formData.city,
           currentRole: formData.currentRole,
           community: formData.community,
+          type: 'FF',
         },
-        section_b: {
-          impact: formData.impact,
-          duration: formData.duration,
-        },
-        section_c: {
-          strategy: formData.strategy,
-          condition: formData.condition,
-        },
-        section_d: {
-          challenge: formData.challenge,
-        },
-        section_e: {
-          importance: formData.importance,
-          contribution: formData.contribution,
-          collaboration: formData.collaboration,
-          change: formData.change,
+        assesment: {
+          section_b: {
+            impact: formData.impact,
+            duration: formData.duration,
+          },
+          section_c: {
+            strategy: formData.strategy,
+            condition: formData.condition,
+          },
+          section_d: {
+            challenge: formData.challenge,
+          },
+          section_e: {
+            importance: formData.importance,
+            contribution: formData.contribution,
+            collaboration: formData.collaboration,
+            change: formData.change,
+          },
         },
       };
 
@@ -60,7 +66,7 @@ export default function FullyFundedModal({
         email: formData.email,
         phone: formData.waNumber,
         eventId: eventId, // Pastikan ID ini sesuai
-        category: 'fully_funded',
+        category: 'FF',
         submissionData: JSON.stringify(responses), // Diubah ke string JSON
       };
 

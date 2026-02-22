@@ -30,7 +30,9 @@ import IndexTen from './pages/template/index-ten.jsx';
 import IndexTwelve from './pages/template/index-twelve.jsx';
 import IndexEleven from './pages/template/index-eleven.jsx';
 import BawPage from './pages/baw.jsx';
-import OrderPage from './pages/admin/OrderPage.jsx';
+import OrderEventPage from './pages/admin/OrderEventPage.jsx';
+import DashboardPage from './pages/admin/DashboardPage.jsx';
+import AdminLayout from './component/layouts/AdminLayout.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -50,7 +52,36 @@ export default function App() {
       {loading && <Loader />}
       <Routes>
         <Route path='/login' element={<Login />} />
-        <Route path='/dashboard/orders' element={<OrderPage />} />
+        <Route
+          path='/dashboard'
+          element={
+            <AdminLayout>
+              <DashboardPage />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path='/dashboard/orders/TTHB'
+          element={
+            <AdminLayout>
+              <OrderEventPage
+                eventId='c2314b19-6311-4f4a-9e46-12723df7f74d'
+                eventTitle={'Teaching The Healing Brain'}
+              />
+            </AdminLayout>
+          }
+        />
+        <Route
+          path='/dashboard/orders/BAW'
+          element={
+            <AdminLayout>
+              <OrderEventPage
+                eventId='29bd3506-0a83-11f1-909d-0a002700000b'
+                eventTitle={'Brain Awareness Week'}
+              />
+            </AdminLayout>
+          }
+        />
 
         <Route path='/' element={<Index />} />
         <Route path='/about' element={<AboutPage />} />

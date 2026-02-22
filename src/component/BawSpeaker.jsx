@@ -105,7 +105,7 @@ export default function Speaker() {
               ))}
             </div>
             <div className='mt-4 bg-white rounded-md p-2 text-md text-center text-blue-dark'>
-              📍 Taman Budaya Yogyakarta
+              📍 Grhatama Pustaka DIY
               <br />2 Juli 2026
             </div>
           </div>

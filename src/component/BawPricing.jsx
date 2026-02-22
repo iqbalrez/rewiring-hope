@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MWImage from '../assets/images/baw/MW.png';
 import STImage from '../assets/images/baw/ST.png';
 import RVImage from '../assets/images/baw/RV.png';
 import DIImage from '../assets/images/baw/DI.png';
+import { useSearchParams } from 'react-router-dom';
+
+import SubmitKaryaModal from './Modal/SubmitWorkModal';
 
 export default function Pricing({ setType, setPrice }) {
+  const [searchParams] = useSearchParams();
+  const [isSubmitWorkModalOpen, setIsSubmitWorkModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (searchParams.get('openModal') === 'submit') {
+      setIsSubmitWorkModalOpen(true);
+    }
+  }, [searchParams]);
+
   const pricing = [
     {
       id: 1,
@@ -94,7 +106,11 @@ export default function Pricing({ setType, setPrice }) {
               Daftar Kompetisi
             </a>
             <a
-              href='#register'
+              href=''
+              onClick={(e) => {
+                e.preventDefault();
+                setIsSubmitWorkModalOpen(true);
+              }}
               className='hover:scale-105 bg-amber-600 text-white rounded-md py-3 px-6 shadow-lg hover:bg-amber-700 transition-all duration-300 w-fit'
             >
               Submit Karya
@@ -102,6 +118,10 @@ export default function Pricing({ setType, setPrice }) {
           </div>
         </div>
       </section>
+      <SubmitKaryaModal
+        isOpen={isSubmitWorkModalOpen}
+        onClose={() => setIsSubmitWorkModalOpen(false)}
+      />
     </>
   );
 }

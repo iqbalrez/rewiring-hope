@@ -84,6 +84,18 @@ export default function TicketRegistration({ initialType, initialPrice }) {
       data.append('category', type); // MHS, OTGR, PRO
       data.append('eventId', eventId); // Pastikan ID Event benar
 
+      const submissionData = {
+        personal_info: {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.waNumber,
+          institution: formData.institution,
+          type: type,
+        },
+      };
+
+      data.append('submissionData', JSON.stringify(submissionData));
+
       if (file) {
         data.append('paymentProof', file);
       }
