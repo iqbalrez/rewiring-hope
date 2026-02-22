@@ -1,7 +1,7 @@
 import React from 'react';
 import Sidebar from '../Sidebar';
 
-const AdminLayout = ({ children }) => {
+export default function AdminLayout({ children }) {
   return (
     <div className='bg-gray-50 min-h-screen'>
       <Sidebar />
@@ -13,6 +13,4 @@ const AdminLayout = ({ children }) => {
       </main>
     </div>
   );
-};
-
-export default AdminLayout;
+}

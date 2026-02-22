@@ -24,6 +24,7 @@ const DashboardPage = () => {
 
   const baseUrl = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem('token');
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchDashboardStats = async () => {
@@ -36,7 +37,9 @@ const DashboardPage = () => {
         // Langsung set ke state
         setStats(response.data);
       } catch (err) {
-        console.error('Gagal ambil statistik:', err);
+        setError(`Failed to fetch orders: ${err.message}`);
+        if (err.response && err.response.status === 401)
+          window.location.href = '/login';
       } finally {
         setLoading(false);
       }
@@ -44,6 +47,8 @@ const DashboardPage = () => {
 
     fetchDashboardStats();
   }, [baseUrl, token]);
+
+  if (error) return <div className='text-center text-red-600'>{error}</div>;
 
   const StatCard = ({ title, value, icon, color }) => (
     <div className='bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex items-center justify-between'>
