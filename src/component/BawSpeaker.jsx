@@ -5,6 +5,7 @@ import CountUp from 'react-countup';
 
 import avatarIda from '../assets/images/client/ida.webp';
 import avatarMirza from '../assets/images/client/mirza.webp';
+import preliminaryAgenda from '../assets/images/BAW-Agenda.jpeg';
 
 import Aos from 'aos';
 
@@ -104,6 +105,13 @@ export default function Speaker() {
                 </div>
               ))}
             </div>
+            <Link
+              to={preliminaryAgenda}
+              target='_blank'
+              className='mt-4 p-3 w-fit mx-auto inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-blue-dark hover:bg-blue-dark border-blue hover:border-blue-dark text-white rounded-md'
+            >
+              Preliminary Agenda <i className='mdi mdi-arrow-top-right'></i>
+            </Link>
             <div className='mt-4 bg-white rounded-md p-2 text-md text-center text-blue-dark'>
               📍 Grhatama Pustaka DIY
               <br />2 Juli 2026

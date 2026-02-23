@@ -9,6 +9,7 @@ export default function FullyFundedModal({
   setFormMessage,
   setSubmitted,
   eventId,
+  instagramProof,
 }) {
   const [loading, setLoading] = useState(false);
   const VITE_API_URL = import.meta.env.VITE_API_URL;
@@ -60,30 +61,35 @@ export default function FullyFundedModal({
         },
       };
 
-      // 2. Siapkan Body API sesuai permintaan
-      const apiBody = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.waNumber,
-        eventId: eventId, // Pastikan ID ini sesuai
-        category: 'FF',
-        submissionData: JSON.stringify(responses), // Diubah ke string JSON
-      };
+      // 2. Wajib gunakan FormData untuk upload file
+      const formDataToSend = new FormData();
+      formDataToSend.append('name', formData.name);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('phone', formData.waNumber);
+      formDataToSend.append('eventId', eventId);
+      formDataToSend.append('category', 'FF');
+      formDataToSend.append('submissionData', JSON.stringify(responses));
 
-      // 3. Eksekusi Post ke API
-      console.log(apiBody);
-      await axios.post(`${VITE_API_URL}/orders/register`, apiBody);
+      // Pastikan instagramProof tidak kosong sebelum di-append
+      if (instagramProof) {
+        formDataToSend.append('instagramProof', instagramProof);
+      }
 
-      onClose();
+      // 3. Eksekusi Post ke API (Tidak perlu manual set Content-Type, Axios otomatis mengenali FormData)
+      await axios.post(`${VITE_API_URL}/orders/register`, formDataToSend, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+
+      // 4. Jika sukses, baru tutup modal
       setFormMessage(
         'Aplikasi Fully Funded berhasil dikirim. Mohon informasi lebih lanjut via email.',
       );
       setSubmitted(true);
+      onClose();
     } catch (err) {
       const errorMsg =
         err.response?.data?.message || 'Gagal mengirim pendaftaran.';
       alert(errorMsg);
-      onClose();
       setFormMessage(errorMsg);
     } finally {
       setLoading(false);
@@ -320,7 +326,12 @@ export default function FullyFundedModal({
             <div className='text-center flex justify-center mt-6'>
               <button
                 type='submit'
-                className='bg-green-600 text-white w-full py-3 rounded-md'
+                disabled={loading}
+                className={`w-full py-3 rounded-md text-white ${
+                  loading
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-green-600 hover:bg-green-700'
+                }`}
               >
                 {loading ? 'Submitting...' : 'Submit Aplikasi'}
               </button>

@@ -10,6 +10,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isFFModalOpen, setIsFFModalOpen] = useState(false);
   const [file, setFile] = useState(null);
+  const [instagramProof, setInstagramProof] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
 
   const [formMessage, setFormMessage] = useState(
@@ -17,15 +18,17 @@ export default function TicketRegistration({ initialType, initialPrice }) {
   );
 
   const handleFFClick = () => {
+    setErrorMsg('');
     if (
       formData.name &&
       formData.email &&
       formData.waNumber &&
-      formData.institution
+      formData.institution &&
+      instagramProof
     ) {
       setIsFFModalOpen(true);
     } else {
-      alert(
+      setErrorMsg(
         'Please fill out all required fields before selecting Fully Funded.',
       );
     }
@@ -98,6 +101,10 @@ export default function TicketRegistration({ initialType, initialPrice }) {
 
       if (file) {
         data.append('paymentProof', file);
+      }
+
+      if (instagramProof) {
+        data.append('instagramProof', instagramProof);
       }
 
       await axios.post(`${VITE_API_URL}/orders/register`, data, {
@@ -259,6 +266,33 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                     Kami percaya Anda dapat memilih kategori yang paling sesuai
                     dengan kondisi Anda.
                   </p>
+                  <div className='mb-6'>
+                    <label className='block font-medium'>
+                      Bukti Follow Instagram (JPG/PNG)
+                    </label>
+                    <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) => setInstagramProof(e.target.files[0])}
+                        className='w-full'
+                        required={type !== 'FF'}
+                      />
+                      <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
+                        <p className='text-xs text-gray-500'>
+                          Silakan upload bukti follow Instagram{' '}
+                          <a
+                            target='_blank'
+                            href='https://instagram.com/rewiringhopeindonesia'
+                            className='text-blue-600'
+                          >
+                            @rewiringhopeindonesia
+                          </a>
+                          .
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                   {type !== 'FF' ? (
                     <>
                       <div className='mb-6'>
@@ -370,6 +404,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
         setFormMessage={setFormMessage}
         eventId={eventId}
         setSubmitted={setSubmitted}
+        instagramProof={instagramProof}
       />
     </>
   );

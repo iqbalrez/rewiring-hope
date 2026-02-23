@@ -9,6 +9,7 @@ export default function TicketRegistration({ initialType, price }) {
 
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [file, setFile] = useState(null);
+  const [instagramProof, setInstagramProof] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
 
   const [formMessage, setFormMessage] = useState(
@@ -91,6 +92,9 @@ export default function TicketRegistration({ initialType, price }) {
 
       if (file) {
         data.append('paymentProof', file);
+      }
+      if (instagramProof) {
+        data.append('instagramProof', instagramProof);
       }
 
       await axios.post(`${VITE_API_URL}/orders/register`, data, {
@@ -344,6 +348,34 @@ export default function TicketRegistration({ initialType, price }) {
                       placeholder='Masukkan asal institusi'
                       required
                     />
+                  </div>
+
+                  <div className='mb-6'>
+                    <label className='block font-medium'>
+                      Bukti Follow Instagram (JPG/PNG)
+                    </label>
+                    <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) => setInstagramProof(e.target.files[0])}
+                        className='w-full'
+                        required={type !== 'FF'}
+                      />
+                      <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
+                        <p className='text-xs text-gray-500'>
+                          Silakan upload bukti follow Instagram{' '}
+                          <a
+                            target='_blank'
+                            href='https://instagram.com/rewiringhopeindonesia'
+                            className='text-blue-600'
+                          >
+                            @rewiringhopeindonesia
+                          </a>
+                          .
+                        </p>
+                      </div>
+                    </div>
                   </div>
 
                   <div className='mb-6'>

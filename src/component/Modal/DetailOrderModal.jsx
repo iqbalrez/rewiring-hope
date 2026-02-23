@@ -15,18 +15,22 @@ export default function DetailOrderModal({
   selectedOrder,
   closeModal,
   setError,
+  onSuccess,
 }) {
   const baseUrl = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem('token');
   const [loading, setLoading] = useState(false);
 
-  if (loading) return <div className='text-center'>Loading...</div>;
+  const submissionData = JSON.parse(selectedOrder.submission_data);
+
+  if (loading)
+    return <div className='text-center mt-10'>Loading memproses data...</div>;
 
   const handleApproveClick = (id) => {
     Swal.fire({
       html: `
       <p class="text-center">Apakah Anda yakin ingin menyetujui pendaftaran ini?<p>
-      <div class="mt-2 font-bold text-lg text-primary uppercase">${selectedOrder.user.name}</div>
+      <div class="mt-2 font-bold text-lg text-primary uppercase">${submissionData.personal_info.name}</div>
       <div class="mt-2 text-sm text-gray-600">
         Akan menerima tiket melalui email. <br/>
         <b>Catatan:</b> Tiket tidak dapat dibatalkan setelah disetujui.
@@ -44,9 +48,6 @@ export default function DetailOrderModal({
       if (result.isConfirmed) {
         // Panggil fungsi asli jika user klik "Ya"
         approveOrder(id, 'approve', 'Pendaftaran berhasil disetujui');
-
-        // Opsional: Tampilkan pesan sukses setelahnya
-        Swal.fire('Disetujui!', 'Pendaftaran berhasil disetujui.', 'success');
       }
     });
   };
@@ -56,7 +57,7 @@ export default function DetailOrderModal({
       html: `
       <div class="text-center">
         <p>Apakah Anda yakin ingin menolak pendaftaran ini?</p>
-        <div class="mt-2 font-bold text-lg text-red-600 uppercase italic">${selectedOrder.user.name}</div>
+        <div class="mt-2 font-bold text-lg text-red-600 uppercase italic">${submissionData.personal_info.name}</div>
         <div class="mt-4 text-left">
           <label class="text-sm font-semibold text-gray-700">Alasan Penolakan:</label>
           <textarea 
@@ -88,14 +89,23 @@ export default function DetailOrderModal({
       if (result.isConfirmed) {
         // Panggil fungsi asli jika user klik "Ya"
         approveOrder(id, 'reject', result.value.reason);
-
-        // Opsional: Tampilkan pesan sukses setelahnya
-        Swal.fire('Ditolak!', 'Pendaftaran berhasil ditolak.', 'error');
       }
     });
   };
 
   const approveOrder = async (orderId, action, message) => {
+    Swal.fire({
+      title: 'Memproses...',
+      text:
+        action === 'approve'
+          ? 'Sedang menyetujui dan mengirim email tiket...'
+          : 'Sedang memproses penolakan...',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      },
+    });
+
     try {
       setLoading(true);
       await axios.post(
@@ -110,16 +120,29 @@ export default function DetailOrderModal({
           },
         },
       );
-    } catch (err) {
-      setError(`Failed to approve order: ${err.message}`);
-    } finally {
-      setLoading(false);
+
+      await Swal.fire({
+        icon: 'success',
+        title:
+          action === 'approve' ? 'Berhasil Disetujui!' : 'Berhasil Ditolak!',
+        text: `Email notifikasi telah dikirim ke ${submissionData.personal_info.name}`,
+        timer: 2000,
+        showConfirmButton: false,
+      });
+
+      if (onSuccess) onSuccess();
       closeModal();
+    } catch (err) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal Memproses',
+        text: err.response?.data?.message || err.message,
+      });
+      setError(`Failed to approve order: ${err.message}`);
     }
   };
 
-  const mapSubmissionData = (data) => {
-    const submissionData = JSON.parse(data);
+  const mapSubmissionData = (submissionData) => {
     const InfoItem = ({ label, value, icon }) => (
       <div className='flex flex-col sm:flex-row sm:items-center gap-2 p-3 bg-gray-50 rounded-lg border border-gray-100'>
         {icon && <div className='text-primary'>{icon}</div>}
@@ -290,11 +313,14 @@ export default function DetailOrderModal({
         onClick={closeModal}
         className='fixed inset-0 bg-black/20 bg-opacity-50 flex items-center justify-center z-0'
       ></div>
-      <div className='fixed inset-0 z-999 m-auto bg-white p-6 rounded-lg max-w-4xl w-full aspect-video overflow-auto shadow-lg'>
+      <div className='fixed inset-0 z-999 m-auto bg-white p-6 rounded-lg max-h-7/10 max-w-9/10 md:max-w-4xl w-full md:aspect-video overflow-auto shadow-lg'>
         <div className='flex justify-between items-center'>
           <h2 className='text-2xl font-bold mb-4 text-gray-800'>
             Detail Pendaftaran
-            <span className='font-normal'> - {selectedOrder.user.name}</span>
+            <span className='font-normal'>
+              {' '}
+              - {submissionData.personal_info.name}
+            </span>
           </h2>
           <button
             onClick={closeModal}
@@ -304,7 +330,7 @@ export default function DetailOrderModal({
           </button>
         </div>
 
-        <div>{mapSubmissionData(selectedOrder.submission_data)}</div>
+        <div>{mapSubmissionData(submissionData)}</div>
 
         {selectedOrder.user.category !== 'fully_funded' &&
           selectedOrder.payment && (
@@ -349,6 +375,14 @@ export default function DetailOrderModal({
                       >
                         {selectedOrder.status}
                       </span>
+                    </div>
+                    <div>
+                      <p className='text-xs uppercase tracking-wider text-gray-500 font-bold'>
+                        Jumlah
+                      </p>
+                      <p className='text-md text-gray-800'>
+                        Rp{selectedOrder.amount.toLocaleString()},-
+                      </p>
                     </div>
                     <div>
                       <p className='text-xs uppercase tracking-wider text-gray-500 font-bold'>
@@ -403,6 +437,69 @@ export default function DetailOrderModal({
             </div>
           )}
 
+        <div className='space-y-8 max-w-4xl mx-auto p-4 bg-gray-50'>
+          {/* SECTION A: Personal Information (Grid Layout) */}
+          <div className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
+            <div className='bg-primary px-6 py-4'>
+              <h3 className='text-lg font-bold text-white flex items-center gap-2'>
+                <span className='p-1.5 bg-white/5 text-white rounded-md'>
+                  <i className='mdi mdi-file-outline  '></i>
+                </span>
+                Bukti Follow Instagram
+              </h3>
+            </div>
+
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-200'>
+              {/* Kolom Kiri: Detail Pembayaran */}
+              <div className='space-y-4'>
+                <div>
+                  <p className='text-xs uppercase tracking-wider text-gray-500 font-bold'>
+                    File Bukti Follow Instagram
+                  </p>
+                  <span
+                    className={`uppercase inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                      submissionData?.instagram_proof
+                        ? 'bg-green-100 text-green-800'
+                        : 'bg-red-100 text-red-800'
+                    } mt-1`}
+                  >
+                    {submissionData?.instagram_proof ? 'Ada' : 'Tidak ada'}
+                  </span>
+                </div>
+              </div>
+
+              {/* Kolom Kanan: Bukti Gambar */}
+              <div className='flex flex-col items-center md:items-start'>
+                <p className='text-xs uppercase tracking-wider text-gray-500 font-bold mb-2'>
+                  Bukti Follow
+                </p>
+
+                {submissionData?.instagram_proof ? (
+                  <div className='group relative'>
+                    <img
+                      src={`${baseUrl}/${submissionData.instagram_proof}`}
+                      alt='Bukti Pembayaran'
+                      className='w-full max-w-[250px] h-auto rounded-lg shadow-md border-2 border-white transition-transform duration-300 group-hover:scale-[1.02] cursor-zoom-in'
+                      onClick={() =>
+                        window.open(
+                          `${baseUrl}/${submissionData.instagram_proof}`,
+                          '_blank',
+                        )
+                      }
+                    />
+                    <div className='mt-2 text-[10px] text-gray-400 italic'>
+                      * Klik gambar untuk memperbesar di tab baru
+                    </div>
+                  </div>
+                ) : (
+                  <div className='w-[200px] h-[200px] bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-xs italic text-center p-4'>
+                    Gambar bukti tidak tersedia
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
         {/* Close button */}
         <div className='mt-6 flex justify-end'>
           {selectedOrder.status == 'pending' ? (

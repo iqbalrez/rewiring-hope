@@ -11,6 +11,8 @@ const OrderPage = ({ eventId, eventTitle }) => {
   const [categoryFilter, setCategoryFilter] = useState('');
   const [selectedOrder, setSelectedOrder] = useState(null);
 
+  const [refreshTrigger, setRefreshTrigger] = useState(0);
+
   const baseUrl = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem('token');
 
@@ -43,7 +45,7 @@ const OrderPage = ({ eventId, eventTitle }) => {
       setError('You are not authenticated');
       setLoading(false);
     }
-  }, [token, baseUrl, eventId, statusFilter, categoryFilter]);
+  }, [token, baseUrl, eventId, statusFilter, categoryFilter, refreshTrigger]);
 
   const handleFilterChange = (e) => {
     if (e.target.name === 'status') {
@@ -61,7 +63,17 @@ const OrderPage = ({ eventId, eventTitle }) => {
     setSelectedOrder(null); // Close the modal
   };
 
-  if (loading) return <div className='text-center'>Loading...</div>;
+  const triggerRefresh = () => {
+    setRefreshTrigger((prev) => prev + 1);
+  };
+
+  if (loading && orders.length === 0) {
+    return (
+      <div className='flex justify-center items-center h-screen'>
+        Sedang mengambil data...
+      </div>
+    );
+  }
   if (error) return <div className='text-center text-red-600'>{error}</div>;
 
   return (
@@ -138,7 +150,7 @@ const OrderPage = ({ eventId, eventTitle }) => {
                     {order.user.email}
                   </td>
                   <td className='px-6 py-4 text-sm text-gray-800'>
-                    {order.amount}
+                    Rp{order.amount.toLocaleString()}
                   </td>
                   <td className='px-6 py-4 text-sm'>
                     <span
@@ -181,6 +193,7 @@ const OrderPage = ({ eventId, eventTitle }) => {
             selectedOrder={selectedOrder}
             closeModal={closeModal}
             setError={setError}
+            onSuccess={triggerRefresh}
           />
         )}
       </div>
