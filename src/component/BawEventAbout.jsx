@@ -59,7 +59,7 @@ export default function BawEventAbout() {
 
                 <p className='text-slate-300 max-w-2xl mx-auto md:text-lg'>
                   Perayaan kreativitas dan sains untuk{' '}
-                  <span className='font-bold'>pelajar se-DIY</span> yang
+                  <span className='font-bold'>pelajar se-Indonesia</span> yang
                   mengajak pelajar TK–SMA mengekspresikan{' '}
                   <span className='font-bold'>
                     refleksi, imajinasi, dan harapan{' '}
