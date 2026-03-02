@@ -22,7 +22,7 @@ export default function TicketRegistration() {
     faq: [
       {
         question: 'Siapa yang boleh ikut?',
-        answer: 'Siswa TK, SD, SMP, dan SMA di DIY.',
+        answer: 'Siswa TK, SD, SMP, dan SMA di Indonesia.',
       },
       {
         question: 'Apakah boleh mengikuti lebih dari 1 lomba?',
