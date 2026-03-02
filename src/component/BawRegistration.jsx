@@ -3,13 +3,14 @@ import React, { useEffect, useState } from 'react';
 import FullyFundedModal from './Modal/FullyFundedModal';
 import axios from 'axios';
 
-export default function TicketRegistration({ initialType, price }) {
+export default function TicketRegistration() {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
   const eventId = '29bd3506-0a83-11f1-909d-0a002700000b';
 
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [file, setFile] = useState(null);
   const [instagramProof, setInstagramProof] = useState(null);
+  const [libMembershipProof, setLibMembershipProof] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
 
   const [formMessage, setFormMessage] = useState(
@@ -80,6 +81,7 @@ export default function TicketRegistration({ initialType, price }) {
           phone: formData.phone,
           institution: formData.institution,
           level: formData.level,
+          type: type,
         },
         submission: {
           type: type,
@@ -95,6 +97,9 @@ export default function TicketRegistration({ initialType, price }) {
       }
       if (instagramProof) {
         data.append('instagramProof', instagramProof);
+      }
+      if (libMembershipProof) {
+        data.append('libMembershipProof', libMembershipProof);
       }
 
       await axios.post(`${VITE_API_URL}/orders/register`, data, {
@@ -136,11 +141,6 @@ export default function TicketRegistration({ initialType, price }) {
   useEffect(() => {
     Aos.init();
   }, []);
-
-  // Sync parent-provided initial type (when user clicks pricing) into local state
-  useEffect(() => {
-    if (initialType) setType(initialType);
-  }, [initialType]);
 
   const levelOptions = {
     MW: [
@@ -380,6 +380,40 @@ export default function TicketRegistration({ initialType, price }) {
 
                   <div className='mb-6'>
                     <label className='block font-medium'>
+                      Bukti Pendaftaran Keanggotaan Perpustakaan DIY (JPG/PNG)
+                    </label>
+                    <p className='text-xs text-gray-500'>
+                      Terkait dengan kerjasama, setiap peserta BAW diwajibkan
+                      juga{' '}
+                      <a
+                        target='_blank'
+                        href='www.balaiyanpus.jogjaprov.go.id'
+                        className='text-blue-600'
+                      >
+                        mendaftar keanggotaan di Perpustakaan DIY (free)
+                      </a>
+                      .
+                    </p>
+                    <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) =>
+                          setLibMembershipProof(e.target.files[0])
+                        }
+                        className='w-full'
+                        required={type !== 'FF'}
+                      />
+                      <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
+                        <p className='text-xs text-gray-500'>
+                          Silakan upload bukti pendaftaran
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className='mb-6'>
+                    <label className='block font-medium'>
                       Bukti Transfer (JPG/PNG)
                     </label>
                     <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
@@ -395,7 +429,7 @@ export default function TicketRegistration({ initialType, price }) {
                           Silakan transfer tepat sejumlah:
                         </p>
                         <p className='text-lg font-bold text-blue-600'>
-                          Rp{price.toLocaleString('id-ID')}
+                          Rp50.000
                         </p>
 
                         <div className='mt-2'>

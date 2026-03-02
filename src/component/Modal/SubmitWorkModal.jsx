@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import { useSearchParams } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default function SubmitKaryaModal({ isOpen, onClose }) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -8,6 +9,7 @@ export default function SubmitKaryaModal({ isOpen, onClose }) {
   const [step, setStep] = useState(1); // 1: Validasi, 2: Form Submit
   const [error, setError] = useState('');
   const [type, setType] = useState('');
+  const [naskahFile, setNaskahFile] = useState(null);
 
   // State Form
   const [credentials, setCredentials] = useState({
@@ -87,23 +89,55 @@ export default function SubmitKaryaModal({ isOpen, onClose }) {
   // LANGKAH 2: Kirim Karya
   const handleSubmitKarya = async (e) => {
     e.preventDefault();
+
+    if (
+      verifiedData?.currentSubmission.type === 'ST' &&
+      !naskahFile &&
+      !verifiedData?.currentSubmission.naskah_url
+    ) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'File Naskah Diperlukan',
+        text: 'Harap upload file naskah (.pdf) sebelum mengumpulkan karya.',
+        confirmButtonText: 'OK',
+        customClass: { container: 'z-[9999]' },
+      });
+      return;
+    }
+
     setLoading(true);
     try {
-      await axios.put(`${VITE_API_URL}/orders/submit`, {
-        orderId: credentials.orderId,
-        email: credentials.email,
-        title: submission.title,
-        link: submission.link,
+      const formData = new FormData();
+      formData.append('orderId', credentials.orderId);
+      formData.append('email', credentials.email);
+      formData.append('title', submission.title);
+      formData.append('link', submission.link);
+      if (naskahFile) formData.append('naskah', naskahFile);
+      await axios.put(`${VITE_API_URL}/orders/submit`, formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
       });
 
-      alert('Karya berhasil dikumpulkan!');
+      await Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: 'Karya berhasil dikumpulkan!',
+        timer: 2000,
+        showConfirmButton: false,
+        customClass: { container: 'z-[9999]' },
+      });
       setSearchParams({});
       onClose(); // Tutup modal
       setStep(1); // Reset step untuk penggunaan berikutnya
       setSubmission({ title: '', link: '' });
       setCredentials({ orderId: '', email: '' });
+      setNaskahFile(null);
     } catch (err) {
-      alert(err.response?.data?.message || 'Gagal mengirim karya.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal!',
+        text: err.response?.data?.message || 'Gagal mengirim karya.',
+        customClass: { container: 'z-[9999]' },
+      });
     } finally {
       setLoading(false);
     }
@@ -112,7 +146,7 @@ export default function SubmitKaryaModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className='fixed inset-0 flex justify-center items-center z-[9999] p-4'>
+    <div className='fixed inset-0 flex justify-center items-center z-50 p-4'>
       <div
         className='absolute inset-0 backdrop-blur-sm bg-black/60 -z-[9999]'
         onClick={() => {
@@ -229,28 +263,50 @@ export default function SubmitKaryaModal({ isOpen, onClose }) {
 
               <div>
                 <label className='block text-sm font-semibold text-gray-700'>
-                  Link Karya (
-                  {verifiedData?.currentSubmission.type === 'RV'
-                    ? 'Instagram'
-                    : verifiedData?.currentSubmission.type === 'ST'
-                      ? 'YouTube'
-                      : 'Google Drive'}
-                  )
+                  Link Karya (Instagram)
                 </label>
                 <input
                   type='url'
                   name='link'
-                  placeholder='https://drive.google.com/...'
+                  placeholder='https://www.instagram.com/reel/...'
                   value={submission.link}
                   onChange={handleSubmissionChange}
                   className='w-full p-3 border rounded-lg mt-1 focus:ring-2 focus:ring-green-500 outline-none'
                   required
                 />
                 <p className='text-[10px] text-gray-500 mt-1 italic'>
-                  *Pastikan akses link sudah diatur ke "Anyone with the link"
+                  *Pastikan akun tidak privat
                 </p>
               </div>
-
+              {verifiedData?.currentSubmission.type === 'ST' && (
+                <div>
+                  <label className='block text-sm font-semibold text-gray-700'>
+                    File Naskah (.pdf)
+                  </label>
+                  {verifiedData?.currentSubmission.naskah_url && (
+                    <p className='text-xs text-green-600 mb-1'>
+                      ✅ Naskah sudah diupload.{' '}
+                      <a
+                        href={`${VITE_API_URL}${verifiedData.currentSubmission.naskah_url}`}
+                        target='_blank'
+                        className='underline'
+                      >
+                        Lihat file
+                      </a>
+                    </p>
+                  )}
+                  <input
+                    type='file'
+                    accept='.pdf'
+                    onChange={(e) => setNaskahFile(e.target.files[0])}
+                    className='w-full p-2 border rounded-lg mt-1 text-sm'
+                    required={!verifiedData?.currentSubmission.naskah_url}
+                  />
+                  <p className='text-[10px] text-gray-500 mt-1 italic'>
+                    *Maksimal 5MB, format PDF
+                  </p>
+                </div>
+              )}
               <div className='flex gap-2 pt-2'>
                 <button
                   type='button'

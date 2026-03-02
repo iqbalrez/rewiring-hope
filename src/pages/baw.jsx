@@ -31,8 +31,6 @@ import BawStory from '../component/BawStory';
  */
 export default function BawPage() {
   const [mounted, setMounted] = useState(false);
-  const [ticketType, setTicketType] = useState('MHS');
-  const [ticketPrice, setTicketPrice] = useState(50000);
   const [popupVisible, setPopupVisible] = useState(true);
 
   useEffect(() => {
@@ -193,13 +191,13 @@ export default function BawPage() {
         <Speaker />
 
         {/* Pricing section */}
-        <BawPricing setType={setTicketType} setPrice={setTicketPrice} />
+        <BawPricing />
 
         {/* Why Section */}
         <BawWhy />
 
         {/* BawPricing section */}
-        <BawRegistration initialType={ticketType} price={ticketPrice} />
+        <BawRegistration />
 
         {/* Tenant Section */}
         <BawTenant />

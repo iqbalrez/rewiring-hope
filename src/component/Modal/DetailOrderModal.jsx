@@ -23,6 +23,8 @@ export default function DetailOrderModal({
 
   const submissionData = JSON.parse(selectedOrder.submission_data);
 
+  console.log(selectedOrder);
+
   if (loading)
     return <div className='text-center mt-10'>Loading memproses data...</div>;
 
@@ -32,8 +34,7 @@ export default function DetailOrderModal({
       <p class="text-center">Apakah Anda yakin ingin menyetujui pendaftaran ini?<p>
       <div class="mt-2 font-bold text-lg text-primary uppercase">${submissionData.personal_info.name}</div>
       <div class="mt-2 text-sm text-gray-600">
-        Akan menerima tiket melalui email. <br/>
-        <b>Catatan:</b> Tiket tidak dapat dibatalkan setelah disetujui.
+        Akan menerima ${selectedOrder.eventId == '29bd3506-0a83-11f1-909d-0a002700000b' ? 'notifikasi melalui email.' : 'tiket melalui email. <br/> <b>Catatan:</b> Tiket tidak dapat dibatalkan setelah disetujui.'}
       </div>
     `,
       icon: 'question',
@@ -332,7 +333,7 @@ export default function DetailOrderModal({
 
         <div>{mapSubmissionData(submissionData)}</div>
 
-        {selectedOrder.user.category !== 'fully_funded' &&
+        {submissionData.personal_info.type !== 'FF' &&
           selectedOrder.payment && (
             <div className='space-y-8 max-w-4xl mx-auto p-4 bg-gray-50'>
               {/* SECTION A: Personal Information (Grid Layout) */}
@@ -500,6 +501,183 @@ export default function DetailOrderModal({
             </div>
           </div>
         </div>
+
+        {selectedOrder.eventId == '29bd3506-0a83-11f1-909d-0a002700000b' ? (
+          <>
+            <div className='space-y-8 max-w-4xl mx-auto p-4 bg-gray-50'>
+              <div className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
+                <div className='bg-primary px-6 py-4'>
+                  <h3 className='text-lg font-bold text-white flex items-center gap-2'>
+                    <span className='p-1.5 bg-white/5 text-white rounded-md'>
+                      <i className='mdi mdi-file-outline  '></i>
+                    </span>
+                    Bukti Pendaftaran Keanggotaan Perpustakaan DIY
+                  </h3>
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6 bg-gray-50 p-6 rounded-xl border border-gray-200'>
+                  {/* Kolom Kiri: Detail Pembayaran */}
+                  <div className='space-y-4'>
+                    <div>
+                      <p className='text-xs uppercase tracking-wider text-gray-500 font-bold'>
+                        File Bukti Pendaftaran
+                      </p>
+                      <span
+                        className={`uppercase inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                          submissionData?.libMembershipProof
+                            ? 'bg-green-100 text-green-800'
+                            : 'bg-red-100 text-red-800'
+                        } mt-1`}
+                      >
+                        {submissionData?.libMembershipProof
+                          ? 'Ada'
+                          : 'Tidak ada'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Kolom Kanan: Bukti Gambar */}
+                  <div className='flex flex-col items-center md:items-start'>
+                    <p className='text-xs uppercase tracking-wider text-gray-500 font-bold mb-2'>
+                      Bukti Follow
+                    </p>
+
+                    {submissionData?.libMembershipProof ? (
+                      <div className='group relative'>
+                        <img
+                          src={`${baseUrl}/${submissionData.libMembershipProof}`}
+                          alt='Bukti Pembayaran'
+                          className='w-full max-w-[250px] h-auto rounded-lg shadow-md border-2 border-white transition-transform duration-300 group-hover:scale-[1.02] cursor-zoom-in'
+                          onClick={() =>
+                            window.open(
+                              `${baseUrl}/${submissionData.libMembershipProof}`,
+                              '_blank',
+                            )
+                          }
+                        />
+                        <div className='mt-2 text-[10px] text-gray-400 italic'>
+                          * Klik gambar untuk memperbesar di tab baru
+                        </div>
+                      </div>
+                    ) : (
+                      <div className='w-[200px] h-[200px] bg-gray-200 rounded-lg flex items-center justify-center text-gray-400 text-xs italic text-center p-4'>
+                        Gambar bukti tidak tersedia
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className='space-y-8 max-w-4xl mx-auto p-4 bg-gray-50'>
+              <div className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
+                <div className='bg-primary px-6 py-4'>
+                  <h3 className='text-lg font-bold text-white flex items-center gap-2'>
+                    <span className='p-1.5 bg-white/5 text-white rounded-md'>
+                      <i className='mdi mdi-trophy-outline'></i>
+                    </span>
+                    Submission Karya
+                  </h3>
+                </div>
+
+                <div className='p-6'>
+                  {!submissionData?.submission.submitted_at ? (
+                    <div className='flex items-center gap-3 bg-yellow-50 border border-yellow-200 rounded-lg p-4'>
+                      <i className='mdi mdi-clock-outline text-yellow-500 text-xl'></i>
+                      <p className='text-sm text-yellow-700 font-medium'>
+                        Peserta belum mengumpulkan karya.
+                      </p>
+                    </div>
+                  ) : (
+                    <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                      <div className='col-span-1 md:col-span-2 p-3 bg-gray-50 rounded-lg border border-gray-100'>
+                        <span className='block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1'>
+                          Judul Karya
+                        </span>
+                        <span className='text-gray-900 font-medium'>
+                          {submissionData.submission.title || '-'}
+                        </span>
+                      </div>
+
+                      <div className='p-3 bg-gray-50 rounded-lg border border-gray-100'>
+                        <span className='block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1'>
+                          Dikumpulkan Pada
+                        </span>
+                        <span className='text-gray-900 font-medium text-sm'>
+                          {new Date(
+                            submissionData.submission.submitted_at,
+                          ).toLocaleString('id-ID', {
+                            day: '2-digit',
+                            month: 'long',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit',
+                          })}
+                        </span>
+                      </div>
+
+                      <div className='p-3 bg-gray-50 rounded-lg border border-gray-100'>
+                        <span className='block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1'>
+                          Kategori
+                        </span>
+                        <span className='inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800'>
+                          {submissionData.submission.type}
+                        </span>
+                      </div>
+
+                      <div className='col-span-1 md:col-span-2 p-3 bg-gray-50 rounded-lg border border-gray-100'>
+                        <span className='block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2'>
+                          Link Karya
+                        </span>
+                        {submissionData.submission.link ? (
+                          <a
+                            href={submissionData.submission.link}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='inline-flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 hover:underline break-all font-medium'
+                          >
+                            <i className='mdi mdi-open-in-new'></i>
+                            {submissionData.submission.link}
+                          </a>
+                        ) : (
+                          <span className='text-gray-400 text-sm italic'>
+                            Link belum diisi
+                          </span>
+                        )}
+                      </div>
+
+                      {submissionData.submission.type === 'ST' && (
+                        <div className='col-span-1 md:col-span-2 p-3 bg-gray-50 rounded-lg border border-gray-100'>
+                          <span className='block text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2'>
+                            File Naskah (PDF)
+                          </span>
+                          {submissionData.submission.naskah_url ? (
+                            <a
+                              href={`${baseUrl}${submissionData.submission.naskah_url}`}
+                              target='_blank'
+                              rel='noopener noreferrer'
+                              className='inline-flex items-center gap-2 px-4 py-2 bg-blue-50 border border-blue-200 text-blue-700 rounded-lg text-sm font-semibold hover:bg-blue-100 transition-colors'
+                            >
+                              <i className='mdi mdi-file-pdf-box text-lg'></i>
+                              Lihat / Unduh Naskah PDF
+                            </a>
+                          ) : (
+                            <div className='flex items-center gap-2 text-sm text-red-500'>
+                              <i className='mdi mdi-alert-circle-outline'></i>
+                              <span>Naskah belum diupload</span>
+                            </div>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+
         {/* Close button */}
         <div className='mt-6 flex justify-end'>
           {selectedOrder.status == 'pending' ? (

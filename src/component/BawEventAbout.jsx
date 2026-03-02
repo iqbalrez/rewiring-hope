@@ -18,14 +18,14 @@ export default function BawEventAbout() {
 
   //   // SVG for Minus icon
   //   const minusSVG = `
-  //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+  //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
   //         <path d="M3.75 7.25a.75.75 0 0 0 0 1.5h8.5a.75.75 0 0 0 0-1.5h-8.5Z" />
   //       </svg>
   //     `;
 
   //   // SVG for Plus icon
   //   const plusSVG = `
-  //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+  //       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
   //         <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
   //       </svg>
   //     `;
@@ -109,46 +109,46 @@ export default function BawEventAbout() {
         <div
           data-aos='fade-up'
           data-aos-duration='1000'
-          class='bg-blue-dark flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8 text-white'
+          className='bg-blue-dark flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8 text-white'
         >
-          <div class='text-center mb-16 max-w-3xl'>
+          <div className='text-center mb-16 max-w-3xl'>
             <h6 className='text-amber-500 text-base font-medium uppercase mb-2'>
               Brain Awareness Week 2026
             </h6>
             <h3 className='mb-4 md:text-2xl text-xl font-medium text-white'>
               Kisah Otak yang Tangguh: Refleksi, Imajinasi, dan Harapan
             </h3>
-            <p class='text-4xl font-bold'>Timeline</p>
+            <p className='text-4xl font-bold'>Timeline</p>
           </div>
 
-          <div class='relative w-full max-w-5xl mx-auto'>
-            <div class='absolute left-1/2 top-6 bottom-36 border-l-4 border-dashed border-blue-800 -translate-x-1/2 md:hidden z-0'></div>
+          <div className='relative w-full max-w-5xl mx-auto'>
+            <div className='absolute left-1/2 top-6 bottom-36 border-l-4 border-dashed border-blue-800 -translate-x-1/2 md:hidden z-0'></div>
 
-            <div class='hidden md:block absolute top-6 left-[16%] right-[16%] border-t-4 border-dashed border-blue-800 z-0'></div>
+            <div className='hidden md:block absolute top-6 left-[16%] right-[16%] border-t-4 border-dashed border-blue-800 z-0'></div>
 
-            <div class='relative z-10 flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0'>
-              <div class='flex flex-col items-center text-center w-full md:w-1/3'>
-                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
-                <div class='px-4 bg-blue-dark'>
-                  <p class='leading-tight mb-1'>1 Maret – 31 Mei 2026</p>
-                  <p class='font-bold text-lg'>Pengumpulan karya</p>
+            <div className='relative z-10 flex flex-col md:flex-row justify-between items-start gap-16 md:gap-0'>
+              <div className='flex flex-col items-center text-center w-full md:w-1/3'>
+                <div className='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
+                <div className='px-4 bg-blue-dark'>
+                  <p className='leading-tight mb-1'>1 Maret – 31 Mei 2026</p>
+                  <p className='font-bold text-lg'>Pengumpulan karya</p>
                 </div>
               </div>
 
-              <div class='flex flex-col items-center text-center w-full md:w-1/3'>
-                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
-                <div class='px-4 bg-blue-dark'>
-                  <p class='leading-tight mb-1'>13 Juni 2026</p>
-                  <p class='font-bold text-lg'>Pengumuman finalis</p>
+              <div className='flex flex-col items-center text-center w-full md:w-1/3'>
+                <div className='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
+                <div className='px-4 bg-blue-dark'>
+                  <p className='leading-tight mb-1'>13 Juni 2026</p>
+                  <p className='font-bold text-lg'>Pengumuman finalis</p>
                 </div>
               </div>
 
-              <div class='flex flex-col items-center text-center w-full md:w-1/3'>
-                <div class='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
-                <div class='px-4 bg-blue-dark'>
-                  <p class='leading-tight mb-1'>2 Juli 2026</p>
-                  <p class='font-bold text-lg'>FAIR + GRAND FINAL</p>
-                  <p class='text-gray-200 text-sm uppercase tracking-wider'>
+              <div className='flex flex-col items-center text-center w-full md:w-1/3'>
+                <div className='w-12 h-12 bg-amber-500 rounded-full border-4 border-blue-800 mb-4 shadow-md z-10'></div>
+                <div className='px-4 bg-blue-dark'>
+                  <p className='leading-tight mb-1'>2 Juli 2026</p>
+                  <p className='font-bold text-lg'>FAIR + GRAND FINAL</p>
+                  <p className='text-gray-200 text-sm uppercase tracking-wider'>
                     di Grhatama Pustaka DIY
                   </p>
                 </div>

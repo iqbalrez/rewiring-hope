@@ -3,11 +3,19 @@ import MWImage from '../assets/images/baw/MW.png';
 import STImage from '../assets/images/baw/ST.png';
 import RVImage from '../assets/images/baw/RV.png';
 import DIImage from '../assets/images/baw/DI.png';
+
+import MWDocs from '../assets/docs/PANDUAN LOMBA_MEWARNAI_BAW.pdf';
+import STDocs from '../assets/docs/PANDUAN LOMBA_STORY TELLING_BAW.pdf';
+import RVDocs from '../assets/docs/PANDUAN LOMBA_REELS VIDEO_BAW.pdf';
+import DIDocs from '../assets/docs/PANDUAN LOMBA_DESAIN INFOGRAFIS_BAW.pdf';
+
+import MWMaterial from '../assets/images/baw/Materi_MW.jpeg';
+
 import { useSearchParams } from 'react-router-dom';
 
 import SubmitKaryaModal from './Modal/SubmitWorkModal';
 
-export default function Pricing({ setType, setPrice }) {
+export default function Pricing() {
   const [searchParams] = useSearchParams();
   const [isSubmitWorkModalOpen, setIsSubmitWorkModalOpen] = useState(false);
 
@@ -24,6 +32,8 @@ export default function Pricing({ setType, setPrice }) {
       title: 'Mewarnai - TK',
       theme: 'Otak yang Berani Bermimpi',
       image: MWImage,
+      docs: MWDocs,
+      material: MWMaterial,
     },
     {
       id: 2,
@@ -31,6 +41,7 @@ export default function Pricing({ setType, setPrice }) {
       title: 'Storytelling - SD',
       theme: 'Kalau Otakku Bisa Bicara...',
       image: STImage,
+      docs: STDocs,
     },
     {
       id: 3,
@@ -38,6 +49,7 @@ export default function Pricing({ setType, setPrice }) {
       title: 'Reels Video - SMP/SMA',
       theme: 'Brain, Resillience, and Me',
       image: RVImage,
+      docs: RVDocs,
     },
     {
       id: 4,
@@ -45,6 +57,7 @@ export default function Pricing({ setType, setPrice }) {
       title: 'Desain Infografis - SMP/SMA',
       theme: 'Bagaimana Otakku Belajar dan Menyembuh',
       image: DIImage,
+      docs: DIDocs,
     },
   ];
 
@@ -86,15 +99,23 @@ export default function Pricing({ setType, setPrice }) {
                   </p>
                 </div>
                 <a
-                  href='#register'
-                  onClick={() => {
-                    setType && setType(item.key);
-                    setPrice && setPrice(item.price);
-                  }}
-                  className='items-center py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-blue-dark hover:bg-amber-700 border-blue-dark hover:border-amber-700 text-white rounded-md w-full'
+                  target='_blank'
+                  href={item.docs}
+                  className='mb-2 items-center py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-blue-dark hover:bg-amber-700 border-blue-dark hover:border-amber-700 text-white rounded-md w-full'
                 >
                   <i className='mdi mdi-download mr-2'></i>Panduan Lomba
                 </a>
+                {item.material ? (
+                  <a
+                    target='_blank'
+                    href={item.material}
+                    className='items-center py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-blue-dark hover:bg-amber-700 border-blue-dark hover:border-amber-700 text-white rounded-md w-full'
+                  >
+                    <i className='mdi mdi-download mr-2'></i>Materi Gambar
+                  </a>
+                ) : (
+                  <></>
+                )}
               </div>
             ))}
           </div>
