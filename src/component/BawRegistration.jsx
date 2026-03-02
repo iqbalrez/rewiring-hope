@@ -387,7 +387,7 @@ export default function TicketRegistration() {
                       juga{' '}
                       <a
                         target='_blank'
-                        href='www.balaiyanpus.jogjaprov.go.id'
+                        href='https://www.balaiyanpus.jogjaprov.go.id'
                         className='text-blue-600'
                       >
                         mendaftar keanggotaan di Perpustakaan DIY (free)
