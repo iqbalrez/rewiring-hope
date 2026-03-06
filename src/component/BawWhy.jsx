@@ -19,6 +19,7 @@ export default function BawWhy() {
     'Umpan balik edukatif dari tim kuratorial',
     'Pengalaman belajar neuroscience melalui seni, cerita, video, atau desain visual',
     'Menjadi bagian dari gerakan pendidikan publik tentang otak, ketangguhan, dan kesehatan mental',
+    'Free tiket bioskop 6D dan Diorama Arsip Jogja (@Grhatama Pustaka DIY)'
   ];
 
   return (
