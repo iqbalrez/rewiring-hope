@@ -166,6 +166,14 @@ export default function Navbar({ navdark, bg }) {
               >
                 About
               </NavLink>
+              <NavLink
+                to='/volunteer'
+                className={({ isActive }) =>
+                  ` p-3 px-4 ${isActive ? 'bg-white text-primary rounded-md' : 'nav-link'}`
+                }
+              >
+                Volunteer
+              </NavLink>
             </ul>
           </div>
         </div>

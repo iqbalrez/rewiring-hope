@@ -33,6 +33,7 @@ import BawPage from './pages/baw.jsx';
 import OrderEventPage from './pages/admin/OrderEventPage.jsx';
 import DashboardPage from './pages/admin/DashboardPage.jsx';
 import AdminLayout from './component/layouts/AdminLayout.jsx';
+import VolunteerPage from './pages/volunteer.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -90,6 +91,7 @@ export default function App() {
           element={<TermsAndConditionsPage />}
         />
         <Route path='/brain-awareness-week' element={<BawPage />} />
+        <Route path='/volunteer' element={<VolunteerPage />} />
         <Route path='/assets' element={<NotFound />} />
         <Route path='/src/assets' element={<NotFound />} />
         <Route path='*' element={<NotFound />} />

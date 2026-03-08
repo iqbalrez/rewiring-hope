@@ -3,12 +3,9 @@ import { Link } from 'react-scroll';
 import { Link as Link2, NavLink } from 'react-router-dom';
 
 import LogoLight from '../assets/images/logo-light.png';
-import LogoDark from '../assets/images/logo-dark.png';
-import IBROImage from '../assets/images/client/IBROImage.jpg';
-import IBROWhiteImage from '../assets/images/client/IBROWhiteImage.png';
-import DanaFoundationImage from '../assets/images/client/DanaFoundationImage.png';
+import TELWhite from '../assets/images/client/TELWhite.png';
 
-export default function BawNavbar() {
+export default function VolunteerNavbar() {
   const [isOpen, setMenu] = useState(true);
   const [isSticky, setIsSticky] = useState(false);
 
@@ -25,7 +22,7 @@ export default function BawNavbar() {
   };
 
   function windowScroll() {
-    if (window.scrollY >= 1800) {
+    if (window.scrollY >= 500) {
       setIsSticky(true);
     } else {
       setIsSticky(false);
@@ -40,26 +37,21 @@ export default function BawNavbar() {
         >
           {/* Logo Section */}
           <div
-            className={`flex items-center px-2 md:px-6 py-3 md:py-4 min-w-0 flex-shrink transition-all duration-300 ${isSticky ? 'bg-gradient-to-b bg-blue-dark' : ''}`}
+            className={`flex items-center px-2 md:px-6 py-3 md:py-4 min-w-0 flex-shrink transition-all duration-300 ${isSticky ? 'bg-gradient-to-b bg-primary' : ''}`}
           >
             <Link2
               className='navbar-brand flex flex-row items-center gap-2 md:gap-4'
               to='/'
             >
               <img
-                src={IBROWhiteImage}
-                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
-                alt='IBRO Logo'
-              />
-              <img
-                src={DanaFoundationImage}
-                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
-                alt='Dana Foundation Logo'
-              />
-              <img
                 src={LogoLight}
-                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
+                className='max-h-4 md:max-h-10 w-auto object-contain flex-shrink'
                 alt='Logo Dark'
+              />
+              <img
+                src={TELWhite}
+                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
+                alt='TEL Logo'
               />
             </Link2>
           </div>
@@ -70,7 +62,7 @@ export default function BawNavbar() {
                 <Link2
                   to='https://linkedin.com/company/rewiring-hope'
                   target='_blank'
-                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark'} `}
+                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-primary text-white' : 'bg-white text-primary'} `}
                 >
                   <i className='uil uil-linkedin'></i>
                 </Link2>
@@ -79,7 +71,7 @@ export default function BawNavbar() {
                 <Link2
                   to='https://instagram.com/rewiringhopeindonesia'
                   target='_blank'
-                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-blue-dark text-white' : 'bg-white text-blue-dark'} `}
+                  className={`size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-full ${isSticky ? 'bg-primary text-white' : 'bg-white text-primary'} `}
                 >
                   <i className='uil uil-instagram'></i>
                 </Link2>
@@ -87,7 +79,7 @@ export default function BawNavbar() {
             </ul>
             <button
               type='button'
-              className='collapse-btn inline-flex items-center ms-1 bg-white rounded-full px-2 p-1 text-blue-dark dark:text-white lg_992:hidden'
+              className='collapse-btn inline-flex items-center ms-1 bg-white rounded-full px-2 p-1 text-primary dark:text-white lg_992:hidden'
               onClick={toggleMenu}
             >
               <span className='sr-only'>Navigation Menu</span>
@@ -109,7 +101,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`
                 }
               >
                 Home
@@ -117,7 +109,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/brain-awareness-week'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`
                 }
               >
                 Brain Awareness Week
@@ -125,7 +117,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/about'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`
                 }
               >
                 About
@@ -133,7 +125,7 @@ export default function BawNavbar() {
               <NavLink
                 to='/volunteer'
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`
                 }
               >
                 Volunteer
