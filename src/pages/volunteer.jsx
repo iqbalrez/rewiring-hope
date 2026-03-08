@@ -64,8 +64,8 @@ export default function VolunteerPage() {
         >
           <div className='absolute inset-0 bg-gradient-to-tl from-dark via-dark/70 to-transparent flex items-end justify-center text-center p-8'>
             <p className='text-white text-md font-semibold'>
-              You help translate neuroscience into people can see, feel, and
-              understand.
+              You help translate neuroscience into something people can see,
+              feel, and understand.
             </p>
           </div>
           <div className='container relative space-y-8 md:space-y-0 md:flex md:justify-end h-full items-end'>
