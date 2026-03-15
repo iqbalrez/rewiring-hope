@@ -20,7 +20,6 @@ export default function TermsAndConditionsPage() {
             '“Penyelenggara” adalah pihak pengelola kegiatan seminar “Teaching The Healing Brain” yang menyediakan penjualan tiket melalui website rewiringhope.or.id.',
             '“Pembeli/Pengguna” adalah pihak yang melakukan transaksi pembelian tiket melalui website.',
             '“Tiket” adalah akses resmi untuk mengikuti seminar sesuai kategori tiket yang dipilih.',
-            '“Payment Gateway” adalah layanan pihak ketiga untuk proses pembayaran, termasuk Midtrans beserta metode pembayaran yang tersedia.',
           ],
         },
         {
@@ -28,7 +27,7 @@ export default function TermsAndConditionsPage() {
           p: [
             'Tiket seminar hanya dapat dibeli melalui kanal resmi rewiringhope.or.id.',
             'Pembeli wajib mengisi data diri dengan benar, termasuk nama lengkap, email, dan nomor WhatsApp aktif untuk kebutuhan informasi transaksi dan konfirmasi acara.',
-            'Setelah transaksi berhasil, sistem akan menerbitkan bukti pembayaran dan/atau tiket sesuai mekanisme yang berlaku pada website.',
+            'Setelah transaksi berhasil diverifikasi, sistem akan menerbitkan tiket sesuai mekanisme yang berlaku pada website.',
           ],
         },
         {
@@ -42,15 +41,15 @@ export default function TermsAndConditionsPage() {
         {
           h: '4. Metode Pembayaran',
           p: [
-            'Pembayaran dilakukan melalui sistem Midtrans menggunakan metode yang tersedia (contoh: Virtual Account, QRIS, e-wallet, kartu, dan metode lain yang didukung).',
-            'Pembeli wajib menyelesaikan pembayaran sesuai batas waktu yang ditentukan pada sistem pembayaran.',
-            'Apabila pembayaran tidak dilakukan sampai batas waktu berakhir, transaksi dianggap batal secara otomatis.',
+            'Pembayaran dilakukan melalui transfer ke rekening yang tertera pada form pendaftaran.',
+            'Pembeli wajib menunggah bukti pembayaran saat melakukan pendaftaran.',
+            'Apabila pembayaran tidak valid, pendaftaran dianggap batal.',
           ],
         },
         {
           h: '5. Status Transaksi',
           p: [
-            'Transaksi dinyatakan berhasil apabila status pembayaran pada sistem Midtrans dan/atau sistem website menunjukkan “Paid/Lunas/Success”.',
+            'Transaksi dinyatakan berhasil apabila bukti pembayaran yang diunggah valid.',
             'Apabila Pembeli sudah membayar tetapi belum mendapatkan tiket, Pembeli dapat menghubungi Penyelenggara dengan melampirkan nama pembeli, email/nomor WhatsApp, nomor order/invoice, dan bukti pembayaran.',
           ],
         },
@@ -99,7 +98,6 @@ export default function TermsAndConditionsPage() {
           p: [
             'Penyelenggara mengumpulkan data seperlunya untuk kebutuhan transaksi dan penyelenggaraan acara (nama, email, nomor WhatsApp, dan informasi pembayaran).',
             'Data peserta dijaga kerahasiaannya dan tidak diperjualbelikan kepada pihak lain.',
-            'Pemrosesan pembayaran dilakukan oleh pihak ketiga (Midtrans dan mitra pembayaran terkait) sesuai kebijakan masing-masing.',
           ],
         },
         {
@@ -154,7 +152,6 @@ export default function TermsAndConditionsPage() {
             '“Organizer” refers to the party managing the “Teaching The Healing Brain” seminar and selling tickets via rewiringhope.or.id.',
             '“Buyer/User” refers to any person who completes a ticket purchase transaction on the website.',
             '“Ticket” means the official access to attend the seminar according to the selected ticket category.',
-            '“Payment Gateway” refers to third-party payment processing services, including Midtrans and its supported payment methods.',
           ],
         },
         {
@@ -176,16 +173,16 @@ export default function TermsAndConditionsPage() {
         {
           h: '4. Payment Methods',
           p: [
-            'Payments are processed via Midtrans using available methods (e.g., Virtual Account, QRIS, e-wallets, cards, and other supported methods).',
-            'Buyers must complete payment within the payment deadline shown in the payment system.',
-            'If payment is not completed before the deadline, the transaction may be automatically cancelled.',
+            'Payment is made via bank transfer to the account listed on the registration form.',
+            'Buyers must upload proof of payment when completing registration.',
+            'If the payment is invalid, the registration will be considered void.',
           ],
         },
         {
           h: '5. Transaction Status',
           p: [
-            'A transaction is considered successful when Midtrans and/or the website shows a “Paid/Success” status.',
-            'If the Buyer has paid but the ticket has not received, the Buyer may contact the Organizer and provide the Buyer’s name, email/WhatsApp, order/invoice number, and proof of payment.',
+            'A transaction is considered successful once the uploaded proof of payment has been verified as valid.',
+            "If the Buyer has paid but has not received a ticket, the Buyer may contact the Organizer and provide the Buyer's name, email/WhatsApp number, order/invoice number, and proof of payment.",
           ],
         },
         {
@@ -233,7 +230,6 @@ export default function TermsAndConditionsPage() {
           p: [
             'The Organizer collects only necessary data for transactions and event operations (name, email, WhatsApp number, and payment information).',
             'Participant data is kept confidential and is not sold to third parties.',
-            'Payments are processed by third parties (Midtrans and relevant payment partners) under their respective policies.',
           ],
         },
         {
