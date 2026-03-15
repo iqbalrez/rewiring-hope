@@ -58,7 +58,6 @@ export default function TicketRegistration({ initialType, initialPrice }) {
     MHS: 150000,
     OTGR: 350000,
     PRO: 500000,
-    FF: 0,
   };
 
   const [formData, setFormData] = useState({
@@ -242,7 +241,6 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                       <option value='MHS'>Mahasiswa</option>
                       <option value='OTGR'>Guru & Orang Tua</option>
                       <option value='PRO'>Profesional</option>
-                      <option value='FF'>Fully Funded</option>
                     </select>
                   </div>
 
@@ -293,92 +291,78 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                       </div>
                     </div>
                   </div>
-                  {type !== 'FF' ? (
-                    <>
-                      <div className='mb-6'>
-                        <label className='block font-medium'>
-                          Bukti Transfer (JPG/PNG)
-                        </label>
-                        <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
-                          <input
-                            type='file'
-                            accept='image/*'
-                            onChange={(e) => setFile(e.target.files[0])}
-                            className='w-full'
-                            required={type !== 'FF'}
-                          />
-                          <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
-                            <p className='text-xs text-gray-500'>
-                              Silakan transfer tepat sejumlah:
-                            </p>
-                            <p className='text-lg font-bold text-blue-600'>
-                              Rp{price.toLocaleString('id-ID')}
-                            </p>
+                  <div className='mb-6'>
+                    <label className='block font-medium'>
+                      Bukti Transfer (JPG/PNG)
+                    </label>
+                    <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) => setFile(e.target.files[0])}
+                        className='w-full'
+                        required={type !== 'FF'}
+                      />
+                      <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
+                        <p className='text-xs text-gray-500'>
+                          Silakan transfer tepat sejumlah:
+                        </p>
+                        <p className='text-lg font-bold text-blue-600'>
+                          Rp{price.toLocaleString('id-ID')}
+                        </p>
 
-                            <div className='mt-2'>
-                              <p className='text-xs text-gray-500 uppercase tracking-wider'>
-                                Bank Mandiri
-                              </p>
-                              <p className='text-sm font-semibold text-gray-800 tracking-widest'>
-                                1360037231120
-                              </p>
-                              <p className='text-xs text-gray-500'>
-                                a/n ANASTASIA AJENG WULAN TANTRI
-                              </p>
-                            </div>
-                          </div>
+                        <div className='mt-2'>
+                          <p className='text-xs text-gray-500 uppercase tracking-wider'>
+                            Bank Mandiri
+                          </p>
+                          <p className='text-sm font-semibold text-gray-800 tracking-widest'>
+                            1360037231120
+                          </p>
+                          <p className='text-xs text-gray-500'>
+                            a/n ANASTASIA AJENG WULAN TANTRI
+                          </p>
                         </div>
                       </div>
-                      <div className='mb-4 flex items-start gap-3'>
-                        <input
-                          id='agreeTerms'
-                          type='checkbox'
-                          className='mt-1 h-4 w-4 accent-amber-600'
-                          checked={agreeTerms}
-                          onChange={(e) => setAgreeTerms(e.target.checked)}
-                          disabled={loading}
-                          required
-                        />
-                        <label
-                          htmlFor='agreeTerms'
-                          className='text-sm text-slate-700 leading-relaxed'
-                        >
-                          Saya telah membaca dan menyetujui{' '}
-                          <a
-                            href='/terms-and-conditions'
-                            target='_blank'
-                            rel='noreferrer'
-                            className='font-semibold text-amber-700 underline hover:text-amber-800'
-                          >
-                            Syarat & Ketentuan
-                          </a>
-                          .
-                        </label>
-                      </div>
-
-                      <button
-                        type='submit'
-                        disabled={loading || !agreeTerms}
-                        className={`w-full py-3 text-white rounded-full transition ${
-                          loading || !agreeTerms
-                            ? 'bg-slate-300 cursor-not-allowed'
-                            : 'bg-amber-600 hover:bg-amber-700'
-                        }`}
-                      >
-                        {loading ? 'Memproses...' : 'Daftar'}
-                      </button>
-                    </>
-                  ) : (
-                    <div className='text-gray-600 flex flex-col text-center items-center my-auto'>
-                      <button
-                        type='button'
-                        onClick={handleFFClick}
-                        className='w-full py-3 bg-green-600 text-white rounded-full hover:bg-green-700 mt-4'
-                      >
-                        Open Fully Funded Form
-                      </button>
                     </div>
-                  )}
+                  </div>
+                  <div className='mb-4 flex items-start gap-3'>
+                    <input
+                      id='agreeTerms'
+                      type='checkbox'
+                      className='mt-1 h-4 w-4 accent-amber-600'
+                      checked={agreeTerms}
+                      onChange={(e) => setAgreeTerms(e.target.checked)}
+                      disabled={loading}
+                      required
+                    />
+                    <label
+                      htmlFor='agreeTerms'
+                      className='text-sm text-slate-700 leading-relaxed'
+                    >
+                      Saya telah membaca dan menyetujui{' '}
+                      <a
+                        href='/terms-and-conditions'
+                        target='_blank'
+                        rel='noreferrer'
+                        className='font-semibold text-amber-700 underline hover:text-amber-800'
+                      >
+                        Syarat & Ketentuan
+                      </a>
+                      .
+                    </label>
+                  </div>
+
+                  <button
+                    type='submit'
+                    disabled={loading || !agreeTerms}
+                    className={`w-full py-3 text-white rounded-full transition ${
+                      loading || !agreeTerms
+                        ? 'bg-slate-300 cursor-not-allowed'
+                        : 'bg-amber-600 hover:bg-amber-700'
+                    }`}
+                  >
+                    {loading ? 'Memproses...' : 'Daftar'}
+                  </button>
                 </form>
               ) : (
                 <div className='text-gray-600 flex flex-col text-center items-center my-auto'>

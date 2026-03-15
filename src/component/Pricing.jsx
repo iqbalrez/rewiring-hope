@@ -87,16 +87,25 @@ export default function Pricing({ setType, setTicketPrice }) {
                     </p>
                   )}
                 </div>
-                <a
-                  href='#register'
-                  onClick={() => {
-                    setType && setType(item.key);
-                    setTicketPrice && setTicketPrice(item.price);
-                  }}
-                  className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md w-full'
-                >
-                  Daftar Sekarang
-                </a>
+                {item.key === 'FF' ? (
+                  <button
+                    disabled
+                    className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-gray-300 border-gray-300 text-gray-500 rounded-md w-full cursor-not-allowed'
+                  >
+                    Pendaftaran Ditutup
+                  </button>
+                ) : (
+                  <a
+                    href='#register'
+                    onClick={() => {
+                      setType && setType(item.key);
+                      setTicketPrice && setTicketPrice(item.price);
+                    }}
+                    className='py-2 px-5 inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md w-full'
+                  >
+                    Daftar Sekarang
+                  </a>
+                )}
               </div>
             ))}
           </div>
