@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoDark from '../assets/images/logo-dark.png';
-import { LayoutDashboard, Brain, GraduationCap, Menu, X } from 'lucide-react';
+import {
+  LayoutDashboard,
+  Brain,
+  GraduationCap,
+  Menu,
+  X,
+  User,
+} from 'lucide-react';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +28,11 @@ const Sidebar = () => {
       title: 'Brain Awareness Week',
       path: '/dashboard/orders/BAW',
       icon: <Brain size={20} />,
+    },
+    {
+      title: 'Volunteer',
+      path: '/dashboard/volunteer',
+      icon: <User size={20} />,
     },
   ];
 

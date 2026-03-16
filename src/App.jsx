@@ -34,6 +34,8 @@ import OrderEventPage from './pages/admin/OrderEventPage.jsx';
 import DashboardPage from './pages/admin/DashboardPage.jsx';
 import AdminLayout from './component/layouts/AdminLayout.jsx';
 import VolunteerPage from './pages/volunteer.jsx';
+import VolunteerTwibbonPage from './pages/VolunteerTwibbon.jsx';
+import AdminVolunteerPage from './pages/admin/VolunteerPage.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -83,6 +85,14 @@ export default function App() {
             </AdminLayout>
           }
         />
+        <Route
+          path='/dashboard/volunteer'
+          element={
+            <AdminLayout>
+              <AdminVolunteerPage />
+            </AdminLayout>
+          }
+        />
 
         <Route path='/' element={<Index />} />
         <Route path='/about' element={<AboutPage />} />
@@ -92,6 +102,7 @@ export default function App() {
         />
         <Route path='/brain-awareness-week' element={<BawPage />} />
         <Route path='/volunteer' element={<VolunteerPage />} />
+        <Route path='/volunteer/twibbon' element={<VolunteerTwibbonPage />} />
         <Route path='/assets' element={<NotFound />} />
         <Route path='/src/assets' element={<NotFound />} />
         <Route path='*' element={<NotFound />} />

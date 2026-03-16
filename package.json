@@ -29,6 +29,7 @@
     "tailwindcss": "^4.1.13",
     "tiny-slider-react": "^0.5.7",
     "type-js": "^1.0.0",
+    "xlsx": "^0.18.5",
     "yet-another-react-lightbox": "^3.25.0"
   },
   "devDependencies": {

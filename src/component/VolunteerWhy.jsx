@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Brain, GraduationCap, Users, Clapperboard } from 'lucide-react';
 
 export default function VolunteerWhy() {
   const features = [
@@ -6,13 +7,13 @@ export default function VolunteerWhy() {
       id: 1,
       title: 'Pengalaman Neurosains untuk Publik',
       desc: 'Terlibat dalam dua acara ilmiah besar yang menggabungkan neurosains, pendidikan, dan kesehatan mental.',
-      image: 'https://placehold.co/400',
+      image: <Brain size={48} />,
     },
     {
       id: 2,
       title: 'Belajar dari Peneliti & Praktisi',
       desc: 'Berinteraksi dengan akademisi dan praktisi yang menghubungkan neuroscience dengan masyarakat.',
-      image: 'https://placehold.co/400',
+      image: GraduationCap,
     },
     {
       id: 3,
