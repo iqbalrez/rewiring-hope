@@ -77,7 +77,7 @@ export default function VolunteerJobdesc() {
                 <h3 className='mb-4 md:text-2xl text-xl font-bold text-primary dark:text-white'>
                   What You Will Do
                 </h3>
-                <div className='grid grid-cols-2 gap-x-8 gap-y-4'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4'>
                   {whatYouWillDo.map((item) => (
                     <div key={item.id} className='flex gap-2'>
                       <i className='mdi mdi-star-four-points text-primary shrink-0 text-[#1a237e]' />

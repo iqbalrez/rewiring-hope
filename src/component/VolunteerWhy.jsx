@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Brain, GraduationCap, Users, Clapperboard } from 'lucide-react';
+import Skill from '../assets/images/volunteer/skill.svg';
+import Publik from '../assets/images/volunteer/publik.svg';
+import Bts from '../assets/images/volunteer/bts.svg';
+import Praktisi from '../assets/images/volunteer/praktisi.svg';
 
 export default function VolunteerWhy() {
   const features = [
@@ -7,25 +10,25 @@ export default function VolunteerWhy() {
       id: 1,
       title: 'Pengalaman Neurosains untuk Publik',
       desc: 'Terlibat dalam dua acara ilmiah besar yang menggabungkan neurosains, pendidikan, dan kesehatan mental.',
-      image: <Brain size={48} />,
+      image: Publik,
     },
     {
       id: 2,
       title: 'Belajar dari Peneliti & Praktisi',
       desc: 'Berinteraksi dengan akademisi dan praktisi yang menghubungkan neuroscience dengan masyarakat.',
-      image: GraduationCap,
+      image: Praktisi,
     },
     {
       id: 3,
       title: 'Soft Skills & Leadership',
       desc: 'Mengasah koordinasi, komunikasi, teamwork, crisis response, dan pelayanan acara profesional.',
-      image: 'https://placehold.co/400',
+      image: Skill,
     },
     {
       id: 4,
       title: 'Behind the Scences',
       desc: 'Melihat bagaimana edukasi ilmiah dirancang, dikemas, dan dijalankan untuk masyarakat luas.',
-      image: 'https://placehold.co/400',
+      image: Bts,
     },
   ];
 
@@ -55,7 +58,7 @@ export default function VolunteerWhy() {
               >
                 <div className='h-full flex flex-col text-center'>
                   <img
-                    className='mx-auto mb-3'
+                    className='mx-auto mb-8 max-w-1/2 saturate-75'
                     src={item.image}
                     alt={item.title}
                   ></img>
