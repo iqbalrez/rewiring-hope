@@ -79,7 +79,7 @@ export default function VolunteerPage() {
                 📍 Grhatama Pustaka DIY
               </p>
               <p className='text-white text-md font-semibold'>
-                2 Juli 2026 - Teaching The Healing Brain <br />
+                4 Juli 2026 - Teaching The Healing Brain <br />
                 📍 Taman Budaya Yogyakarta
               </p>
               <div className='flex justify-end'>
