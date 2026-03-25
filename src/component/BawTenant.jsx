@@ -67,7 +67,7 @@ export default function BawTenant() {
               <div className='flex justify-center mb-2'>
                 <a
                   target='_blank'
-                  href='https://wa.me/6282242266884?text=Halo%20Tim%20Brain%20Awareness%20Week%202026!%20Saya%20tertarik%20untuk%20menjadi%20tenant%20di%20Brain%20Fair.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?'
+                  href='https://wa.me/31684163490?text=Halo%20Tim%20Brain%20Awareness%20Week%202026!%20Saya%20tertarik%20untuk%20menjadi%20tenant%20di%20Brain%20Fair.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?'
                   className='hover:scale-105 bg-amber-600 text-white text-center py-3 px-6 rounded-md shadow-lg hover:bg-amber-700 transition-all duration-300 w-fit'
                 >
                   Daftar Tenant BRAIN FAIR
