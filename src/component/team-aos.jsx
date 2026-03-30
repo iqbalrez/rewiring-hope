@@ -10,7 +10,7 @@ import avatarLaura from '../assets/images/client/laura.jpg';
 import avatarLinda from '../assets/images/client/linda.jpg';
 import avatarHesti from '../assets/images/client/hesti.jpg';
 import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
-import avatarVega from '../assets/images/client/vega.jpg';
+import avatarElga from '../assets/images/client/elga.jpeg';
 import avatarFransiska from '../assets/images/client/fransiska.jpeg';
 
 export default function TeamAos() {
@@ -21,9 +21,9 @@ export default function TeamAos() {
       designation: 'Founder & Program Director',
     },
     {
-      name: 'dr. Vega Pratiwi Putri, Sp.N, M.Sc',
-      profile: avatarVega,
-      designation: 'Neurosciene & Clinical Neurology Advisor',
+      name: 'Elga Andriana, M.Ed, Pd.D',
+      profile: avatarElga,
+      designation: 'Senior Advisor',
     },
     {
       name: 'Christiyanti Aprinastuti, M.Pd',
