@@ -11,7 +11,7 @@ import avatarLinda from '../assets/images/client/linda.jpg';
 import avatarHesti from '../assets/images/client/hesti.jpg';
 import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
 import avatarElga from '../assets/images/client/elga.jpeg';
-import avatarFransiska from '../assets/images/client/fransiska.jpeg';
+import avatarMaria from '../assets/images/client/maria.jpg';
 
 export default function TeamAos() {
   const team = [
@@ -21,7 +21,7 @@ export default function TeamAos() {
       designation: 'Founder & Program Director',
     },
     {
-      name: 'Elga Andriana, M.Ed, Pd.D',
+      name: 'Elga Andriana, M.Ed, Ph.D',
       profile: avatarElga,
       designation: 'Senior Advisor',
     },
@@ -51,9 +51,9 @@ export default function TeamAos() {
       designation: 'Community Engagement Coordinator',
     },
     {
-      name: 'Fransiska Atika Indriyani, S.Si',
-      profile: avatarFransiska,
-      designation: 'Strategic Partnerships Lead',
+      name: 'Maria Nirmala Putri, M.Pd.',
+      profile: avatarMaria,
+      designation: 'Operations Coordinator & Play-Based Learning Contributor',
     },
   ];
 
@@ -100,7 +100,7 @@ export default function TeamAos() {
                 />
                 <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/30 z-0 transition duration-500'></div>
 
-                <div className='content absolute start-0 end-0 top-8/11 lg:top-5/7 bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
+                <div className='content md:absolute start-0 end-0 top-8/11 lg:top-5/7 bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
                   <Link
                     to='#'
                     className='line-clamp-1 hover:line-clamp-none h5 text-md text-dark dark:text-white hover:text-primary dark:hover:text-primary font-medium'

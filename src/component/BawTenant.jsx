@@ -62,12 +62,22 @@ export default function BawTenant() {
                 </div>
               </div>
               <p className='text-blue-dark max-w-2xl mx-auto md:text-lg text-center '>
-                Rp350.000
+                Early bird registration: <br />
+                <span className='font-bold'>Rp500.000 </span>
+                <span className='text-sm'>
+                  <br />
+                  (hingga 15 Mei 2026)
+                </span>
               </p>
+              <p className='text-blue-dark max-w-2xl mx-auto md:text-lg text-center mb-8'>
+                Normal registration: <br />
+                <span className='font-bold'>Rp750.000 </span>
+              </p>
+
               <div className='flex justify-center mb-2'>
                 <a
                   target='_blank'
-                  href='https://wa.me/31684163490?text=Halo%20Tim%20Brain%20Awareness%20Week%202026!%20Saya%20tertarik%20untuk%20menjadi%20tenant%20di%20Brain%20Fair.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?'
+                  href='https://wa.me/6285190558464?text=Halo%20Tim%20Brain%20Awareness%20Week%202026!%20Saya%20tertarik%20untuk%20menjadi%20tenant%20di%20Brain%20Fair.%20Bisakah%20saya%20mendapatkan%20informasi%20lebih%20lanjut?'
                   className='hover:scale-105 bg-amber-600 text-white text-center py-3 px-6 rounded-md shadow-lg hover:bg-amber-700 transition-all duration-300 w-fit'
                 >
                   Daftar Tenant BRAIN FAIR
