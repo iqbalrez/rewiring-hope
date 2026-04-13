@@ -12,6 +12,7 @@ import avatarHesti from '../assets/images/client/hesti.jpg';
 import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
 import avatarElga from '../assets/images/client/elga.jpeg';
 import avatarMaria from '../assets/images/client/maria.jpg';
+import avatarLies from '../assets/images/client/lies.png';
 
 export default function TeamAos() {
   const team = [
@@ -24,6 +25,11 @@ export default function TeamAos() {
       name: 'Elga Andriana, M.Ed, Ph.D',
       profile: avatarElga,
       designation: 'Senior Advisor',
+    },
+    {
+      name: 'Dr. Lies Budyana',
+      profile: avatarLies,
+      designation: 'Ethics & Humanitarian Advisor',
     },
     {
       name: 'Christiyanti Aprinastuti, M.Pd',
