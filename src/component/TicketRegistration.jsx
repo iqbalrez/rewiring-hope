@@ -1,7 +1,9 @@
 import Aos from 'aos';
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import FullyFundedModal from './Modal/FullyFundedModal';
 import axios from 'axios';
+import qrisImage from '../assets/images/QRIS-Static.jpeg';
 
 export default function TicketRegistration({ initialType, initialPrice }) {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
@@ -12,6 +14,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
   const [file, setFile] = useState(null);
   const [instagramProof, setInstagramProof] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
+  const [showQris, setShowQris] = useState(false);
 
   const [formMessage, setFormMessage] = useState(
     'Sistem Pembayaran sedang dikembangkan.',
@@ -291,11 +294,53 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                       </div>
                     </div>
                   </div>
+                  {/* QRIS Modal via Portal */}
+                  {showQris && ReactDOM.createPortal(
+                    <div
+                      className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/60'
+                      onClick={() => setShowQris(false)}
+                    >
+                      <div
+                        className='bg-white rounded-2xl shadow-2xl p-6 mx-4 max-w-sm w-full text-center'
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <h4 className='text-base font-semibold text-gray-800 mb-1'>Bayar via QRIS</h4>
+                        <p className='text-xs text-gray-500 mb-2'>Scan QR di bawah, bayar tepat sejumlah:</p>
+                        <p className='text-2xl font-bold text-blue-600 mb-4'>Rp{price.toLocaleString('id-ID')}</p>
+                        <img
+                          src={qrisImage}
+                          alt='QRIS Static Rewiring Hope'
+                          className='mx-auto max-w-[240px] w-full rounded-xl border border-gray-200'
+                        />
+                        <p className='text-xs text-gray-400 mt-3'>Berlaku untuk semua bank &amp; e-wallet</p>
+                        <button
+                          type='button'
+                          onClick={() => setShowQris(false)}
+                          className='mt-4 px-6 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition'
+                        >
+                          Tutup
+                        </button>
+                      </div>
+                    </div>,
+                    document.body
+                  )}
+
                   <div className='mb-6'>
                     <label className='block font-medium'>
-                      Bukti Transfer (JPG/PNG)
+                      Bukti Pembayaran via QRIS (JPG/PNG)
                     </label>
                     <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                      <div className='mb-4 p-3 bg-white rounded-lg border border-gray-200 text-center'>
+                        <p className='text-xs text-gray-500 mb-1'>Bayar sebesar:</p>
+                        <p className='text-lg font-bold text-blue-600 mb-3'>Rp{price.toLocaleString('id-ID')}</p>
+                        <button
+                          type='button'
+                          onClick={() => setShowQris(true)}
+                          className='px-5 py-2 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700 transition'
+                        >
+                          Tampilkan QRIS
+                        </button>
+                      </div>
                       <input
                         type='file'
                         accept='image/*'
@@ -303,26 +348,9 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                         className='w-full'
                         required={type !== 'FF'}
                       />
-                      <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
-                        <p className='text-xs text-gray-500'>
-                          Silakan transfer tepat sejumlah:
-                        </p>
-                        <p className='text-lg font-bold text-blue-600'>
-                          Rp{price.toLocaleString('id-ID')}
-                        </p>
-
-                        <div className='mt-2'>
-                          <p className='text-xs text-gray-500 uppercase tracking-wider'>
-                            Bank Mandiri
-                          </p>
-                          <p className='text-sm font-semibold text-gray-800 tracking-widest'>
-                            1360037231120
-                          </p>
-                          <p className='text-xs text-gray-500'>
-                            a/n ANASTASIA AJENG WULAN TANTRI
-                          </p>
-                        </div>
-                      </div>
+                      <p className='text-xs text-gray-500 mt-2'>
+                        Upload screenshot / foto bukti pembayaran QRIS
+                      </p>
                     </div>
                   </div>
                   <div className='mb-4 flex items-start gap-3'>

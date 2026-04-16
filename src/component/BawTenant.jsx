@@ -25,7 +25,7 @@ export default function BawTenant() {
 
   return (
     <>
-      <section className='relative py-24 bg-blue-dark' id='about'>
+      <section className='relative py-24 bg-blue-dark' id='tenant'>
         <div
           className='container mx-auto'
           data-aos='fade-up'

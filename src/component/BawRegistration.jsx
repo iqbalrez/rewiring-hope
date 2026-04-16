@@ -1,7 +1,9 @@
 import Aos from 'aos';
 import React, { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import FullyFundedModal from './Modal/FullyFundedModal';
 import axios from 'axios';
+import qrisImage from '../assets/images/QRIS-Static.jpeg';
 
 export default function TicketRegistration() {
   const VITE_API_URL = import.meta.env.VITE_API_URL;
@@ -12,6 +14,7 @@ export default function TicketRegistration() {
   const [instagramProof, setInstagramProof] = useState(null);
   const [libMembershipProof, setLibMembershipProof] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
+  const [showQris, setShowQris] = useState(false);
 
   const [formMessage, setFormMessage] = useState(
     'Sistem Pembayaran sedang dikembangkan.',
@@ -378,22 +381,87 @@ export default function TicketRegistration() {
                     </div>
                   </div>
 
+                  {/* QRIS Modal via Portal */}
+                  {showQris && ReactDOM.createPortal(
+                    <div
+                      className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/60'
+                      onClick={() => setShowQris(false)}
+                    >
+                      <div
+                        className='bg-white rounded-2xl shadow-2xl p-6 mx-4 max-w-sm w-full text-center'
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        <h4 className='text-base font-semibold text-gray-800 mb-1'>Bayar via QRIS</h4>
+                        <p className='text-xs text-gray-500 mb-2'>Scan QR di bawah, bayar tepat sejumlah:</p>
+                        <p className='text-2xl font-bold text-blue-600 mb-4'>Rp50.000</p>
+                        <img
+                          src={qrisImage}
+                          alt='QRIS Static Rewiring Hope'
+                          className='mx-auto max-w-[240px] w-full rounded-xl border border-gray-200'
+                        />
+                        <p className='text-xs text-gray-400 mt-3'>Berlaku untuk semua bank &amp; e-wallet</p>
+                        <button
+                          type='button'
+                          onClick={() => setShowQris(false)}
+                          className='mt-4 px-6 py-2 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition'
+                        >
+                          Tutup
+                        </button>
+                      </div>
+                    </div>,
+                    document.body
+                  )}
+
                   <div className='mb-6'>
                     <label className='block font-medium'>
-                      Bukti Pendaftaran Keanggotaan Perpustakaan DIY (JPG/PNG)
+                      Bukti Pembayaran via QRIS (JPG/PNG)
                     </label>
-                    <p className='text-xs text-gray-500'>
-                      Terkait dengan kerjasama, setiap peserta BAW diwajibkan
-                      juga{' '}
+                    <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
+                      <div className='mb-4 p-3 bg-white rounded-lg border border-gray-200 text-center'>
+                        <p className='text-xs text-gray-500 mb-1'>Bayar sebesar:</p>
+                        <p className='text-lg font-bold text-blue-600 mb-3'>Rp50.000</p>
+                        <button
+                          type='button'
+                          onClick={() => setShowQris(true)}
+                          className='px-5 py-2 bg-blue-600 text-white text-sm rounded-full hover:bg-blue-700 transition'
+                        >
+                          Tampilkan QRIS
+                        </button>
+                      </div>
+                      <input
+                        type='file'
+                        accept='image/*'
+                        onChange={(e) => setFile(e.target.files[0])}
+                        className='w-full'
+                        required={true}
+                      />
+                      <p className='text-xs text-gray-500 mt-2'>
+                        Upload screenshot / foto bukti pembayaran QRIS
+                      </p>
+                    </div>
+                  </div>
+
+                                    <div className='mb-6'>
+                    <label className='block font-medium'>
+                      Bukti Pendaftaran Keanggotaan Perpustakaan DIY (JPG/PNG){' '}
+                      <span className='text-gray-400 font-normal text-sm'>(Opsional)</span>
+                    </label>
+                    <p className='text-xs text-gray-500 mt-1'>
+                      Kami menganjurkan peserta untuk{' '}
                       <a
                         target='_blank'
                         href='https://balaiyanpus.jogjaprov.go.id/'
                         className='text-blue-600'
                       >
-                        mendaftar keanggotaan di Perpustakaan DIY (free)
+                        mendaftar keanggotaan di Perpustakaan DIY (gratis)
                       </a>
-                      .
+                      . Kartu anggota Perpustakaan DIY merupakan:
                     </p>
+                    <ul className='mt-1 mb-2 text-xs text-gray-500 list-disc list-inside space-y-1'>
+                      <li>🏆 Syarat pengambilan hadiah lomba</li>
+                      <li>🖼️ Syarat masuk wahana Diorama di Grhatama Pustaka</li>
+                      <li>🎬 Syarat masuk Bioskop 6D di Grhatama Pustaka</li>
+                    </ul>
                     <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
                       <input
                         type='file'
@@ -402,50 +470,15 @@ export default function TicketRegistration() {
                           setLibMembershipProof(e.target.files[0])
                         }
                         className='w-full'
-                        required={type !== 'FF'}
                       />
                       <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
                         <p className='text-xs text-gray-500'>
-                          Silakan upload bukti pendaftaran
+                          Upload bukti pendaftaran keanggotaan jika sudah mendaftar
                         </p>
                       </div>
                     </div>
                   </div>
-
-                  <div className='mb-6'>
-                    <label className='block font-medium'>
-                      Bukti Transfer (JPG/PNG)
-                    </label>
-                    <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
-                      <input
-                        type='file'
-                        accept='image/*'
-                        onChange={(e) => setFile(e.target.files[0])}
-                        className='w-full'
-                        required={true}
-                      />
-                      <div className='mt-4 p-3 bg-gray-50 rounded-lg border border-dashed border-gray-300'>
-                        <p className='text-xs text-gray-500'>
-                          Silakan transfer tepat sejumlah:
-                        </p>
-                        <p className='text-lg font-bold text-blue-600'>
-                          Rp50.000
-                        </p>
-
-                        <div className='mt-2'>
-                          <p className='text-xs text-gray-500 uppercase tracking-wider'>
-                            Bank Mandiri
-                          </p>
-                          <p className='text-sm font-semibold text-gray-800 tracking-widest'>
-                            1360037231120
-                          </p>
-                          <p className='text-xs text-gray-500'>
-                            a/n ANASTASIA AJENG WULAN TANTRI
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                  
                   <div className='mb-4 flex items-start gap-3'>
                     <input
                       id='agreeTerms'
