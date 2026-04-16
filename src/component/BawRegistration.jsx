@@ -458,9 +458,9 @@ export default function TicketRegistration() {
                       . Kartu anggota Perpustakaan DIY merupakan:
                     </p>
                     <ul className='mt-1 mb-2 text-xs text-gray-500 list-disc list-inside space-y-1'>
-                      <li>🏆 Syarat pengambilan hadiah lomba</li>
-                      <li>🖼️ Syarat masuk wahana Diorama di Grhatama Pustaka</li>
-                      <li>🎬 Syarat masuk Bioskop 6D di Grhatama Pustaka</li>
+                      <li>🏆 Syarat pengambilan hadiah lomba di Grhatama Pustaka</li>
+                      <li>🖼️ Syarat masuk wahana Diorama</li>
+                      <li>🎬 Syarat masuk Bioskop 6D</li>
                     </ul>
                     <div className='mt-2 p-4 border-2 border-dashed border-gray-300 rounded-md bg-gray-50'>
                       <input
@@ -478,7 +478,7 @@ export default function TicketRegistration() {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className='mb-4 flex items-start gap-3'>
                     <input
                       id='agreeTerms'
