@@ -168,9 +168,9 @@ export default function Index() {
               </div>
               {/* Countdown Timer */}
               <div className='bg-slate-100 text-dark p-6 rounded-lg shadow-lg flex flex-col gap-2 w-fit'>
-                <p className='text-xs'>Event Countdown</p>
+                <p className='text-xs'>Batas Akhir Pendaftaran</p>
                 <Countdown
-                  date={new Date('2026-07-04T00:00:00')}
+                  date={new Date('2026-06-13T00:00:00')}
                   renderer={renderer}
                   className='text-lg font-bold p-2 bg-slate-200/10 rounded-md'
                 />
