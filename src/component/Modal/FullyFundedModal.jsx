@@ -9,7 +9,7 @@ export default function FullyFundedModal({
   setFormMessage,
   setSubmitted,
   eventId,
-  instagramProof,
+  // instagramProof,
 }) {
   const [loading, setLoading] = useState(false);
   const VITE_API_URL = import.meta.env.VITE_API_URL;
@@ -71,9 +71,9 @@ export default function FullyFundedModal({
       formDataToSend.append('submissionData', JSON.stringify(responses));
 
       // Pastikan instagramProof tidak kosong sebelum di-append
-      if (instagramProof) {
-        formDataToSend.append('instagramProof', instagramProof);
-      }
+      // if (instagramProof) {
+      //   formDataToSend.append('instagramProof', instagramProof);
+      // }
 
       // 3. Eksekusi Post ke API (Tidak perlu manual set Content-Type, Axios otomatis mengenali FormData)
       await axios.post(`${VITE_API_URL}/orders/register`, formDataToSend, {

@@ -12,7 +12,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
   const [agreeTerms, setAgreeTerms] = useState(false);
   const [isFFModalOpen, setIsFFModalOpen] = useState(false);
   const [file, setFile] = useState(null);
-  const [instagramProof, setInstagramProof] = useState(null);
+  // const [instagramProof, setInstagramProof] = useState(null);
   const [errorMsg, setErrorMsg] = useState('');
   const [showQris, setShowQris] = useState(false);
 
@@ -26,8 +26,8 @@ export default function TicketRegistration({ initialType, initialPrice }) {
       formData.name &&
       formData.email &&
       formData.waNumber &&
-      formData.institution &&
-      instagramProof
+      formData.institution
+      // && instagramProof
     ) {
       setIsFFModalOpen(true);
     } else {
@@ -105,9 +105,9 @@ export default function TicketRegistration({ initialType, initialPrice }) {
         data.append('paymentProof', file);
       }
 
-      if (instagramProof) {
-        data.append('instagramProof', instagramProof);
-      }
+      // if (instagramProof) {
+      //   data.append('instagramProof', instagramProof);
+      // }
 
       await axios.post(`${VITE_API_URL}/orders/register`, data, {
         headers: { 'Content-Type': 'multipart/form-data' },
@@ -267,7 +267,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                     Kami percaya Anda dapat memilih kategori yang paling sesuai
                     dengan kondisi Anda.
                   </p>
-                  <div className='mb-6'>
+                  {/* <div className='mb-6'>
                     <label className='block font-medium'>
                       Bukti Follow Instagram (JPG/PNG)
                     </label>
@@ -293,7 +293,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   {/* QRIS Modal via Portal */}
                   {showQris && ReactDOM.createPortal(
                     <div
@@ -416,7 +416,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
         setFormMessage={setFormMessage}
         eventId={eventId}
         setSubmitted={setSubmitted}
-        instagramProof={instagramProof}
+        // instagramProof={instagramProof}
       />
     </>
   );
