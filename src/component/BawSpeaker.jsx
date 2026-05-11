@@ -113,7 +113,7 @@ export default function Speaker() {
               Preliminary Agenda <i className='mdi mdi-arrow-top-right'></i>
             </Link>
             <div className='mt-4 bg-white rounded-md p-2 text-md text-center text-blue-dark'>
-              📍 Grhatama Pustaka DIY
+              📍 Taman Budaya Yogyakarta
               <br />2 Juli 2026
             </div>
           </div>

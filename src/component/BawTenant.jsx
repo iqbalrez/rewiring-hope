@@ -61,7 +61,7 @@ export default function BawTenant() {
                   />
                 </div>
               </div>
-              <p className='text-blue-dark max-w-2xl mx-auto md:text-lg text-center '>
+              {/* <p className='text-blue-dark max-w-2xl mx-auto md:text-lg text-center '>
                 Early bird registration: <br />
                 <span className='font-bold'>Rp500.000 </span>
                 <span className='text-sm'>
@@ -72,7 +72,7 @@ export default function BawTenant() {
               <p className='text-blue-dark max-w-2xl mx-auto md:text-lg text-center mb-8'>
                 Normal registration: <br />
                 <span className='font-bold'>Rp750.000 </span>
-              </p>
+              </p> */}
 
               <div className='flex justify-center mb-2'>
                 <a

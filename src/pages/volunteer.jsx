@@ -76,7 +76,7 @@ export default function VolunteerPage() {
               </p>
               <p className='text-white text-md font-semibold'>
                 2 Juli 2026 - Brain Awareness Week <br />
-                📍 Grhatama Pustaka DIY
+                📍 Taman Budaya Yogyakarta
               </p>
               <p className='text-white text-md font-semibold'>
                 4 Juli 2026 - Teaching The Healing Brain <br />

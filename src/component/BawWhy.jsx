@@ -19,7 +19,7 @@ export default function BawWhy() {
     'Umpan balik edukatif dari tim kuratorial',
     'Pengalaman belajar neuroscience melalui seni, cerita, video, atau desain visual',
     'Menjadi bagian dari gerakan pendidikan publik tentang otak, ketangguhan, dan kesehatan mental',
-    'Free tiket bioskop 6D dan Diorama Arsip Jogja (@Grhatama Pustaka DIY)'
+    // 'Free tiket bioskop 6D dan Diorama Arsip Jogja (@Taman Budaya Yogyakarta)',
   ];
 
   return (
@@ -51,7 +51,7 @@ export default function BawWhy() {
               <p className='text-blue-dark max-w-2xl mx-auto mt-4 md:text-lg text-center'>
                 Siswa TK - SMA
                 <br />
-                <span className='font-bold'>Rp 50.000</span>
+                {/* <span className='font-bold'>Rp 50.000</span> */}
               </p>
               <div className='flex justify-center'>
                 <a
