@@ -26,41 +26,41 @@ export default function TeamAos() {
       profile: avatarElga,
       designation: 'Senior Advisor',
     },
-    {
-      name: 'Dr. Lies Budyana',
-      profile: avatarLies,
-      designation: 'Ethics & Humanitarian Advisor',
-    },
+    // {
+    //   name: 'Dr. Lies Budyana',
+    //   profile: avatarLies,
+    //   designation: 'Ethics & Humanitarian Advisor',
+    // },
     {
       name: 'Christiyanti Aprinastuti, M.Pd',
       profile: avatarChristiyanti,
       designation: 'Mathematical Thinking & Quality Assurance Specialist',
     },
-    {
-      name: 'Linda Devi Fitriana, Ph.D',
-      profile: avatarLinda,
-      designation: 'Cognitive Pedagogy Specialist',
-    },
-    {
-      name: 'Laurensia Aptik Evanjeli,  M.A',
-      profile: avatarLaura,
-      designation: 'Media, Communication & Inclusive Education Coordinator',
-    },
-    {
-      name: 'Marina Hardiyanti, M.Sc',
-      profile: avatarMarina,
-      designation: 'Food Science & Nutrition Coordinator',
-    },
-    {
-      name: 'Hesti Miranda, M.Ed',
-      profile: avatarHesti,
-      designation: 'Community Engagement Coordinator',
-    },
-    {
-      name: 'Maria Nirmala Putri, M.Pd.',
-      profile: avatarMaria,
-      designation: 'Operations Coordinator & Play-Based Learning Contributor',
-    },
+    // {
+    //   name: 'Linda Devi Fitriana, Ph.D',
+    //   profile: avatarLinda,
+    //   designation: 'Cognitive Pedagogy Specialist',
+    // },
+    // {
+    //   name: 'Laurensia Aptik Evanjeli,  M.A',
+    //   profile: avatarLaura,
+    //   designation: 'Media, Communication & Inclusive Education Coordinator',
+    // },
+    // {
+    //   name: 'Marina Hardiyanti, M.Sc',
+    //   profile: avatarMarina,
+    //   designation: 'Food Science & Nutrition Coordinator',
+    // },
+    // {
+    //   name: 'Hesti Miranda, M.Ed',
+    //   profile: avatarHesti,
+    //   designation: 'Community Engagement Coordinator',
+    // },
+    // {
+    //   name: 'Maria Nirmala Putri, M.Pd.',
+    //   profile: avatarMaria,
+    //   designation: 'Operations Coordinator & Play-Based Learning Contributor',
+    // },
   ];
 
   useEffect(() => {
@@ -93,7 +93,7 @@ export default function TeamAos() {
             </p>
           </div>
 
-          <div className='max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-8'>
+          <div className='max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-8'>
             {team.map((member, index) => (
               <div
                 key={index}
@@ -106,7 +106,7 @@ export default function TeamAos() {
                 />
                 <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/30 z-0 transition duration-500'></div>
 
-                <div className='content md:absolute start-0 end-0 top-8/11 lg:top-5/7 bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
+                <div className='content md:absolute start-0 end-0 top-8/11 lg:top-10/13 bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
                   <Link
                     to='#'
                     className='line-clamp-1 hover:line-clamp-none h5 text-md text-dark dark:text-white hover:text-primary dark:hover:text-primary font-medium'
