@@ -55,7 +55,7 @@ export default function TicketRegistration({ initialType, initialPrice }) {
   const [type, setType] = useState('MHS');
   const [price, setPrice] = useState(initialPrice);
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(true);
+  const [submitted, setSubmitted] = useState(false);
 
   const priceMap = {
     MHS: 150000,
