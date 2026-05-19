@@ -107,6 +107,14 @@ export default function VolunteerNavbar() {
                 Home
               </NavLink>
               <NavLink
+                to='/teaching-the-healing-brain'
+                className={({ isActive }) =>
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`
+                }
+              >
+                Teaching The Healing Brain
+              </NavLink>
+              <NavLink
                 to='/brain-awareness-week'
                 className={({ isActive }) =>
                   ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`

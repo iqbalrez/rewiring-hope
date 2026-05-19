@@ -29,6 +29,7 @@ import PortfolioDetail from './pages/template/portfolio-detail.jsx';
 import IndexTen from './pages/template/index-ten.jsx';
 import IndexTwelve from './pages/template/index-twelve.jsx';
 import IndexEleven from './pages/template/index-eleven.jsx';
+import TTHBPage from './pages/tthb.jsx';
 import BawPage from './pages/baw.jsx';
 import OrderEventPage from './pages/admin/OrderEventPage.jsx';
 import DashboardPage from './pages/admin/DashboardPage.jsx';
@@ -100,6 +101,7 @@ export default function App() {
           path='/terms-and-conditions'
           element={<TermsAndConditionsPage />}
         />
+        <Route path='/teaching-the-healing-brain' element={<TTHBPage />} />
         <Route path='/brain-awareness-week' element={<BawPage />} />
         <Route path='/volunteer' element={<VolunteerPage />} />
         <Route path='/volunteer/twibbon' element={<VolunteerTwibbonPage />} />

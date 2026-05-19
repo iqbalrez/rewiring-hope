@@ -115,6 +115,14 @@ export default function BawNavbar() {
                 Home
               </NavLink>
               <NavLink
+                to='/teaching-the-healing-brain'
+                className={({ isActive }) =>
+                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                }
+              >
+                Teaching The Healing Brain
+              </NavLink>
+              <NavLink
                 to='/brain-awareness-week'
                 className={({ isActive }) =>
                   ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`

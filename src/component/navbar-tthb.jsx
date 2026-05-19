@@ -9,14 +9,31 @@ import IBROImage from '../assets/images/client/IBROImage.jpg'; // Impor logo IBR
 export default function Navbar({ navdark, bg }) {
   const [isOpen, setMenu] = useState(true);
 
+  useEffect(() => {
+    window.addEventListener('scroll', windowScroll);
+    window.scrollTo(0, 0);
+    return () => {
+      window.removeEventListener('scroll', windowScroll);
+    };
+  }, []);
+
   const toggleMenu = () => {
     setMenu(!isOpen);
   };
 
+  function windowScroll() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY >= 300) {
+      navbar.classList.add('is-sticky');
+    } else {
+      navbar.classList.remove('is-sticky');
+    }
+  }
+
   return (
     <>
       <nav
-        className={`navbar is-sticky ${bg ? '!bg-white dark:!bg-dark' : ''}`}
+        className={`navbar ${bg ? '!bg-white dark:!bg-dark' : ''}`}
         id='navbar'
       >
         <div className='flex flex-wrap items-center justify-between'>

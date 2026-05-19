@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <>
       {/*  Start Footer  */}
-      <footer className='py-8 bg-slate-800 dark:bg-gray-900'>
+      <footer className='py-8 bg-blue-dark'>
         <div className='container'>
           <div className='grid md:grid-cols-12 items-center'>
             <div className='md:col-span-3'>
@@ -21,17 +21,15 @@ export default function Footer() {
             </div>
 
             <div className='md:col-span-7 md:mt-0 mt-8'>
-              <div className='text-center text-primary'>
+              <div className='text-center text-gray-400'>
                 <p className=''>
-                  © {new Date().getFullYear()} Rewiring Hope by The Excellent
-                  Study.
+                  © 2026 Rewiring Hope Indonesia
                 </p>
                 <p className='text-gray-400'>
-                  Hubungi kami:{' '}
                   <a href='mailto:info@rewiringhope.or.id'>
                     <span className='underline'>info@rewiringhope.or.id </span>
                     <br />
-                    <span className=''>+62-896-888-333-07</span>
+                    <span className=''>+62 896 888 333 07</span>
                   </a>
                 </p>
               </div>
@@ -48,7 +46,7 @@ export default function Footer() {
                   <Link
                     to='https://linkedin.com/company/rewiring-hope'
                     target='_blank'
-                    className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-md border-slate-700 dark:border-slate-800 hover:border-primary bg-slate-800 dark:bg-gray-900 hover:bg-primary dark:hover:bg-primary text-gray-400 hover:text-white'
+                    className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-md border-slate-700 dark:border-slate-800 hover:border-primary bg-blue-dark dark:bg-gray-900 hover:bg-primary dark:hover:bg-primary text-gray-400 hover:text-white'
                   >
                     <i
                       className='uil uil-linkedin align-middle'
@@ -60,7 +58,7 @@ export default function Footer() {
                   <Link
                     to='https://www.instagram.com/rewiringhopeindonesia'
                     target='_blank'
-                    className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-md border-slate-700 dark:border-slate-800 hover:border-primary bg-slate-800 dark:bg-gray-900 hover:bg-primary dark:hover:bg-primary text-gray-400 hover:text-white'
+                    className='size-8 inline-flex items-center text-center justify-center tracking-wide border align-middle duration-500 rounded-md border-slate-700 dark:border-slate-800 hover:border-primary bg-blue-dark dark:bg-gray-900 hover:bg-primary dark:hover:bg-primary text-gray-400 hover:text-white'
                   >
                     <i
                       className='uil uil-instagram align-middle'
