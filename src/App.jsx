@@ -37,6 +37,7 @@ import AdminLayout from './component/layouts/AdminLayout.jsx';
 import VolunteerPage from './pages/volunteer.jsx';
 import VolunteerTwibbonPage from './pages/twibbonvolunteer.jsx';
 import AdminVolunteerPage from './pages/admin/VolunteerPage.jsx';
+import ArticlesPage from './pages/articles.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -96,7 +97,7 @@ export default function App() {
         />
 
         <Route path='/' element={<Index />} />
-        <Route path='/about' element={<AboutPage />} />
+        <Route path='/articles' element={<ArticlesPage />} />
         <Route
           path='/terms-and-conditions'
           element={<TermsAndConditionsPage />}

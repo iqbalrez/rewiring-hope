@@ -33,10 +33,10 @@ export default function WordClouds({ handlePopupClose }) {
   return (
     <>
       <section
-        className='h-fit relative px-6 py-24 bg-slate-200 dark:bg-slate-800 flex items-center'
+        className='h-fit relative px-6 py-24 bg-slate-200 dark:bg-slate-800 flex items-center min-h-[80vh]'
         id='about'
       >
-        <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto my-auto '>
+        <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto my-auto'>
           <h2 className='text-center text-dark text-2xl font-bold'>
             Tulis suaramu. <br /> Satu kalimat bisa menyalakan harapan banyak
             anak.

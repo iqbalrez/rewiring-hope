@@ -123,12 +123,12 @@ export default function VolunteerNavbar() {
                 Brain Awareness Week
               </NavLink>
               <NavLink
-                to='/about'
+                to='/articles'
                 className={({ isActive }) =>
                   ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-primary text-white' : 'bg-primary text-white md:text-primary md:bg-white'} rounded-md` : `${isSticky ? 'text-primary' : 'md:text-white'}`}`
                 }
               >
-                About
+                Articles
               </NavLink>
               <NavLink
                 to='/volunteer'

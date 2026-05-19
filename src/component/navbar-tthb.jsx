@@ -167,12 +167,12 @@ export default function Navbar({ navdark, bg }) {
                 Brain Awareness Week
               </NavLink>
               <NavLink
-                to='/about'
+                to='/articles'
                 className={({ isActive }) =>
                   ` p-3 px-4 ${isActive ? 'bg-white text-primary rounded-md' : 'nav-link'}`
                 }
               >
-                About
+                Articles
               </NavLink>
               <NavLink
                 to='/volunteer'
