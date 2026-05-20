@@ -49,23 +49,26 @@ export default function Why() {
                     <br />
                     Satu orang tua yang hadir,
                     <br />
-                    dan satu keputusan kecil…
-                    <br />
-                    bisa mengubah arah hidup seorang anak.
+                    Satu lingkungan kecil yang aman.
+                    <br/>
+                    <br/>
+                    Sudah cukup untuk mengubah cara seorang anak
+melihat dirinya.
                   </span>
                   <br />
                   <br />
-                  Kita sedang membutuhkan hal-hal yang paling mendasar: hubungan
-                  yang hangat, motivasi yang sehat, otak yang aman untuk
-                  belajar, dan pendampingan yang benar-benar manusiawi.
-                  <br /> <br />
-                  Saatnya kita bergandeng tangan dan mulai membangun ulang
-                  fondasi: ketangguhan, rasa aman, dan harapan.
+                  Kita sedang membutuhkan hal-hal yang paling dasar.
+
+Hubungan yang hangat. Motivasi yang sehat.
+
+Dan pemahaman bahwa setiap anak bisa bertumbuh.
+                  
                   <br />
                   <br />
                   <span className='font-bold'>
-                    Jika kita ingin generasi yang kuat, mulai dari diri kita.
-                    Hari ini.
+                    Jika kita ingin generasi yang kuat, perubahan harus
+dimulai dari sini.
+<br/><br/> Dari cara kita hadir.
                   </span>
                 </p>
               </div>

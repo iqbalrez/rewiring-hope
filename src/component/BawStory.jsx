@@ -17,7 +17,7 @@ export default function BawStory() {
 
   return (
     <>
-      <section className='relative py-16 md:py-24 bg-amber-700' id='about'>
+      <section className='relative py-16 md:py-24 bg-blue-dark' id='about'>
         <div
           className='max-w-4xl px-6 md:px-0 mx-auto'
           data-aos='fade-up'
@@ -27,38 +27,31 @@ export default function BawStory() {
             <div className='lg:col-span-7'>
               <div className='space-y-4'>
                 <h3 className='md:text-2xl text-xl text-start font-bold text-white'>
-                  Kisah Otak, Kisah Kita Semua
+                  Ini Kisah Otak, Kisah Kita Semua
                 </h3>
                 <p className='text-white text-start'>
-                  Akhir-akhir ini, rasanya otak kita cepat sekali penuh dari
-                  berita yang bikin cemas, komentar yang saling menjatuhkan,
-                  sampai obrolan yang menguras energi. Lebih mudah terkena vibes
-                  negatif daripada menemukan sesuatu yang benar-benar
-                  menyehatkan pikiran.
+                  Ada seorang anak yang pernah berkata,
                 </p>
                 <p className='text-white text-start'>
-                  Karena itu,{' '}
-                  <span className={highlight}>Kisah Otak yang Tangguh</span>{' '}
-                  hadir sebagai undangan untuk{' '}
-                  <span className={highlight}>berhenti sebentar</span>,{' '}
-                  <span className={highlight}>tarik napas</span>,{' '}
-                  <span className={highlight}>
-                    dan kembali ke hal-hal yang menguatkan kita
-                  </span>
-                  . Lewat warna, cerita, video, dan desain, anak-anak dan remaja
-                  mengingatkan kita bahwa otak manusia selalu punya cara untuk
-                  belajar, bertahan, dan tumbuh.
+                  “Aku sering merasa tidak bisa.<br/>
+                    Kalau salah, aku langsung takut mencoba lagi.”
                 </p>
                 <p className='text-white text-start'>
-                  Ayo hadir, ambil bagian, dan jadi bagian dari perubahan yang
-                  dimulai dari sesuatu yang paling dekat:{' '}
-                  <span className={highlight}>otak kita.</span>
+                  Di kegiatan ini, ia mulai belajar sesuatu yang baru.
+<br/>
+Bahwa otaknya tidak berhenti ketika gagal.
+<br/>
+Bahwa ia bisa mencoba lagi.
+<br/>
+Pelan-pelan, ia mulai berkata pada dirinya sendiri,
                 </p>
                 <p className='text-white text-start'>
-                  Karena pada akhirnya, ini bukan hanya kisah mereka.{' '}
-                  <span className={highlight}>
-                    Ini kisah otak. Kisah kita semua.
-                  </span>
+                 “Aku bisa belajar.”
+<br/><br/>
+Dan dari kalimat kecil itu, sesuatu berubah.
+<br/><br/>
+
+Mungkin, kisah itu juga adalah kisahmu yang akan dimulai.
                 </p>
               </div>
             </div>

@@ -3,13 +3,28 @@ import React, { useEffect, useState } from 'react';
 import BAWModal from './Modal/BAWModal';
 import brainImage from '../assets/images/client/baw-illust.png';
 
+const INITIAL_INLINE = {
+  name: '',
+  age: '',
+  level: '',
+  school: '',
+  village: '',
+  parentName: '',
+  email: '',
+  phone: '',
+};
+
 export default function BAWRegistration() {
   const eventId = '29bd3506-0a83-11f1-909d-0a002700000b';
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formMessage, setFormMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
-const [selectedType, setSelectedType] = useState('');
+  const [inlineData, setInlineData] = useState(INITIAL_INLINE);
+
+  const setField = (field, value) =>
+    setInlineData((prev) => ({ ...prev, [field]: value }));
+
   const faq = [
     {
       question: 'Siapa yang bisa ikut kegiatan ini?',
@@ -37,6 +52,14 @@ const [selectedType, setSelectedType] = useState('');
     Aos.init();
   }, []);
 
+  const inputClass = 'w-full p-2 border rounded-md mt-1 text-sm';
+  const labelClass = 'block text-sm font-medium mt-3 mb-1 text-gray-700';
+
+  const handleOpenModal = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
   return (
     <>
       <section id='register' className='py-16 md:py-24 bg-gray-50 dark:bg-gray-900'>
@@ -44,7 +67,7 @@ const [selectedType, setSelectedType] = useState('');
           <div className='grid grid-cols-1 md:grid-cols-2 gap-8 items-start'>
 
             {/* LEFT — FAQ */}
-            <div className='bg-blue-dark rounded-lg shadow-lg p-8'>
+            <div className='bg-blue-dark rounded-lg shadow-lg p-8 h-full'>
               <h2 className='text-2xl font-bold text-amber-500 italic mb-6'>
                 Pertanyaan yang Sering Ditanyakan
               </h2>
@@ -59,74 +82,112 @@ const [selectedType, setSelectedType] = useState('');
             </div>
 
             {/* RIGHT — CTA */}
-            <div className='bg-white rounded-lg shadow-lg p-8 flex flex-col justify-center items-center h-full gap-5'>
-              <h3 className='text-2xl font-bold text-dark'>
-                  Brain Awareness Week <br /> Competition
-                </h3>
-  
-                <img
-                  src={brainImage}
-                  alt='Teaching the Healing Brain'
-                  className='w-48 h-48 object-cover'
-                />
-  
-                {!submitted ? (
-    <>
-      {/* Pilihan Kategori Lomba */}
-      <div>
-        <p className='text-sm font-semibold text-gray-700 mb-3'>Pilih Kategori Lomba:</p>
-        <div className='grid md:grid-cols-2 gap-3'>
-          {[
-            { value: 'MW', label: 'Mewarnai', desc: 'Untuk TK', icon: 'mdi-palette' },
-            { value: 'ST', label: 'Story Telling', desc: 'Untuk SD', icon: 'mdi-microphone' },
-            { value: 'RV', label: 'Reels Video', desc: 'Untuk SMP & SMA', icon: 'mdi-video' },
-            { value: 'DI', label: 'Desain Infografis', desc: 'Untuk SMP & SMA', icon: 'mdi-palette-swatch' },
-          ].map((cat) => (
-            <button
-              key={cat.value}
-              type='button'
-              onClick={() => setSelectedType(cat.value)}
-              className={`flex items-center gap-4 p-4 rounded-lg border-2 text-left transition ${
-                selectedType === cat.value
-                  ? 'border-primary bg-blue-50'
-                  : 'border-gray-200 hover:border-gray-300'
-              }`}
-            >
-              <i className={`mdi ${cat.icon} text-2xl ${selectedType === cat.value ? 'text-primary' : 'text-gray-400'}`}></i>
-              <div>
-                <p className={`font-semibold text-sm ${selectedType === cat.value ? 'text-primary' : 'text-gray-700'}`}>
-                  {cat.label}
-                </p>
-                <p className='text-xs text-gray-400'>{cat.desc}</p>
-              </div>
-              {selectedType === cat.value && (
-                <i className='mdi mdi-check-circle text-primary ml-auto text-lg'></i>
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
+            <div className='bg-white rounded-lg shadow-lg p-8 flex flex-col h-full '>
+              <h3 className='text-2xl font-bold text-blue-dark'>
+                Daftar Sekarang
+              </h3>
+              <p className='text-blue-dark'>Isi formulir ini untuk bergabung dalam Kisah Otak Yang Tangguh.</p>
 
-      <button
-        onClick={() => setIsModalOpen(true)}
-        disabled={!selectedType}
-        className={`w-full px-8 py-4 font-semibold rounded-full uppercase tracking-widest transition shadow-md text-center text-white ${
-          selectedType
-            ? 'bg-amber-500 hover:bg-amber-600'
-            : 'bg-gray-300 cursor-not-allowed'
-        }`}
-      >
-        Mulai Perjalanan Ini
-      </button>
-                  </>
-  ) : (
-    <div className='w-full text-center bg-green-50 border border-green-200 rounded-lg p-6'>
-      <i className='mdi mdi-check-circle text-green-500 text-4xl mb-2 block'></i>
-      <h4 className='text-xl font-semibold mb-2 text-gray-700'>{formMessage}</h4>
-      <p className='text-sm text-gray-500'>Mohon menunggu info lebih lanjut.</p>
-    </div>
-  )}
-</div>
+              {!submitted ? (
+                <form onSubmit={handleOpenModal} className='w-full flex flex-col gap-1'>
+                  <label className={labelClass}>Nama Lengkap</label>
+                  <input
+                    type='text'
+                    value={inlineData.name}
+                    onChange={(e) => setField('name', e.target.value)}
+                    className={inputClass}
+                    placeholder='Nama lengkap kamu'
+                    required
+                  />
+
+                  <label className={labelClass}>Usia</label>
+                  <input
+                    type='number'
+                    value={inlineData.age}
+                    onChange={(e) => setField('age', e.target.value)}
+                    className={inputClass}
+                    placeholder='Usia kamu'
+                    min={4}
+                    max={20}
+                    required
+                  />
+
+                  <label className={labelClass}>Kelas</label>
+                  <input
+                    type='text'
+                    value={inlineData.level}
+                    onChange={(e) => setField('level', e.target.value)}
+                    className={inputClass}
+                    placeholder='Contoh: SD Kelas 3, SMP Kelas 8'
+                    required
+                  />
+
+                  <label className={labelClass}>Nama Sekolah</label>
+                  <input
+                    type='text'
+                    value={inlineData.school}
+                    onChange={(e) => setField('school', e.target.value)}
+                    className={inputClass}
+                    placeholder='Nama sekolah kamu'
+                    required
+                  />
+
+                  <label className={labelClass}>Desa / Kecamatan</label>
+                  <input
+                    type='text'
+                    value={inlineData.village}
+                    onChange={(e) => setField('village', e.target.value)}
+                    className={inputClass}
+                    placeholder='Desa atau kecamatan tempat tinggal'
+                    required
+                  />
+
+                  <label className={labelClass}>Nama Orang Tua / Wali</label>
+                  <input
+                    type='text'
+                    value={inlineData.parentName}
+                    onChange={(e) => setField('parentName', e.target.value)}
+                    className={inputClass}
+                    placeholder='Nama orang tua atau wali'
+                    required
+                  />
+
+                  <label className={labelClass}>Email Aktif</label>
+                  <input
+                    type='email'
+                    value={inlineData.email}
+                    onChange={(e) => setField('email', e.target.value)}
+                    className={inputClass}
+                    placeholder='Email aktif orang tua / wali'
+                    required
+                  />
+
+                  <label className={labelClass}>Nomor WhatsApp</label>
+                  <input
+                    type='text'
+                    value={inlineData.phone}
+                    onChange={(e) => setField('phone', e.target.value)}
+                    className={inputClass}
+                    placeholder='No. WA aktif'
+                    required
+                  />
+
+                  <button
+                    type='submit'
+                    className='w-full mt-5 px-8 py-4 font-semibold rounded-full uppercase tracking-widest transition shadow-md text-center text-white bg-amber-500 hover:bg-amber-600'
+                  >
+                    Mulai Perjalanan Ini
+                  </button>
+                </form>
+              ) : (
+                <div className='w-full h-full flex flex-col items-center justify-center text-center bg-green-50 border border-green-200 rounded-lg p-6'>
+                  <i className='mdi mdi-check-circle text-green-500 text-4xl mb-2 block'></i>
+                  <h4 className='text-xl font-semibold mb-2 text-gray-700'>{formMessage}</h4>
+                  <p className='text-sm text-gray-500'>Mohon menunggu info lebih lanjut.</p>
+                </div>
+              )}
+            </div>
+
           </div>
         </div>
       </section>
@@ -137,7 +198,8 @@ const [selectedType, setSelectedType] = useState('');
         setFormMessage={setFormMessage}
         setSubmitted={setSubmitted}
         eventId={eventId}
-        initialType={selectedType} 
+        initialType='BAW'
+        prefillData={inlineData}
       />
     </>
   );

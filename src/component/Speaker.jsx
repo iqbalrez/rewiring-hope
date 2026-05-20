@@ -75,8 +75,9 @@ export default function Speaker() {
               langkah yang tepat, dan hubungan yang kuat.
               <br />
               <br />
-              Ini bukan tentang sesuatu yang rumit, namun bagaimana kita bisa
-              menciptakan pendidikan sebagai peluang perubahan.
+             Mereka tidak hanya berbicara tentang ilmu, tetapi
+tentang bagaimana ilmu dapat menjadi jalan
+pemulihan.
             </p>
           </div>
 
@@ -125,7 +126,7 @@ export default function Speaker() {
               duration={500}
               className='mt-4 p-3 w-fit inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md'
             >
-              Register Now
+              Mulai Perjalanan Ini
             </ScrollLink>
           </div>
         </div>

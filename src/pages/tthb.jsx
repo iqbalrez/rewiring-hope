@@ -9,6 +9,10 @@ import BackgroundImage from '../assets/images/bg/main-hero.jpg';
 import TeamImage from '../assets/images/bg/team.jpg';
 import TELImage from '../assets/images/client/TELImage.jpg';
 import IBROImage from '../assets/images/client/IBROImage.jpg';
+import LogoDark from '../assets/images/logo-dark.png';
+import Danais from '../assets/images/LogoDAISTextHitam.png';
+import Paniradya from '../assets/images/LogoPaniradyaBanner.png';
+import PemdaDiy from '../assets/images/LogoPEMDADIY.png';
 
 import EventAbout from '../component/EventAbout';
 import Pricing from '../component/Pricing';
@@ -140,7 +144,7 @@ export default function TTHBPage() {
               </h1>
 
               <p className='text-white opacity-50 mb-0 max-w-2xl text-xs lg:text-lg'>
-                Rewiring Hope and Relationship through Neuroscience
+                Pendidikan yang memulihkan hubungan antara pikiran, emosi, dan manusia
               </p>
             </div>
 
@@ -152,14 +156,14 @@ export default function TTHBPage() {
                   href='#register'
                   className='hover:scale-105 bg-amber-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-amber-700 transition-all duration-300 w-fit'
                 >
-                  Register Now →
+                  Mulai Perjalanan Ini →
                 </a>
               </div>
               {/* Countdown Timer */}
               <div className='bg-slate-100 text-dark p-6 rounded-lg shadow-lg flex flex-col gap-2 w-fit'>
                 <p className='text-xs'>Batas Akhir Pendaftaran</p>
                 <Countdown
-                  date={new Date('2026-06-13T00:00:00')}
+                  date={new Date('2026-05-31T00:00:00')}
                   renderer={renderer}
                   className='text-lg font-bold p-2 bg-slate-200/10 rounded-md'
                 />
@@ -200,8 +204,8 @@ export default function TTHBPage() {
               </div>
 
               <p className='text-slate-200 text-center dark:text-slate-300 max-w-5xl mx-auto md:text-lg'>
-                Warisan terbesar bukanlah harta, melainkan jejak harapan yang
-                kita tinggalkan di hati generasi berikutnya.
+                Warisan terbesar bukanlah apa yang kita berikan,
+ tetapi bagaimana kita membuat seseorang merasa berharga dalam proses belajar mereka.
               </p>
             </div>
           </div>
@@ -234,23 +238,50 @@ export default function TTHBPage() {
             data-aos='fade-up'
             data-aos-delay='200'
           >
-            <div className='flex flex-col lg:flex-row max-w-2xl mx-auto gap-6'>
-              <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={TELImage}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-
-              <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={IBROImage}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-            </div>
+           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-3xl mx-auto gap-6'>
+                         <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                           <img
+                             src={LogoDark}
+                             className='max-w-full h-full object-contain'
+                             alt=''
+                           />
+                         </div>
+                         <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                           <img
+                             src={TELImage}
+                             className='max-w-full h-full object-contain'
+                             alt=''
+                           />
+                         </div>
+                         <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                           <img
+                             src={IBROImage}
+                             className='max-w-full h-full object-contain'
+                             alt=''
+                           />
+                         </div>
+                          <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                           <img
+                             src={PemdaDiy}
+                             className='max-w-full h-full object-contain'
+                             alt=''
+                           />
+                         </div>
+                          <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                           <img
+                             src={Danais}
+                             className='max-w-full h-full object-contain'
+                             alt=''
+                           />
+                         </div>
+                          <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                           <img
+                             src={Paniradya}
+                             className='max-w-full h-full object-contain'
+                             alt=''
+                           />
+                         </div>
+                       </div>
           </div>
         </section>
 

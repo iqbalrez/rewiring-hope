@@ -45,24 +45,20 @@ export default function EventAudience() {
                 </h3>
 
                 <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                  <span className='font-bold'>Pendidik</span> yang ingin melihat
-                  siswanya kembali bersemangat.
+                  <span className='font-bold'>Pendidik</span> yang ingin memahami tidak hanya cara
+mengajar, tetapi cara memulihkan.
                   <br />
-                  <span className='font-bold'>Orang tua</span> yang ingin
-                  memahami anaknya lebih dalam.
+                  <span className='font-bold'>Orang tua</span> yang ingin memahami dunia batin anak
+lebih dalam.
                   <br />
-                  <span className='font-bold'>Pembuat kebijakan</span> yang
-                  ingin membangun masa depan pendidikan lebih manusiawi.
+                  <span className='font-bold'>Pembuat kebijakan</span> yang percaya bahwa masa
+depan pendidikan harus lebih manusiawi.
                   <br />
                   <span className='font-bold'>Mahasiswa</span> dan{' '}
-                  <span className='font-bold'> profesional</span> yang ingin
-                  ikut menciptakan perubahan nyata. <br />
-                  <br />
-                  Acara ini untuk kita yang tidak sekedar menunggu perubahan…{' '}
-                  <br />{' '}
-                  <span className='font-bold'>
-                    tetapi memilih menjadi bagian dari perubahan itu.
-                  </span>
+                  <span className='font-bold'> profesional</span>  ingin melihat
+pendidikan sebagai ruang pertumbuhan, bukan
+tekanan. <br />
+                 
                 </p>
                 <ScrollLink
                   to='register'
@@ -71,7 +67,7 @@ export default function EventAudience() {
                   duration={500}
                   className='mt-8 p-3 w-fit inline-block font-normal tracking-wide border align-middle duration-500 text-base text-center bg-primary hover:bg-primary-dark border-primary hover:border-primary-dark text-white rounded-md'
                 >
-                  Daftar Sekarang
+                  Mulai Perjalanan Ini
                 </ScrollLink>
               </div>
             </div>

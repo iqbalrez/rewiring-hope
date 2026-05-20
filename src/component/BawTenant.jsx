@@ -97,10 +97,9 @@ export default function BawTenant() {
                   <span className='font-bold'>
                     Apa yang bisa dipamerkan:
                   </span>{' '}
-                  demo eksperimen sederhana, permainan edukatif, pameran karya
-                  siswa/mahasiswa, program literasi sains-otak, layanan
-                  konseling/dukungan belajar, minuman dan makanan sehat, booth
-                  kopi/teh, buku.
+                   demo eksperimen sederhana, permainan edukatif,
+pameran karya siswa/mahasiswa, program literasi sains-otak, layanan
+konseling/dukungan belajar, minuman dan makanan sehat, booth kopi/teh, buku.
                   <br />
                   <br />
                 </p>

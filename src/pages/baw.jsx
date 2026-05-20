@@ -11,6 +11,9 @@ import TELImage from '../assets/images/client/TELImage.jpg';
 import IBROImage from '../assets/images/client/IBROImage.jpg';
 import LogoDark from '../assets/images/logo-dark.png';
 import DanaFoundationImageColor from '../assets/images/client/DanaFoundationImageColor.png';
+import Danais from '../assets/images/LogoDAISTextHitam.png';
+import Paniradya from '../assets/images/LogoPaniradyaBanner.png';
+import PemdaDiy from '../assets/images/LogoPEMDADIY.png';
 
 import BawWhiteImage from '../assets/images/client/BawWhite.svg';
 import BawIllust from '../assets/images/client/baw-illust.png';
@@ -125,7 +128,7 @@ export default function BawPage() {
           }`}
           id='home'
         >
-          <div className='absolute inset-0 bg-gradient-to-tr from-black/35 to-transparent '></div>
+          {/* <div className='absolute inset-0 bg-gradient-to-tr from-black/35 to-transparent '></div> */}
           <div className='container grid grid-cols-1 md:grid-cols-12 mx-auto items-center'>
             <div className='col-span-8 grid grid-cols-1 md:grid-cols-7 gap-4 items-center'>
               <div className='md:col-span-3'>
@@ -136,8 +139,8 @@ export default function BawPage() {
                 />
               </div>
               <div className='flex flex-col justify-center text-center md:text-start md:col-span-4'>
-                <p className='text-xl text-amber-500 font-bold'>2 JULI 2026</p>
-                <h1 className='text-white lg:text-5xl text-3xl font-medium md:mb-7 mb-4 position-relative'>
+                <p className='text-xl text-amber-500 font-bold'>3 JULI 2026, Taman Budaya Yogyakarta</p>
+                <h1 className='text-white lg:text-5xl text-3xl font-medium md:mb-4 mb-4 position-relative'>
                   Kisah Otak
                   <br />
                   <TypeAnimation
@@ -150,8 +153,11 @@ export default function BawPage() {
                   />
                 </h1>
 
-                <p className='text-white opacity-50 mb-0 max-w-2xl text-xs lg:text-lg'>
-                  Refleksi, Imajinasi, dan Harapan
+                <p className='text-white mb-4 max-w-2xl text-xs lg:text-lg'>
+                  Belajar tentang otak, perasaan, dan harapan bersama teman-teman di Taman Budaya Yogyakarta
+                </p>
+                <p className='text-amber-500 font-bold mb-0 max-w-2xl text-xs lg:text-lg'>
+                  Usia 10 - 18 tahun (Peserta terbatas, GRATIS)
                 </p>
               </div>
             </div>
@@ -168,19 +174,19 @@ export default function BawPage() {
                   href='#register'
                   className='w-full hover:scale-105 bg-amber-600 text-white py-3 px-6 rounded-full shadow-lg hover:bg-amber-700 transition-all duration-300'
                 >
-                  Daftar Lomba →
+                  Daftar Sekarang →
                 </a>
-                <a
+                {/* <a
                   href='#tenant'
                   className='w-full hover:scale-105 bg-blue-200 text-blue-dark py-3 px-6 rounded-full shadow-lg hover:bg-blue-200 transition-all duration-300'
                 >
                   Daftar Tenant →
-                </a>
+                </a> */}
                 {/* Countdown Timer */}
                 <div className='bg-slate-100 text-dark p-6 rounded-lg shadow-lg flex flex-col gap-2 w-fit'>
-                  <p className='text-xs'><span className='font-bold'>Batas Akhir Pendaftaran <br />& Submit Karya</span> (31 Mei 2026)</p>
+                  <p className='text-xs'>Batas Akhir Pendaftaran</p>
                   <Countdown
-                    date={new Date('2026-05-31T23:59:59')}
+                    date={new Date('2026-05-31T09:00:00')}
                     renderer={renderer}
                     className='text-lg font-bold p-2 bg-slate-200/10 rounded-md'
                   />
@@ -196,8 +202,8 @@ export default function BawPage() {
         {/* Speaker section */}
         <Speaker />
 
-        {/* Pricing section */}
-        <BawPricing />
+        {/* Pricing section
+        <BawPricing /> */}
 
         {/* Why Section */}
         <BawWhy />
@@ -205,11 +211,11 @@ export default function BawPage() {
         {/* BawPricing section */}
         <BawRegistration />
 
-        {/* Tenant Section */}
-        <BawTenant />
-
         {/* Story Section */}
         <BawStory />
+
+        {/* Tenant Section */}
+        {/* <BawTenant /> */}
 
         <section
           className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'
@@ -220,18 +226,17 @@ export default function BawPage() {
             data-aos='fade-up'
             data-aos-delay='200'
           >
-            <div className='flex flex-col lg:flex-row max-w-full mx-auto gap-6'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
                 <img
-                  src={TELImage}
+                  src={LogoDark}
                   className='max-w-full h-full object-contain'
                   alt=''
                 />
               </div>
-
               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
                 <img
-                  src={LogoDark}
+                  src={TELImage}
                   className='max-w-full h-full object-contain'
                   alt=''
                 />
@@ -246,6 +251,27 @@ export default function BawPage() {
               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
                 <img
                   src={DanaFoundationImageColor}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                <img
+                  src={PemdaDiy}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                <img
+                  src={Danais}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
+                <img
+                  src={Paniradya}
                   className='max-w-full h-full object-contain'
                   alt=''
                 />

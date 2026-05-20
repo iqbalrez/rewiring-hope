@@ -13,29 +13,37 @@ import avatarChristiyanti from '../assets/images/client/christiyanti.jpg';
 import avatarElga from '../assets/images/client/elga.jpeg';
 import avatarMaria from '../assets/images/client/maria.jpg';
 import avatarLies from '../assets/images/client/lies.png';
+import avatarFelycia from '../assets/images/client/Felycia.png';
 
 export default function TeamAos() {
   const team = [
+    // {
+    //   name: 'Anastasia Tantri, M.Ed',
+    //   profile: avatarTantri,
+    //   designation: 'Founder & Program Director',
+    // },
     {
-      name: 'Anastasia Tantri, M.Ed',
-      profile: avatarTantri,
-      designation: 'Founder & Program Director',
+      name: 'Prof. Felycia Edy S.',
+      profile: avatarFelycia,
+      designation: 'Chair of Scientific Advisory Board',
+      desc: 'Menjaga arah ilmiah dan memastikan setiap langkah tetap berakar pada pengetahuan yang kuat dan bermakna.',
     },
     {
       name: 'Elga Andriana, M.Ed, Ph.D',
       profile: avatarElga,
-      designation: 'Senior Advisor',
+      designation: 'Director of Research & Development',
+      desc: 'Mengembangkan riset yang menjembatani ilmu dan praktik, agar setiap pendekatan benar-benar berdampak bagi anak dan lingkungan belajar mereka.',
     },
     // {
     //   name: 'Dr. Lies Budyana',
     //   profile: avatarLies,
     //   designation: 'Ethics & Humanitarian Advisor',
     // },
-    {
-      name: 'Christiyanti Aprinastuti, M.Pd',
-      profile: avatarChristiyanti,
-      designation: 'Mathematical Thinking & Quality Assurance Specialist',
-    },
+    // {
+    //   name: 'Christiyanti Aprinastuti, M.Pd',
+    //   profile: avatarChristiyanti,
+    //   designation: 'Mathematical Thinking & Quality Assurance Specialist',
+    // },
     // {
     //   name: 'Linda Devi Fitriana, Ph.D',
     //   profile: avatarLinda,
@@ -74,26 +82,8 @@ export default function TeamAos() {
         id='team'
         data-aos='fade-up'
       >
-        <div className='container'>
-          <div className='grid grid-cols-1 pb-8 text-center'>
-            <h6 className='text-primary text-base font-medium uppercase mb-2' x>
-              Tim Kami
-            </h6>
-            <h3 className='mb-4 md:text-2xl text-xl font-medium dark:text-white'>
-              Bergerak Bersama Untuk Memulihkan Harapan
-            </h3>
-
-            <p className='text-dark dark:text-slate-300 max-w-5xl mx-auto'>
-              Rewiring Hope merupakan wadah bagi para pendidik, ilmuwan,
-              psikolog, dan praktisi yang meyakini bahwa proses belajar dapat
-              menjadi sarana pemulihan. Mereka berada di garis depan dalam
-              menegaskan kembali bahwa ketika otak merasa aman, hubungan dapat
-              dipulihkan, dan motivasi kembali tumbuh, maka belajar menjadi
-              perjalanan menuju keutuhan diri.
-            </p>
-          </div>
-
-          <div className='max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mt-8'>
+        <div className='container grid md:grid-cols-2 gap-20'>
+          <div className='colmax-w-5xl mx-auto grid grid-cols-2 gap-6 mt-8'>
             {team.map((member, index) => (
               <div
                 key={index}
@@ -106,19 +96,43 @@ export default function TeamAos() {
                 />
                 <div className='absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/30 z-0 transition duration-500'></div>
 
-                <div className='content md:absolute start-0 end-0 top-8/11 lg:top-10/13 bottom-0 bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
+                <div className='content bg-white dark:bg-dark p-3 rounded-md text-center transition-all duration-500 flex flex-col gap-1 h-full'>
                   <Link
                     to='#'
                     className='line-clamp-1 hover:line-clamp-none h5 text-md text-dark dark:text-white hover:text-primary dark:hover:text-primary font-medium'
                   >
                     {member.name}
                   </Link>
-                  <h6 className='text-dark dark:text-slate-300 mb-0 text-xs font-light'>
+                  <h6 className='mb-4 text-dark dark:text-slate-300 mb-0 text-xs font-light'>
                     {member.designation}
                   </h6>
+                  <p className='text-dark text-xs'>{member.desc}</p>
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className='grid grid-cols-1 pb-8 text-center'>
+            {/* <h6 className='text-primary text-base font-medium uppercase mb-2' x>
+              Tim Kami
+            </h6> */}
+            <h3 className='mb-4 md:text-2xl text-xl font-bold text-primary dark:text-white'>
+              Bergerak Bersama Untuk Memulihkan Harapan
+            </h3>
+
+            <p className='text-dark dark:text-slate-300 max-w-5xl mx-auto'>
+              Kami adalah pendidik, peneliti, dan praktisi yang percaya bahwa
+              pendidikan dapat menjadi ruang pemulihan dan pertumbuhan manusia.
+              <br />
+              <br />
+              Kami bekerja bersama untuk menghadirkan pendekatan yang berakar
+              pada ilmu, namun tetap berpihak pada kemanusiaan.
+              <br />
+              <br />
+              Kami mungkin datang dari latar yang berbeda, tetapi kami
+              dipersatukan oleh satu keyakinan yang sama bahwa setiap anak
+              berhak untuk pulih, bertumbuh, dan memiliki harapan kembali.
+            </p>
           </div>
         </div>
 

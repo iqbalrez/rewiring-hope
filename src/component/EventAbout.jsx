@@ -70,24 +70,21 @@ export default function EventAbout() {
                   menumbuhkan motivasi, dan mengoptimalkan cara otak bekerja.
                   <br />
                   <br />{' '}
-                  <span className='font-bold'>
-                    Teaching the Healing Brain
-                  </span>{' '}
-                  hadir karena kita percaya:
+                    Kami percaya:
                   <br />
                   <span className='font-bold text-primary italic'>
                     Setiap anak bisa pulih.
                     <br />
-                    Setiap otak bisa berubah.
+                    Setiap otak bisa bertumbuh.
                     <br />
-                    Harapan bisa diciptakan.
+                    Harapan dapat diciptakan kembali.
                   </span>
                 </p>
 
                 <div className='relative mt-8'>
                   <p className='text-dark font-bold dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
                     Mari bersama membangun generasi yang lebih kuat. <br />
-                    Dimulai dari satu hubungan. Satu langkah. Satu harapan.
+                    Dimulai dari satu hubungan. <br/>Satu langkah. <br/>Satu harapan.
                   </p>
                 </div>
               </div>
@@ -105,7 +102,7 @@ export default function EventAbout() {
                 </div>
                 <div className=' mt-4 text-lg md:text-xl leading-tight text-slate-900/80 dark:text-slate-100'>
                   4 Juli 2026
-                  <br /> Taman Budaya Yogyakarta, INDONESIA
+                  <br /> Taman Budaya <br /> Yogyakarta, INDONESIA
                 </div>
                 {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
                   <Link

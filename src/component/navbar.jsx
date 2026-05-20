@@ -36,11 +36,6 @@ export default function Navbar({ navdark, bg }) {
                 className='max-w-full max-h-8 md:max-h-12 py-1 hidden dark:inline-block'
                 alt='Logo Light'
               />
-              <img
-                src={IBROImage}
-                className='max-h-8 md:max-h-12 py-1 w-auto object-contain'
-                alt='IBRO Logo'
-              />
             </Link2>
           </div>
 

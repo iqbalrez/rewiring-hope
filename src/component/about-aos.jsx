@@ -53,7 +53,7 @@ export default function AboutAos() {
           >
             <div className='lg:col-span-5 h-full order-last md:order-first'>
               <div className='relative h-full '>
-                <div className='absolute -z-10 rounded-full w-84 h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
+                <div className='absolute -z-10 rounded-full w-full lg:w-84 h-40 lg:h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
                 <img
                   src={AboutImage}
                   className='h-full relative object-cover object-bottom  saturate-80 rounded-xl'
@@ -68,30 +68,36 @@ export default function AboutAos() {
                 data-aos='fade-up'
                 data-aos-delay='200'
               >
-                Rewiring Hope adalah Gerakan maupun Rumah.
+                Mengapa Rewiring Hope Ada
               </h3>
               <div className=''>
                 <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto text-base text-justify'>
-                  Rewiring Hope adalah ruang yang kami bangun dengan hati.
-                  Sebuah rumah bagi pendidik yang ingin melihat perubahan.
+                  Rewiring Hope lahir dari hal sederhana yang saya lihat setiap
+hari.
                   <br />
-                  Sebuah rumah bagi anak-anak yang ingin merasa aman kembali.
                   <br />
-                  Sebuah rumah bagi siapa pun yang percaya bahwa harapan bukan
-                  hanya kata kerja tetapi keputusan untuk bangkit lagi. <br />{' '}
-                  Kami ada agar setiap orang di ekosistem pendidikan tahu:
+                  Banyak anak tidak hanya kesulitan belajar, tetapi juga kehilangan
+rasa aman dan harapan. Di situ saya mulai memahami bahwa
+pendidikan tidak cukup hanya mengajar. Pendidikan perlu
+memulihkan manusia.
                   <br />
-                  <span className='font-bold'>
-                    {' '}
-                    kita tidak sendirian dalam memperjuangkan masa depan
-                    anak-anak.
-                  </span>
+                  <br/>
+                  Rewiring Hope hadir untuk membangun kembali ruang belajar
+yang lebih utuh, di mana anak dapat merasa aman, dipahami,
+dan kembali percaya pada masa depannya.
+<br/>
+<br/>
+Kami ada agar tidak ada anak yang berjalan sendirian.
+<br/>
+<br/>
+
+
                 </p>
 
                 <div className='mt-2 flex flex-col w-full mb-8'>
-                  <div className='w-full flex'>
+                  {/* <div className='w-full flex'>
                     <img src={Sign} className='w-36 p-2' />
-                  </div>
+                  </div> */}
                   <p className='text-dark font-bold '>Anastasia Tantri</p>
                   <p className='text-slate-500'>CEO & Founder</p>
                 </div>

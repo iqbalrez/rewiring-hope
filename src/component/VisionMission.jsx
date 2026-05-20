@@ -32,8 +32,7 @@ export default function VisionMission() {
                   data-aos='fade-up'
                   data-aos-delay='300'
                 >
-                  Education that heals. <br /> Integrity that shapes. <br />{' '}
-                  Hope that lasts.
+                  Pendidikan yang memulihkan. Integritas yang membentuk. Harapan yang bertahan.
                 </h6>
 
                 <p
@@ -41,10 +40,13 @@ export default function VisionMission() {
                   data-aos='fade-up'
                   data-aos-delay='500'
                 >
-                  Kami meyakini bahwa pendidikan seharusnya memulihkan, bukan
-                  melukai. Dengan menyelaraskan kembali hati dan pikiran, anak
-                  dapat kembali percaya bahwa masa depan adalah hak dan tanggung
-                  jawabnya.
+                  Kami percaya bahwa pendidikan seharusnya memulihkan,
+bukan melukai.
+
+<br/><br/>
+Dengan menyelaraskan kembali hati dan pikiran, setiap anak
+dapat menemukan kembali makna belajar dan percaya bahwa
+masa depan adalah sesuatu yang dapat mereka bangun.
                 </p>
               </div>
             </div>
@@ -54,12 +56,13 @@ export default function VisionMission() {
               data-aos='fade-up'
               data-aos-delay='200'
             >
-              <div className='relative flex justify-center'>
+              <div className='relative flex-col text-center justify-center'>
                 <img
                   src={VisionImage}
                   className='md:w-full w-1/2 rounded-lg saturate-120 object-cover relative'
                   alt=''
                 />
+                <p>Ilustrasi oleh Nafiza Dinda, <br/>SMAN 4 Semarang</p>
               </div>
             </div>
           </div>
@@ -95,10 +98,23 @@ export default function VisionMission() {
                 <h3 className='mb-4 text-4xl font-semibold text-white'>Misi</h3>
 
                 <p className='text-white max-w-2xl mx-auto md:text-lg'>
-                  Menumbuhkan harapan dan mengubah ruang kelas menjadi tempat
-                  yang memulihkan, dengan membimbing sekolah dan keluarga untuk
-                  menumbuhkan ketangguhan, integritas, serta keberanian anak
-                  untuk kembali bermimpi
+                  Menumbuhkan harapan dan
+mentransformasi ruang belajar
+menjadi tempat yang
+memulihkan.
+<br/><br/>
+Kami membimbing sekolah
+dan keluarga untuk
+menumbuhkan ketangguhan,
+integritas, dan keberanian
+dalam diri anak, agar mereka
+dapat kembali bermimpi dan
+berkembang secara utuh.
+Kami tidak hanya mengajarkan
+cara belajar.
+<br/><br/>
+Kami membantu membangun
+kembali manusia
                 </p>
               </div>
             </div>
@@ -108,7 +124,7 @@ export default function VisionMission() {
             data-aos='fade-up'
             data-aos-delay='500'
           >
-            Neuroplasticity — Integrity — Human Competencies — Community First
+            Empati • Neuroplastisitas • Integritas • Harapan
           </h3>
         </div>
       </section>

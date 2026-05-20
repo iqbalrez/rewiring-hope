@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import BawEventImage from '../assets/images/client/baw-event.webp';
+import BawAct1 from '../assets/images/baw/image_anak_1.webp';
+import BawAct2 from '../assets/images/baw/image_anak_2.webp';
 
 import TeamAos from './team-aos';
 import Sign from '../assets/images/sign.png';
@@ -41,7 +43,7 @@ export default function BawEventAbout() {
   // }
   return (
     <>
-      <section className='relative py-24 bg-blue-dark' id='about'>
+      <section className='relative bg-blue-dark' id='about'>
         <div
           className='container mx-auto'
           data-aos='fade-up'
@@ -51,34 +53,28 @@ export default function BawEventAbout() {
             <div className='lg:col-span-7'>
               <div className='lg:ms-7'>
                 <h6 className='text-amber-500 text-base font-medium uppercase mb-2'>
-                  Brain Awareness Week 2026
+                  Kisah Otak yang Tangguh
                 </h6>
-                <h3 className='mb-4 md:text-2xl text-xl font-medium text-white'>
+                <h3 className='mb-4 md:text-2xl text-xl font-bold text-amber-500'>
                   Apa itu Kisah Otak yang Tangguh?
                 </h3>
 
                 <p className='text-slate-300 max-w-2xl mx-auto md:text-lg'>
-                  Perayaan kreativitas dan sains untuk{' '}
-                  <span className='font-bold'>pelajar se-Indonesia</span> yang
-                  mengajak pelajar TK–SMA mengekspresikan{' '}
-                  <span className='font-bold'>
-                    refleksi, imajinasi, dan harapan{' '}
-                  </span>{' '}
-                  tentang otaknya: bagaimana ia belajar, bertahan, dan pulih.
+                  Kisah Otak yang Tangguh adalah acara satu hari untuk anak-anak
+belajar tentang dirinya sendiri. <br />
+<br />
+
+
+                  Di sini, anak-anak akan belajar bahwa:
                   <br />
+                  - otaknya bisa belajar dan berubah
                   <br />
-                  Finalis akan tampil pada FAIR + GRAND FINAL sebagai bagian
-                  dari{' '}
-                  <span className='font-bold'>Brain Awareness Week 2026</span>
+                  - perasaannya itu penting
                   <br />
-                  <br /> <span className='font-bold'>Penyelenggara:</span>
-                  <br />
-                  Rewiring Hope by The Excellent Study
-                  <br />
-                  <br /> <span className='font-bold'>Didukung oleh</span>
-                  <br />
-                  IBRO (International Brain Research Organization) <br />
-                  Dana Foundation
+                  - dan hidupnya punya harapan
+<br />
+<br/>
+Ini tempat untuk belajar, bermain, dan bertumbuh bersama.
                 </p>
               </div>
             </div>
@@ -89,7 +85,9 @@ export default function BawEventAbout() {
 
                 <div className=' mt-4 text-lg md:text-xl leading-tight text-amber-500 font-semibold'>
                   📍 Taman Budaya Yogyakarta
-                  <br />2 Juli 2026
+                  <br/>
+                  Tempat kita belajar dan bermain bersama
+                  <br />3 Juli 2026
                 </div>
                 {/* <div className='absolute bottom-2/4 translate-y-2/4 start-0 end-0 text-center'>
                   <Link
@@ -106,7 +104,7 @@ export default function BawEventAbout() {
           </div>
         </div>
 
-        <div
+        {/* <div
           data-aos='fade-up'
           data-aos-duration='1000'
           className='bg-blue-dark flex flex-col items-center pt-12 px-4 sm:px-6 lg:px-8 text-white'
@@ -115,7 +113,7 @@ export default function BawEventAbout() {
             <h6 className='text-amber-500 text-base font-medium uppercase mb-2'>
               Brain Awareness Week 2026
             </h6>
-            <h3 className='mb-4 md:text-2xl text-xl font-medium text-white'>
+            <h3 className='mb-4 md:text-2xl text-xl font-bold text-amber-500'>
               Kisah Otak yang Tangguh: Refleksi, Imajinasi, dan Harapan
             </h3>
             <p className='text-4xl font-bold'>Timeline</p>
@@ -155,7 +153,7 @@ export default function BawEventAbout() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </section>
       {/* <!-- End --> */}
       {isOpen && (
@@ -198,6 +196,58 @@ export default function BawEventAbout() {
           </div>
         </div>
       )}
+
+      <section className='relative  py-16 md:py-24 bg-blue-dark' id='about'>
+              <div
+                className='max-w-5xl md:ms-4 px-6 md:px-0 mx-auto'
+                data-aos='fade-up'
+                data-aos-delay='200'
+              >
+                <div className='grid grid-cols-1 lg:grid-cols-12 md:grid-cols-2 gap-10 items-start justify-center'>
+                  <div className='lg:col-span-7'>
+                <h6 className='text-amber-500 text-base font-medium uppercase mb-2'>
+                  Kisah Otak yang Tangguh
+                </h6>
+                <h3 className='mb-4 md:text-2xl text-xl font-bold text-amber-500'>
+                  Apa yang akan dilakukan anak?
+                </h3>
+
+                <p className='text-slate-300 max-w-2xl mx-auto md:text-lg'>
+                  <span className='font-bold'>Bermain Permainan Otak</span><br/>
+Belajar fokus, gerak, dan kerja sama lewat permainan seru
+<br/><br/>
+
+<span className='font-bold'>Belajar tentang Makanan & Otak</span><br/>
+Tahu kenapa makan itu penting untuk belajar dan berpikir
+<br/><br/>
+
+<span className='font-bold'>Mengenal Perasaan</span><br/>
+Belajar tentang marah, sedih, takut, dan cara menenangkan diri
+<br/><br/>
+
+<span className='font-bold'>Refleksi</span><br/>
+Belajar berkata pada diri sendiri: <span className="font-bold">AKU BISA BERUBAH</span>
+                </p>
+              </div>
+      
+                  <div className='lg:col-span-5 h-fit rounded-md'>
+                    <div className='relative overflow-hidden w-3/4 mx-auto rounded-md'>
+                      <img
+                        src={BawAct1}
+                        className='object-cover object-center w-full'
+                        alt=''
+                      />
+                      <img
+                        src={BawAct2}
+                        className='object-cover object-center w-full'
+                        alt=''
+                      />
+                    </div>
+                  </div>
+                  {/* end col */}
+                </div>
+              </div>
+            </section>
     </>
   );
 }
