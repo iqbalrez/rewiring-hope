@@ -190,8 +190,6 @@ export default function DetailOrderModal({
               value={submissionData.personal_info?.phone ?? '-'}
               icon={<Phone size={18} />}
             />
-            {submissionData.personal_info.type == 'FF' ? (
-              <>
                 <InfoItem
                   label='Alamat'
                   value={submissionData.personal_info?.address ?? '-'}
@@ -221,20 +219,6 @@ export default function DetailOrderModal({
                   }
                   icon={<Users size={18} />}
                 />
-              </>
-            ) : (
-              <>
-                <InfoItem
-                  label='Komunitas/Institusi'
-                  value={
-                    submissionData.personal_info?.community ??
-                    submissionData.personal_info?.institution ??
-                    '-'
-                  }
-                  icon={<Users size={18} />}
-                />
-              </>
-            )}
           </div>
         </div>
 

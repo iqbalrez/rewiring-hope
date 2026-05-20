@@ -22,16 +22,8 @@ export default function Footer() {
 
             <div className='md:col-span-7 md:mt-0 mt-8'>
               <div className='text-center text-gray-400'>
-                <p className=''>
-                  © 2026 Rewiring Hope Indonesia
-                </p>
-                <p className='text-gray-400'>
-                  <a href='mailto:info@rewiringhope.or.id'>
-                    <span className='underline'>info@rewiringhope.or.id </span>
-                    <br />
-                    <span className=''>+62 896 888 333 07</span>
-                  </a>
-                </p>
+                <p className=''>© 2026 Rewiring Hope Indonesia</p>
+                <p className=''><span className='underline'>info@rewiringhope.or.id</span> | +62 896 888 333 07</p>
               </div>
             </div>
 

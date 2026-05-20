@@ -217,7 +217,7 @@ export default function TTHBPage() {
           <i className='uil uil-arrow-up'></i>
         </Link>
 
-        <Pricing setType={setTicketType} setTicketPrice={setTicketPrice} />
+        {/* <Pricing setType={setTicketType} setTicketPrice={setTicketPrice} /> */}
 
         {/* Pricing section */}
         <TicketRegistration
