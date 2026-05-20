@@ -42,8 +42,8 @@ export default function Index() {
         <Team />
       </section>
 
-      <section className='w-screen relative'>
-        <div className='flex flex-col lg:flex-row gap-6 w-full aspect-video'>
+      <section className='w-screen min-h-[60vh] relative'>
+        <div className='flex flex-col lg:flex-row gap-6 w-full md:aspect-video'>
           <img
             src={EndImage}
             className='w-full h-full object-bottom object-cover'

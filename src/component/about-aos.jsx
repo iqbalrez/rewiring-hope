@@ -56,7 +56,7 @@ export default function AboutAos() {
                 <div className='absolute -z-10 rounded-full w-full lg:w-84 h-40 lg:h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
                 <img
                   src={AboutImage}
-                  className='h-full relative object-cover object-bottom  saturate-80 rounded-xl'
+                  className='h-1/2 md:h-full relative object-cover object-bottom  saturate-80 rounded-xl'
                   alt=''
                 />
               </div>
@@ -73,25 +73,23 @@ export default function AboutAos() {
               <div className=''>
                 <p className='text-dark dark:text-slate-300 max-w-2xl mx-auto text-base text-justify'>
                   Rewiring Hope lahir dari hal sederhana yang saya lihat setiap
-hari.
+                  hari.
                   <br />
                   <br />
-                  Banyak anak tidak hanya kesulitan belajar, tetapi juga kehilangan
-rasa aman dan harapan. Di situ saya mulai memahami bahwa
-pendidikan tidak cukup hanya mengajar. Pendidikan perlu
-memulihkan manusia.
+                  Banyak anak tidak hanya kesulitan belajar, tetapi juga
+                  kehilangan rasa aman dan harapan. Di situ saya mulai memahami
+                  bahwa pendidikan tidak cukup hanya mengajar. Pendidikan perlu
+                  memulihkan manusia.
                   <br />
-                  <br/>
-                  Rewiring Hope hadir untuk membangun kembali ruang belajar
-yang lebih utuh, di mana anak dapat merasa aman, dipahami,
-dan kembali percaya pada masa depannya.
-<br/>
-<br/>
-Kami ada agar tidak ada anak yang berjalan sendirian.
-<br/>
-<br/>
-
-
+                  <br />
+                  Rewiring Hope hadir untuk membangun kembali ruang belajar yang
+                  lebih utuh, di mana anak dapat merasa aman, dipahami, dan
+                  kembali percaya pada masa depannya.
+                  <br />
+                  <br />
+                  Kami ada agar tidak ada anak yang berjalan sendirian.
+                  <br />
+                  <br />
                 </p>
 
                 <div className='mt-2 flex flex-col w-full mb-8'>
