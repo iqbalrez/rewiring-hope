@@ -53,8 +53,7 @@ export default function Index() {
         <div className='absolute top-20 translate-x-1/2 right-1/2 flex flex-col w-sm gap-6 justify-center'>
           <img src={LogoDark} className='w-full' />
           <p className='font-bold text-dark text-center'>
-            Kami ada untuk menyalakan kembali harapan satu kelas, satu guru,
-            satu anak pada satu waktu.
+            Karena setiap pribadi berhak untuk memiliki harapan.
           </p>
         </div>
       </section>
