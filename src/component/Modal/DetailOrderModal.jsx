@@ -190,35 +190,43 @@ export default function DetailOrderModal({
               value={submissionData.personal_info?.phone ?? '-'}
               icon={<Phone size={18} />}
             />
-                <InfoItem
-                  label='Alamat'
-                  value={submissionData.personal_info?.address ?? '-'}
-                  icon={<MapPin size={18} />}
-                />
-                <InfoItem
-                  label='Kota Domisili'
-                  value={submissionData.personal_info?.city ?? '-'}
-                  icon={<Home size={18} />}
-                />
-                <InfoItem
-                  label='Usia'
-                  value={`${submissionData.personal_info?.age ?? '-'} Tahun`}
-                  icon={<User size={18} />}
-                />
-                <InfoItem
-                  label='Pekerjaan/Peran'
-                  value={submissionData.personal_info?.currentRole ?? '-'}
-                  icon={<Briefcase size={18} />}
-                />
-                <InfoItem
-                  label='Komunitas/Institusi'
-                  value={
-                    submissionData.personal_info?.community ??
-                    submissionData.personal_info?.institution ??
-                    '-'
-                  }
-                  icon={<Users size={18} />}
-                />
+            <InfoItem
+              label='Alamat'
+              value={
+                submissionData.personal_info?.address ??
+                submissionData.baw_form_answer?.village ??
+                '-'
+              }
+              icon={<MapPin size={18} />}
+            />
+            <InfoItem
+              label='Kota Domisili'
+              value={
+                submissionData.personal_info?.city ??
+                submissionData.baw_form_answer?.village ??
+                '-'
+              }
+              icon={<Home size={18} />}
+            />
+            <InfoItem
+              label='Usia'
+              value={`${submissionData.personal_info?.age ?? '-'} Tahun`}
+              icon={<User size={18} />}
+            />
+            <InfoItem
+              label='Pekerjaan/Peran'
+              value={submissionData.personal_info?.currentRole ?? '-'}
+              icon={<Briefcase size={18} />}
+            />
+            <InfoItem
+              label='Komunitas/Institusi'
+              value={
+                submissionData.personal_info?.community ??
+                submissionData.personal_info?.institution ??
+                '-'
+              }
+              icon={<Users size={18} />}
+            />
           </div>
         </div>
 
@@ -287,6 +295,101 @@ export default function DetailOrderModal({
           </>
         ) : (
           <></>
+        )}
+
+        {/* SECTION BAW: BAW Form Answer */}
+        {submissionData.baw_form_answer && (
+          <div className='bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden'>
+            <div className='bg-primary px-6 py-4'>
+              <h3 className='text-lg font-bold text-white flex items-center gap-2'>
+                BAW Form Answer
+              </h3>
+            </div>
+            <div className='p-6 space-y-0'>
+              <InfoItem
+                label='Nama Orang Tua/Wali'
+                value={submissionData.baw_form_answer?.parent_name ?? '-'}
+                icon={<Users size={18} />}
+              />
+              {/* Pertanyaan 1: Kegiatan sebelumnya (multi-select) */}
+              <QAItem
+                question='1. Pernah ikut kegiatan tentang'
+                answer={
+                  Array.isArray(submissionData.baw_form_answer.prev_activity)
+                    ? submissionData.baw_form_answer.prev_activity
+                        .map((v) => {
+                          if (v === 'brain' || v === 'otak')
+                            return 'Otak / Sains';
+                          if (v === 'mental') return 'Kesehatan Mental';
+                          if (v === 'never') return 'Belum pernah sama sekali';
+                          return v;
+                        })
+                        .join(', ')
+                    : (submissionData.baw_form_answer.prev_activity ?? '-')
+                }
+              />
+              {/* Pertanyaan 2: Kesulitan belajar */}
+              <QAItem
+                question='2. Seberapa sering merasa kesulitan saat belajar'
+                answer={
+                  submissionData.baw_form_answer.learning_difficulty === 'often'
+                    ? 'Sering'
+                    : submissionData.baw_form_answer.learning_difficulty ===
+                        'sometimes'
+                      ? 'Kadang-kadang'
+                      : submissionData.baw_form_answer.learning_difficulty ===
+                          'rarely'
+                        ? 'Jarang'
+                        : (submissionData.baw_form_answer.learning_difficulty ??
+                          '-')
+                }
+              />
+              {/* Pertanyaan 5: Saat gagal */}
+              <QAItem
+                question='5. Saat gagal atau tidak bisa sesuatu, biasanya'
+                answer={
+                  submissionData.baw_form_answer.when_fail === 'give_up'
+                    ? 'Langsung menyerah'
+                    : submissionData.baw_form_answer.when_fail === 'try_again'
+                      ? 'Coba lagi sebentar'
+                      : submissionData.baw_form_answer.when_fail ===
+                          'keep_trying'
+                        ? 'Terus mencoba sampai bisa'
+                        : (submissionData.baw_form_answer.when_fail ?? '-')
+                }
+              />
+
+              {/* Pertanyaan esai */}
+              <QAItem
+                question='3. Saat kamu merasa sedih atau marah, apa yang biasanya kamu lakukan?'
+                answer={submissionData.baw_form_answer.when_sad_angry}
+              />
+              <QAItem
+                question='4. Kenapa kamu ingin ikut acara ini?'
+                answer={submissionData.baw_form_answer.why_join}
+              />
+              <QAItem
+                question='6. Aku ingin berubah dalam hal…'
+                answer={submissionData.baw_form_answer.want_to_change}
+              />
+              <QAItem
+                question='7. Setelah mengikuti kegiatan ini, apa yang ingin kamu bagikan ke temanmu?'
+                answer={submissionData.baw_form_answer.share_to_friend}
+              />
+              <QAItem
+                question='8. Jika kamu terpilih menjadi peserta, apa yang akan kamu lakukan setelah kegiatan ini?'
+                answer={submissionData.baw_form_answer.after_activity}
+              />
+              <QAItem
+                question='9. Menurut kamu, bagaimana cara kamu bisa membantu orang lain setelah belajar di acara ini?'
+                answer={submissionData.baw_form_answer.help_others}
+              />
+              <QAItem
+                question='10. Menurut kamu, kenapa kamu perlu ikut kegiatan ini?'
+                answer={submissionData.baw_form_answer.why_need}
+              />
+            </div>
+          </div>
         )}
       </div>
     );
