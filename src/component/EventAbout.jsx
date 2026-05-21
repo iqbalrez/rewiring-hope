@@ -69,8 +69,7 @@ export default function EventAbout() {
                   sistem, namun tentang membangun hubungan yang memulihkan,
                   menumbuhkan motivasi, dan mengoptimalkan cara otak bekerja.
                   <br />
-                  <br />{' '}
-                    Kami percaya:
+                  <br /> Kami percaya:
                   <br />
                   <span className='font-bold text-primary italic'>
                     Setiap anak bisa pulih.
@@ -84,7 +83,9 @@ export default function EventAbout() {
                 <div className='relative mt-8'>
                   <p className='text-dark font-bold dark:text-slate-300 max-w-2xl mx-auto md:text-lg'>
                     Mari bersama membangun generasi yang lebih kuat. <br />
-                    Dimulai dari satu hubungan. <br/>Satu langkah. <br/>Satu harapan.
+                    Dimulai dari satu hubungan. <br />
+                    Satu langkah. <br />
+                    Satu harapan.
                   </p>
                 </div>
               </div>
@@ -97,8 +98,7 @@ export default function EventAbout() {
                   Teaching <br /> The Healing Brain
                 </div>
                 <div className='font-light mt-2 text-lg md:text-xl leading-tight text-dark/80 dark:text-slate-300'>
-                  Rewiring Hope and Relationship
-                  <br /> through Neuroscience
+                  Pendidikan yang Memulihkan
                 </div>
                 <div className=' mt-4 text-lg md:text-xl leading-tight text-slate-900/80 dark:text-slate-100'>
                   4 Juli 2026

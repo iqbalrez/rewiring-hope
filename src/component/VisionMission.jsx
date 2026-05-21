@@ -28,11 +28,20 @@ export default function VisionMission() {
                   Visi
                 </h3>
                 <h6
-                  className='text-primary text-xl font-medium italic mb-4'
+                  className='text-primary text-xl font-bold italic mb-4'
                   data-aos='fade-up'
                   data-aos-delay='300'
                 >
-                  Pendidikan yang memulihkan. Integritas yang membentuk. Harapan yang bertahan.
+                  Education that heals.
+                  <br />
+                  Integrity that shapes.
+                  <br />
+                  Hope that lasts.
+                  <br />
+                  <span className='text-dark text-xs font-normal'>
+                    (Pendidikan yang memulihkan. Integritas yang membentuk.
+                    Harapan yang bertahan.)
+                  </span>
                 </h6>
 
                 <p
@@ -40,13 +49,13 @@ export default function VisionMission() {
                   data-aos='fade-up'
                   data-aos-delay='500'
                 >
-                  Kami percaya bahwa pendidikan seharusnya memulihkan,
-bukan melukai.
-
-<br/><br/>
-Dengan menyelaraskan kembali hati dan pikiran, setiap anak
-dapat menemukan kembali makna belajar dan percaya bahwa
-masa depan adalah sesuatu yang dapat mereka bangun.
+                  Kami percaya bahwa pendidikan seharusnya memulihkan, bukan
+                  melukai.
+                  <br />
+                  <br />
+                  Dengan menyelaraskan kembali hati dan pikiran, setiap anak
+                  dapat menemukan kembali makna belajar dan percaya bahwa masa
+                  depan adalah sesuatu yang dapat mereka bangun.
                 </p>
               </div>
             </div>
@@ -59,10 +68,13 @@ masa depan adalah sesuatu yang dapat mereka bangun.
               <div className='relative flex-col text-center justify-center'>
                 <img
                   src={VisionImage}
-                  className='md:w-full w-1/2 rounded-lg saturate-120 object-cover relative'
+                  className='md:w-full w-1/2 rounded-lg saturate-120 object-cover relative mx-auto'
                   alt=''
                 />
-                <p>Ilustrasi oleh Nafiza Dinda, <br/>SMAN 4 Semarang</p>
+                <p>
+                  Ilustrasi oleh Nafiza Dinda, <br />
+                  SMAN 4 Semarang
+                </p>
               </div>
             </div>
           </div>
@@ -98,23 +110,17 @@ masa depan adalah sesuatu yang dapat mereka bangun.
                 <h3 className='mb-4 text-4xl font-semibold text-white'>Misi</h3>
 
                 <p className='text-white max-w-2xl mx-auto md:text-lg'>
-                  Menumbuhkan harapan dan
-mentransformasi ruang belajar
-menjadi tempat yang
-memulihkan.
-<br/><br/>
-Kami membimbing sekolah
-dan keluarga untuk
-menumbuhkan ketangguhan,
-integritas, dan keberanian
-dalam diri anak, agar mereka
-dapat kembali bermimpi dan
-berkembang secara utuh.
-Kami tidak hanya mengajarkan
-cara belajar.
-<br/><br/>
-Kami membantu membangun
-kembali manusia
+                  Menumbuhkan harapan dan mentransformasi ruang belajar menjadi
+                  tempat yang memulihkan.
+                  <br />
+                  <br />
+                  Kami membimbing sekolah dan keluarga untuk menumbuhkan
+                  ketangguhan, integritas, dan keberanian dalam diri anak, agar
+                  mereka dapat kembali bermimpi dan berkembang secara utuh. Kami
+                  tidak hanya mengajarkan cara belajar.
+                  <br />
+                  <br />
+                  Kami membantu membangun kembali manusia
                 </p>
               </div>
             </div>

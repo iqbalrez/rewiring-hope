@@ -75,7 +75,7 @@ export default function VolunteerPage() {
                 Make an Impact This July!
               </p>
               <p className='text-white text-md font-semibold'>
-                2 Juli 2026 - Brain Awareness Week <br />
+                3 Juli 2026 - Brain Awareness Week <br />
                 📍 Taman Budaya Yogyakarta
               </p>
               <p className='text-white text-md font-semibold'>

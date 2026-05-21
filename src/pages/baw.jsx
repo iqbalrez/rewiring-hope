@@ -17,6 +17,7 @@ import PemdaDiy from '../assets/images/LogoPEMDADIY.png';
 
 import BawWhiteImage from '../assets/images/client/BawWhite.svg';
 import BawIllust from '../assets/images/client/baw-illust.png';
+import BAWColorImage from '../assets/images/client/bawcolor.svg';
 
 import EventAbout from '../component/BawEventAbout';
 import BawPricing from '../component/BawPricing';
@@ -139,7 +140,9 @@ export default function BawPage() {
                 />
               </div>
               <div className='flex flex-col justify-center text-center md:text-start md:col-span-4'>
-                <p className='text-xl text-amber-500 font-bold'>3 JULI 2026, Taman Budaya Yogyakarta</p>
+                <p className='text-xl text-amber-500 font-bold'>
+                  3 JULI 2026, Taman Budaya Yogyakarta
+                </p>
                 <h1 className='text-white lg:text-5xl text-3xl font-medium md:mb-4 mb-4 position-relative'>
                   Kisah Otak
                   <br />
@@ -154,7 +157,8 @@ export default function BawPage() {
                 </h1>
 
                 <p className='text-white mb-4 max-w-2xl text-xs lg:text-lg'>
-                  Belajar tentang otak, perasaan, dan harapan bersama teman-teman di Taman Budaya Yogyakarta
+                  Belajar tentang otak, perasaan, dan harapan bersama
+                  teman-teman di Taman Budaya Yogyakarta
                 </p>
                 <p className='text-amber-500 font-bold mb-0 max-w-2xl text-xs lg:text-lg'>
                   Usia 10 - 18 tahun (Peserta terbatas, GRATIS)
@@ -196,6 +200,71 @@ export default function BawPage() {
           </div>
         </section>
 
+        {/* Partners */}
+        <section
+          className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'
+          id='partners'
+        >
+          <div
+            className='container mx-auto justify-center items-center'
+            data-aos='fade-up'
+            data-aos-delay='200'
+          >
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8'>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] md:max-w-[40vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={IBROImage}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] md:max-w-[40vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={DanaFoundationImageColor}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] md:max-w-[40vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={PemdaDiy}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] md:max-w-[40vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={Danais}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+            </div>
+
+            <div className='flex flex-col md:flex-row items-center justify-center gap-4 mb-2'>
+              <div className='col-span-2'>
+                <img
+                  src={BAWColorImage}
+                  alt='BAW Illustration'
+                  className='w-2/3 md:w-full mx-auto object-contain '
+                />
+              </div>
+              <div className='flex flex-col justify-center text-center md:text-start col-span-5'>
+                <h1 className='text-blue-dark lg:text-3xl text-xl font-bold italic position-relative'>
+                  Kisah Otak Yang Tangguh
+                </h1>
+                <p className='text-xl text-blue-dark font-bold'>
+                  Taman Budaya Yogyakarta | 3 JULI 2026
+                </p>
+              </div>
+            </div>
+            <p className='text-blue-dark text-md text-center'>
+              Kegiatan ini terselenggara berkat dukungan hibah dari IBRO dan
+              Dana Foundation, serta mendapatkan dukungan penuh dari Pemda DIY.
+            </p>
+          </div>
+        </section>
+
         {/* Event About section */}
         <EventAbout />
 
@@ -216,69 +285,6 @@ export default function BawPage() {
 
         {/* Tenant Section */}
         {/* <BawTenant /> */}
-
-        <section
-          className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'
-          id='partners'
-        >
-          <div
-            className='container mx-auto'
-            data-aos='fade-up'
-            data-aos-delay='200'
-          >
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6'>
-              <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={LogoDark}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-              <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={TELImage}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-              <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={IBROImage}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-              <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={DanaFoundationImageColor}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={PemdaDiy}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={Danais}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-               <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                <img
-                  src={Paniradya}
-                  className='max-w-full h-full object-contain'
-                  alt=''
-                />
-              </div>
-            </div>
-          </div>
-        </section>
 
         {/* Footer section */}
         <Footer />

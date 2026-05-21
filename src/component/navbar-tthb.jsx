@@ -5,6 +5,7 @@ import { Link as Link2, NavLink } from 'react-router-dom';
 import LogoLight from '../assets/images/logo-light.png';
 import LogoDark from '../assets/images/logo-dark.png';
 import IBROImage from '../assets/images/client/IBROImage.jpg'; // Impor logo IBRO
+import TELImage from '../assets/images/client/TELImage.jpg';
 
 export default function Navbar({ navdark, bg }) {
   const [isOpen, setMenu] = useState(true);
@@ -49,14 +50,9 @@ export default function Navbar({ navdark, bg }) {
                 alt='Logo Dark'
               />
               <img
-                src={LogoLight}
-                className='max-w-full max-h-8 md:max-h-12 py-1 hidden dark:inline-block'
-                alt='Logo Light'
-              />
-              <img
-                src={IBROImage}
+                src={TELImage}
                 className='max-h-8 md:max-h-12 py-1 w-auto object-contain'
-                alt='IBRO Logo'
+                alt='TEL Logo'
               />
             </Link2>
           </div>

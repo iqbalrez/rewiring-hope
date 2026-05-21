@@ -112,13 +112,13 @@ export default function TeamAos() {
             ))}
           </div>
 
-          <div className='grid grid-cols-1 pb-8 text-center'>
+          <div className='flex flex-col my-auto gap-4 text-center'>
             {/* <h6 className='text-primary text-base font-medium uppercase mb-2' x>
               Tim Kami
             </h6> */}
-            <h3 className='mb-4 md:text-2xl text-xl font-bold text-primary dark:text-white'>
+            <p className='md:text-2xl text-xl font-bold text-primary dark:text-white h-fit'>
               Bergerak Bersama Untuk Memulihkan Harapan
-            </h3>
+            </p>
 
             <p className='text-dark dark:text-slate-300 max-w-5xl mx-auto'>
               Kami adalah pendidik, peneliti, dan praktisi yang percaya bahwa

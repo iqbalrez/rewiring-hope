@@ -13,6 +13,7 @@ import LogoDark from '../assets/images/logo-dark.png';
 import Danais from '../assets/images/LogoDAISTextHitam.png';
 import Paniradya from '../assets/images/LogoPaniradyaBanner.png';
 import PemdaDiy from '../assets/images/LogoPEMDADIY.png';
+import BrainImage from '../assets/images/brain.jpg';
 
 import EventAbout from '../component/EventAbout';
 import Pricing from '../component/Pricing';
@@ -144,7 +145,8 @@ export default function TTHBPage() {
               </h1>
 
               <p className='text-white opacity-50 mb-0 max-w-2xl text-xs lg:text-lg'>
-                Pendidikan yang memulihkan hubungan antara pikiran, emosi, dan manusia
+                Pendidikan yang memulihkan hubungan antara pikiran, emosi, dan
+                manusia
               </p>
             </div>
 
@@ -172,6 +174,63 @@ export default function TTHBPage() {
           </div>
         </section>
 
+        {/* Partners */}
+        <section
+          className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'
+          id='partners'
+        >
+          <div
+            className='container mx-auto justify-center items-center'
+            data-aos='fade-up'
+            data-aos-delay='200'
+          >
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-2xl mx-auto gap-6 mb-8'>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={IBROImage}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={PemdaDiy}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+              <div className='flex p-6 bg-white rounded-md max-w-[60vw] mx-auto justify-center shadow-lg aspect-video'>
+                <img
+                  src={Danais}
+                  className='max-w-full h-full object-contain'
+                  alt=''
+                />
+              </div>
+            </div>
+
+            <div className='flex flex-col md:flex-row items-center justify-center gap-4 mb-2'>
+              <div className='col-span-2'>
+                <img
+                  src={BrainImage}
+                  alt='BAW Illustration'
+                  className='max-w-[60vw] md:max-w-[8vw] rounded-md mx-auto object-contain '
+                />
+              </div>
+              <div className='flex flex-col justify-center text-center md:text-start col-span-5'>
+                <h1 className='text-blue-dark lg:text-3xl text-xl font-bold italic position-relative'>
+                  Teaching The Healing Brain
+                </h1>
+                <p className='text-xl text-blue-dark font-bold'>
+                  Taman Budaya Yogyakarta | 4 JULI 2026
+                </p>
+              </div>
+            </div>
+            <p className='text-blue-dark text-md text-center'>
+              Kegiatan ini terselenggara berkat dukungan hibah dari IBRO, serta
+              mendapatkan dukungan penuh dari Pemda DIY.
+            </p>
+          </div>
+        </section>
         {/* Event About section */}
         <EventAbout />
 
@@ -204,8 +263,9 @@ export default function TTHBPage() {
               </div>
 
               <p className='text-slate-200 text-center dark:text-slate-300 max-w-5xl mx-auto md:text-lg'>
-                Warisan terbesar bukanlah apa yang kita berikan,
- tetapi bagaimana kita membuat seseorang merasa berharga dalam proses belajar mereka.
+                Warisan terbesar bukanlah apa yang kita berikan, tetapi
+                bagaimana kita membuat seseorang merasa berharga dalam proses
+                belajar mereka.
               </p>
             </div>
           </div>
@@ -228,62 +288,6 @@ export default function TTHBPage() {
           initialType={ticketType}
           initialPrice={ticketPrice}
         />
-
-        <section
-          className='relative px-8 py-16 md:px-0 md:py-24 bg-slate-100 dark:bg-slate-800'
-          id='partners'
-        >
-          <div
-            className='container mx-auto'
-            data-aos='fade-up'
-            data-aos-delay='200'
-          >
-           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-3xl mx-auto gap-6'>
-                         <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                           <img
-                             src={LogoDark}
-                             className='max-w-full h-full object-contain'
-                             alt=''
-                           />
-                         </div>
-                         <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                           <img
-                             src={TELImage}
-                             className='max-w-full h-full object-contain'
-                             alt=''
-                           />
-                         </div>
-                         <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                           <img
-                             src={IBROImage}
-                             className='max-w-full h-full object-contain'
-                             alt=''
-                           />
-                         </div>
-                          <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                           <img
-                             src={PemdaDiy}
-                             className='max-w-full h-full object-contain'
-                             alt=''
-                           />
-                         </div>
-                          <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                           <img
-                             src={Danais}
-                             className='max-w-full h-full object-contain'
-                             alt=''
-                           />
-                         </div>
-                          <div className='flex p-6 bg-white rounded-md w-full justify-center shadow-lg aspect-video'>
-                           <img
-                             src={Paniradya}
-                             className='max-w-full h-full object-contain'
-                             alt=''
-                           />
-                         </div>
-                       </div>
-          </div>
-        </section>
 
         {/* Footer section */}
         <Footer />

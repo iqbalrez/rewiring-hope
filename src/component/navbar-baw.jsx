@@ -7,6 +7,7 @@ import LogoDark from '../assets/images/logo-dark.png';
 import IBROImage from '../assets/images/client/IBROImage.jpg';
 import IBROWhiteImage from '../assets/images/client/IBROWhiteImage.png';
 import DanaFoundationImage from '../assets/images/client/DanaFoundationImage.png';
+import TELImage from '../assets/images/client/TELImageWhite.png';
 
 export default function BawNavbar() {
   const [isOpen, setMenu] = useState(true);
@@ -25,7 +26,7 @@ export default function BawNavbar() {
   };
 
   function windowScroll() {
-    if (window.scrollY >= 1800) {
+    if (window.scrollY >= 700) {
       setIsSticky(true);
     } else {
       setIsSticky(false);
@@ -47,6 +48,16 @@ export default function BawNavbar() {
               to='/'
             >
               <img
+                src={LogoLight}
+                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
+                alt='Logo Dark'
+              />
+              <img
+                src={TELImage}
+                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
+                alt='Logo TEL'
+              />
+              {/* <img
                 src={IBROWhiteImage}
                 className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
                 alt='IBRO Logo'
@@ -55,12 +66,7 @@ export default function BawNavbar() {
                 src={DanaFoundationImage}
                 className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
                 alt='Dana Foundation Logo'
-              />
-              <img
-                src={LogoLight}
-                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
-                alt='Logo Dark'
-              />
+              /> */}
             </Link2>
           </div>
 

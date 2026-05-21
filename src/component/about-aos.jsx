@@ -42,7 +42,7 @@ export default function AboutAos() {
   return (
     <>
       <section
-        className='relative py-24 bg-slate-100 dark:bg-slate-800'
+        className='relative py-8 md:py-24 bg-slate-100 dark:bg-slate-800'
         id='about'
       >
         <div className='w-full max-w-4xl px-4 lg:px-0 mx-auto'>
@@ -52,11 +52,11 @@ export default function AboutAos() {
             data-aos-delay='300'
           >
             <div className='lg:col-span-5 h-full order-last md:order-first'>
-              <div className='relative h-full '>
-                <div className='absolute -z-10 rounded-full w-full lg:w-84 h-40 lg:h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div>
+              <div className='relative h-fit'>
+                {/* <div className='absolute -z-10 rounded-full w-full lg:w-84 h-40 lg:h-84 bottom-0 left-1/2 -translate-x-1/2 bg-dark/5'></div> */}
                 <img
                   src={AboutImage}
-                  className='h-1/2 md:h-full relative object-cover object-bottom  saturate-80 rounded-xl'
+                  className='w-1/2 md:w-full mx-auto relative object-cover object-bottom  saturate-80 rounded-xl'
                   alt=''
                 />
               </div>
@@ -97,7 +97,9 @@ export default function AboutAos() {
                     <img src={Sign} className='w-36 p-2' />
                   </div> */}
                   <p className='text-dark font-bold '>Anastasia Tantri</p>
-                  <p className='text-slate-500'>CEO & Founder</p>
+                  <p className='text-slate-500'>
+                    Founder and Executive Director
+                  </p>
                 </div>
                 {/* <div
                   className='relative mt-8'
