@@ -61,30 +61,40 @@ export default function TicketRegistration() {
               />
 
               {!submitted ? (
-                <>
-                  <p className='text-primary font-semibold italic text-sm'>
-                    Bergabung tanpa biaya. Kuota terbatas.
-                    <br />
-                    Peserta yang terpilih akan dihubungi melalui email.
+                <div className='text-center text-gray-700 bg-red-50 border border-red-200 rounded-lg p-6'>
+                  <i className='mdi mdi-close-circle text-red-400 text-4xl mb-2 block'></i>
+                  <h4 className='text-xl font-semibold mb-2'>
+                    Pendaftaran Ditutup
+                  </h4>
+                  <p className='text-sm text-gray-500'>
+                    Terima kasih atas minat Anda. Pantau terus informasi
+                    selanjutnya.
                   </p>
-
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className='px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-full uppercase tracking-widest transition shadow-md'
-                  >
-                    Mulai Perjalanan Ini →
-                  </button>
-
-                  <p className='text-xs text-gray-500'>
-                    Dengan dukungan dari <br />
-                    <span className='italic'>
-                      International Brain Research Organization (IBRO)
-                    </span>{' '}
-                    <br />
-                    dan Pemda Daerah Istimewa Yogyakarta
-                  </p>
-                </>
+                </div>
               ) : (
+                // <>
+                //   <p className='text-primary font-semibold italic text-sm'>
+                //     Bergabung tanpa biaya. Kuota terbatas.
+                //     <br />
+                //     Peserta yang terpilih akan dihubungi melalui email.
+                //   </p>
+
+                //   <button
+                //     onClick={() => setIsModalOpen(true)}
+                //     className='px-8 py-3 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-full uppercase tracking-widest transition shadow-md'
+                //   >
+                //     Mulai Perjalanan Ini →
+                //   </button>
+
+                //   <p className='text-xs text-gray-500'>
+                //     Dengan dukungan dari <br />
+                //     <span className='italic'>
+                //       International Brain Research Organization (IBRO)
+                //     </span>{' '}
+                //     <br />
+                //     dan Pemda Daerah Istimewa Yogyakarta
+                //   </p>
+                // </>
                 <div className='text-center text-gray-700 bg-green-50 border border-green-200 rounded-lg p-6'>
                   <i className='mdi mdi-check-circle text-green-500 text-4xl mb-2 block'></i>
                   <h4 className='text-xl font-semibold mb-2'>{formMessage}</h4>
