@@ -189,8 +189,7 @@ const liputanArticles = [
     title: 'Newsletter World Women in Neuroscience',
     excerpt:
       'Dengan fokus pada Work–Life Integration, menerbitkan tulisan dari Anastasia Tantri, pendiri Rewiring Hope, yang merefleksikan lahirnya gerakan ini dari pengalaman mendampingi anak-anak dan pendidik yang kehilangan rasa aman, harapan, dan makna dalam proses belajar. Melalui lensa neurosains, tulisan ini menegaskan pentingnya menghadirkan pemahaman tentang otak ke ruang kelas, keluarga, dan kehidupan sehari-hari sebagai fondasi pemulihan emosional, daya lenting, serta keberlanjutan hidup yang lebih manusiawi.',
-    pdfUrl:
-      'https://mcusercontent.com/9bd9526e5ea559025592c0735/files/358c67e5-63db-0c10-1dbc-4281b06e0f3e/Rewiring_Hope__Brain_Awareness_Week_Anastasia_Tantri.pdf?',
+    pdfUrl: '/pdfs/Rewiring_Hope__Brain_Awareness_Week_Anastasia_Tantri.pdf',
   },
   {
     source: 'RRI Semarang — Studio Pro 3',
@@ -282,24 +281,27 @@ function SectionShell({
 
 function PdfModal({ url, title, onClose }) {
   const [numPages, setNumPages] = useState(null);
+  const [pageNumber, setPageNumber] = useState(1);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [isPageLoading, setIsPageLoading] = useState(true);
   const containerRef = useRef(null);
 
   const handleKey = useCallback(
     (e) => {
       if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight')
+        setPageNumber((p) => Math.min(p + 1, numPages || p));
+      if (e.key === 'ArrowLeft') setPageNumber((p) => Math.max(p - 1, 1));
     },
-    [onClose],
+    [onClose, numPages],
   );
 
   useEffect(() => {
     document.addEventListener('keydown', handleKey);
     document.body.style.overflow = 'hidden';
-
-    // Ukur lebar container untuk fit-width responsif
-    if (containerRef.current) {
+    if (containerRef.current)
       setContainerWidth(containerRef.current.offsetWidth);
-    }
+
     const handleResize = () => {
       if (containerRef.current)
         setContainerWidth(containerRef.current.offsetWidth);
@@ -313,56 +315,101 @@ function PdfModal({ url, title, onClose }) {
     };
   }, [handleKey]);
 
+  // Reset loading state setiap kali pindah halaman
+  useEffect(() => {
+    setIsPageLoading(true);
+  }, [pageNumber]);
+
   return (
     <div
       className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 sm:p-6 md:p-10 cursor-pointer animate-fade-in'
       onClick={onClose}
     >
       <div
-        className='relative w-full max-w-4xl h-[80vh] md:h-[85vh] flex flex-col bg-[#141414] rounded-xl border border-white/10 shadow-2xl overflow-hidden cursor-default'
+        className='relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-[#141414] rounded-xl border border-white/10 shadow-2xl overflow-hidden cursor-default'
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header bar */}
         <div className='flex items-center justify-between px-5 py-3.5 shrink-0 bg-[#1a1a1a] border-b border-white/10'>
-          <span className='font-inter text-sm font-medium text-white/80 truncate max-w-[60vw] md:max-w-[70vw]'>
+          <span className='font-inter text-sm font-medium text-white/80 truncate max-w-[55vw] md:max-w-[65vw]'>
             {title}
           </span>
-          <button
-            onClick={onClose}
-            className='size-9 flex items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors ml-4 shrink-0 cursor-pointer'
-            aria-label='Tutup'
-          >
-            <i className='uil uil-times text-2xl' />
-          </button>
+          <div className='flex items-center gap-3 shrink-0'>
+            {numPages && (
+              <span className='text-xs text-white/50 font-inter whitespace-nowrap'>
+                {pageNumber} / {numPages}
+              </span>
+            )}
+            <button
+              onClick={onClose}
+              className='size-9 flex items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors cursor-pointer'
+              aria-label='Tutup'
+            >
+              <i className='uil uil-times text-2xl' />
+            </button>
+          </div>
         </div>
 
-        {/* PDF viewer via canvas */}
+        {/* PDF viewer */}
         <div
           ref={containerRef}
-          className='flex-1 bg-[#f4f4f4] overflow-y-auto overflow-x-hidden'
-          onContextMenu={(e) => e.preventDefault()} // cegah klik-kanan save
+          className='flex-1 bg-[#f4f4f4] overflow-y-auto flex items-center justify-center min-h-0 transition-[height] duration-200'
+          style={isPageLoading ? { minHeight: '70vh' } : undefined}
+          onContextMenu={(e) => e.preventDefault()}
         >
           <Document
             file={url}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             loading={
-              <div className='p-8 text-center text-sm text-gray-500'>
-                Memuat PDF...
+              <div className='flex items-center justify-center w-full h-full min-h-[70vh]'>
+                <div className='flex flex-col items-center gap-2 text-gray-400'>
+                  <i className='uil uil-spinner-alt text-3xl animate-spin' />
+                  <span className='text-sm'>Memuat PDF...</span>
+                </div>
               </div>
             }
           >
-            {Array.from({ length: numPages || 0 }, (_, i) => (
-              <Page
-                key={i}
-                pageNumber={i + 1}
-                width={containerWidth || undefined}
-                renderAnnotationLayer={false}
-                renderTextLayer={false} // matikan supaya teks ga bisa diselect/copy
-                className='mx-auto mb-2 shadow-sm'
-              />
-            ))}
+            <Page
+              pageNumber={pageNumber}
+              width={containerWidth || undefined}
+              renderAnnotationLayer={false}
+              renderTextLayer={false}
+              onLoadSuccess={() => setIsPageLoading(false)}
+              loading={
+                <div className='flex items-center justify-center w-full min-h-[70vh]'>
+                  <i className='uil uil-spinner-alt text-3xl animate-spin text-gray-400' />
+                </div>
+              }
+            />
           </Document>
         </div>
+
+        {/* Footer nav bar */}
+        {numPages && (
+          <div className='flex items-center justify-center gap-6 px-5 py-3 shrink-0 bg-[#1a1a1a] border-t border-white/10'>
+            <button
+              onClick={() => setPageNumber((p) => Math.max(p - 1, 1))}
+              disabled={pageNumber <= 1}
+              className='size-9 flex items-center justify-center rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed'
+              aria-label='Halaman sebelumnya'
+            >
+              <i className='uil uil-angle-left text-2xl' />
+            </button>
+
+            <span className='text-xs text-white/50 font-inter tabular-nums'>
+              {pageNumber} / {numPages}
+            </span>
+
+            <button
+              onClick={() => setPageNumber((p) => Math.min(p + 1, numPages))}
+              disabled={pageNumber >= numPages}
+              className='size-9 flex items-center justify-center rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer disabled:cursor-not-allowed'
+              aria-label='Halaman selanjutnya'
+            >
+              <i className='uil uil-angle-right text-2xl' />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
