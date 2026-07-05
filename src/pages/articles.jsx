@@ -1,4 +1,7 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import { Document, Page, pdfjs } from 'react-pdf';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
+import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
+
 import { Link } from 'react-router-dom';
 import Navbar from '../component/navbar';
 import Footer from '../component/Footer';
@@ -6,6 +9,7 @@ import Footer from '../component/Footer';
 import TeamImage from '../assets/images/bg/home-hero.png';
 import LiputanMediaImage from '../assets/images/bg/liputan-media.jpg';
 
+pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
 // Urutan hero grid = urutan section di halaman + menyertakan ikon supergrafis
 const modules = [
   {
@@ -277,41 +281,52 @@ function SectionShell({
 // Parameter #toolbar=0&navpanes=0 menyembunyikan toolbar download bawaan browser
 
 function PdfModal({ url, title, onClose }) {
-  // Tutup modal saat tekan Escape
+  const [numPages, setNumPages] = useState(null);
+  const [containerWidth, setContainerWidth] = useState(0);
+  const containerRef = useRef(null);
+
   const handleKey = useCallback(
     (e) => {
       if (e.key === 'Escape') onClose();
     },
     [onClose],
   );
+
   useEffect(() => {
     document.addEventListener('keydown', handleKey);
     document.body.style.overflow = 'hidden';
+
+    // Ukur lebar container untuk fit-width responsif
+    if (containerRef.current) {
+      setContainerWidth(containerRef.current.offsetWidth);
+    }
+    const handleResize = () => {
+      if (containerRef.current)
+        setContainerWidth(containerRef.current.offsetWidth);
+    };
+    window.addEventListener('resize', handleResize);
+
     return () => {
       document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = '';
+      window.removeEventListener('resize', handleResize);
     };
   }, [handleKey]);
-
-  const iframeSrc = `${url}#toolbar=0&navpanes=0&scrollbar=0`;
 
   return (
     <div
       className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 sm:p-6 md:p-10 cursor-pointer animate-fade-in'
-      onClick={onClose} // Klik di area overlay hitam ini akan menutup modal
+      onClick={onClose}
     >
-      {/* Container Box Modal */}
       <div
         className='relative w-full max-w-4xl h-[80vh] md:h-[85vh] flex flex-col bg-[#141414] rounded-xl border border-white/10 shadow-2xl overflow-hidden cursor-default'
-        onClick={(e) => e.stopPropagation()} // Mencegah modal tertutup saat area dalam PDF diklik
+        onClick={(e) => e.stopPropagation()}
       >
         {/* Header bar */}
         <div className='flex items-center justify-between px-5 py-3.5 shrink-0 bg-[#1a1a1a] border-b border-white/10'>
           <span className='font-inter text-sm font-medium text-white/80 truncate max-w-[60vw] md:max-w-[70vw]'>
             {title}
           </span>
-
-          {/* Tombol Close */}
           <button
             onClick={onClose}
             className='size-9 flex items-center justify-center rounded-full text-white/60 hover:text-white hover:bg-white/10 transition-colors ml-4 shrink-0 cursor-pointer'
@@ -321,14 +336,32 @@ function PdfModal({ url, title, onClose }) {
           </button>
         </div>
 
-        {/* PDF iframe */}
-        <div className='flex-1 bg-[#f4f4f4] overflow-hidden'>
-          <iframe
-            src={iframeSrc}
-            title={title}
-            className='w-full h-full border-0'
-            style={{ display: 'block' }}
-          />
+        {/* PDF viewer via canvas */}
+        <div
+          ref={containerRef}
+          className='flex-1 bg-[#f4f4f4] overflow-y-auto overflow-x-hidden'
+          onContextMenu={(e) => e.preventDefault()} // cegah klik-kanan save
+        >
+          <Document
+            file={url}
+            onLoadSuccess={({ numPages }) => setNumPages(numPages)}
+            loading={
+              <div className='p-8 text-center text-sm text-gray-500'>
+                Memuat PDF...
+              </div>
+            }
+          >
+            {Array.from({ length: numPages || 0 }, (_, i) => (
+              <Page
+                key={i}
+                pageNumber={i + 1}
+                width={containerWidth || undefined}
+                renderAnnotationLayer={false}
+                renderTextLayer={false} // matikan supaya teks ga bisa diselect/copy
+                className='mx-auto mb-2 shadow-sm'
+              />
+            ))}
+          </Document>
         </div>
       </div>
     </div>
