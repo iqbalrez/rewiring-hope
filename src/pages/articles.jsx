@@ -100,17 +100,18 @@ const PALETTES = {
 
 const materiTTHBArticles = [
   {
-    author: 'Prof. Stella Chrisite',
-    title: 'Before The Brain',
+    author: 'M. Riza Perdana Kusuma',
+    title:
+      'Before the Brain:  Understanding the Human We  are Trying to Educate',
     pdfUrl: '/pdfs/Before-The-Brain.pdf',
   },
   {
     author: 'Prof. Felycia Edy Soetardjo',
-    title: 'STEM and Neuroplasticity',
+    title: 'Rewiring Hope: STEM and Neuroplasticity in Indonesia Education',
     pdfUrl: '/pdfs/STEM-and-Neuroplasticity.pdf',
   },
   {
-    author: 'Prof. Christin Wibhowo',
+    author: 'Prof. Dr. Christin Wibhowo, M.Si., Psikolog',
     title:
       'Building Cognitive Resilience Pathways to Strength and Recovery in Learning',
     excerpt:
