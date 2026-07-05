@@ -1,6 +1,5 @@
 import { Document, Page, pdfjs } from 'react-pdf';
 import React, { useEffect, useState, useCallback, useRef } from 'react';
-import workerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
 import { Link } from 'react-router-dom';
 import Navbar from '../component/navbar';
@@ -9,7 +8,7 @@ import Footer from '../component/Footer';
 import TeamImage from '../assets/images/bg/home-hero.png';
 import LiputanMediaImage from '../assets/images/bg/liputan-media.jpg';
 
-pdfjs.GlobalWorkerOptions.workerSrc = workerUrl;
+pdfjs.GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js';
 // Urutan hero grid = urutan section di halaman + menyertakan ikon supergrafis
 const modules = [
   {
