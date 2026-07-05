@@ -54,6 +54,12 @@ const modules = [
 
 // Section colour palettes
 const PALETTES = {
+  'materi-tthb': {
+    left: '#1E5938',
+    right: '#2E8B57',
+    accent: '#A5D6A7',
+    textCta: '#ffffff',
+  },
   'ruang-pulih': {
     left: '#245966',
     right: '#3A8FA3    ',
@@ -91,6 +97,28 @@ const PALETTES = {
     textCta: '#ffffff',
   },
 };
+
+const materiTTHBArticles = [
+  {
+    author: 'Prof. Stella Chrisite',
+    title: 'Before The Brain',
+    pdfUrl: '/pdfs/Before-The-Brain.pdf',
+  },
+  {
+    author: 'Prof. Felycia Edy Soetardjo',
+    title: 'STEM and Neuroplasticity',
+    pdfUrl: '/pdfs/STEM-and-Neuroplasticity.pdf',
+  },
+  {
+    author: 'Prof. Christin Wibhowo',
+    title:
+      'Building Cognitive Resilience Pathways to Strength and Recovery in Learning',
+    excerpt:
+      'Dalam sesi ketiga Teaching the Healing Brain, Prof. Dr. Christin Wibhowo, M.Si., Psikolog membahas bagaimana resiliensi kognitif dapat dibangun sebagai fondasi pemulihan dan pertumbuhan dalam proses belajar. Melalui perspektif neuroscience yang aplikatif, beliau menjelaskan bahwa kemampuan siswa untuk bangkit dari kegagalan tidak hanya ditentukan oleh kemauan, tetapi juga oleh kerja sama berbagai bagian otak, termasuk Prefrontal Cortex yang berperan sebagai “CEO otak” dalam mengendalikan emosi dan mengambil keputusan, amygdala yang mendeteksi ancaman, hippocampus yang menyimpan pengalaman belajar, Anterior Cingulate Cortex yang membantu seseorang bertahan saat menghadapi kesulitan, serta insula yang membangun kesadaran diri dan empati. Prof. Christin menegaskan bahwa pembelajaran yang efektif hanya dapat terjadi ketika siswa merasa aman secara emosional, karena rasa aman memungkinkan otak untuk belajar, bereksplorasi, dan bertumbuh. Dengan mengintegrasikan pemahaman tentang neuroplastisitas, regulasi emosi, serta peran pengalaman positif dalam membentuk jalur-jalur ketahanan mental, sesi ini mengajak para pendidik untuk melihat pendidikan bukan sekadar proses transfer pengetahuan, melainkan sebagai ruang yang membantu siswa pulih, menemukan harapan, dan membangun kekuatan untuk menghadapi tantangan kehidupan.',
+    pdfUrl:
+      '/pdfs/Building-Cognitive-Resilience-Pathways-to-Strength-and-Recovery-in-Learning.pdf',
+  },
+];
 
 const ruangPulihArticles = [
   {
@@ -396,6 +424,7 @@ export default function ArticlesPage() {
     setActivePdf(pdfData);
   };
 
+  const tthb = PALETTES['materi-tthb'];
   const rp = PALETTES['ruang-pulih'];
   const sk = PALETTES['sains-karakter'];
   const nl = PALETTES['napas-logika'];
@@ -481,6 +510,30 @@ export default function ArticlesPage() {
             ))}
           </div>
         </section>
+
+        {/* ─── 1. MATERI TTHB ─── */}
+        <SectionShell
+          id='materi-tthb'
+          tag='Teaching The Healing Brain'
+          title={
+            <>
+              Materi
+              <br />
+              TTHB
+            </>
+          }
+          icon='uil-book-open'
+          leftStyle={{ background: tthb.left }}
+          rightStyle={{ background: tthb.right }}
+          p={tthb}
+        >
+          <ArticlesList
+            onOpenPdf={handleOpenPdf}
+            articles={materiTTHBArticles}
+            p={tthb}
+          />
+          {/* <div className="flex justify-end"><ArrowBtn /></div> */}
+        </SectionShell>
 
         {/* ─── 2. RUANG PULIH ─── */}
         <SectionShell
