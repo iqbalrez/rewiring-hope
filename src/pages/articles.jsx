@@ -298,23 +298,21 @@ function PdfModal({ url, title, onClose }) {
   useEffect(() => {
     document.addEventListener('keydown', handleKey);
     document.body.style.overflow = 'hidden';
-    if (containerRef.current)
-      setContainerWidth(containerRef.current.offsetWidth);
 
-    const handleResize = () => {
+    const measure = () => {
       if (containerRef.current)
         setContainerWidth(containerRef.current.offsetWidth);
     };
-    window.addEventListener('resize', handleResize);
+    measure();
+    window.addEventListener('resize', measure);
 
     return () => {
       document.removeEventListener('keydown', handleKey);
       document.body.style.overflow = '';
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', measure);
     };
   }, [handleKey]);
 
-  // Reset loading state setiap kali pindah halaman
   useEffect(() => {
     setIsPageLoading(true);
   }, [pageNumber]);
@@ -324,6 +322,7 @@ function PdfModal({ url, title, onClose }) {
       className='fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 sm:p-6 md:p-10 cursor-pointer animate-fade-in'
       onClick={onClose}
     >
+      {/* Modal: tinggi auto ikut konten, dibatasi max 90vh */}
       <div
         className='relative w-full max-w-4xl max-h-[90vh] flex flex-col bg-[#141414] rounded-xl border border-white/10 shadow-2xl overflow-hidden cursor-default'
         onClick={(e) => e.stopPropagation()}
@@ -349,22 +348,20 @@ function PdfModal({ url, title, onClose }) {
           </div>
         </div>
 
-        {/* PDF viewer */}
+        {/* PDF viewer — lebar selalu fit 100%, tinggi auto tapi dibatasi & scroll kalau kepanjangan */}
         <div
           ref={containerRef}
-          className='flex-1 bg-[#f4f4f4] overflow-y-auto flex items-center justify-center min-h-0 transition-[height] duration-200'
-          style={isPageLoading ? { minHeight: '70vh' } : undefined}
+          className='bg-[#f4f4f4] overflow-y-auto overflow-x-hidden flex justify-center max-h-[calc(90vh-116px)]'
+          style={isPageLoading ? { minHeight: '50vh' } : undefined}
           onContextMenu={(e) => e.preventDefault()}
         >
           <Document
             file={url}
             onLoadSuccess={({ numPages }) => setNumPages(numPages)}
             loading={
-              <div className='flex items-center justify-center w-full h-full min-h-[70vh]'>
-                <div className='flex flex-col items-center gap-2 text-gray-400'>
-                  <i className='uil uil-spinner-alt text-3xl animate-spin' />
-                  <span className='text-sm'>Memuat PDF...</span>
-                </div>
+              <div className='flex flex-col items-center justify-center gap-2 text-gray-400 min-h-[50vh]'>
+                <i className='uil uil-spinner-alt text-3xl animate-spin' />
+                <span className='text-sm'>Memuat PDF...</span>
               </div>
             }
           >
@@ -375,7 +372,7 @@ function PdfModal({ url, title, onClose }) {
               renderTextLayer={false}
               onLoadSuccess={() => setIsPageLoading(false)}
               loading={
-                <div className='flex items-center justify-center w-full min-h-[70vh]'>
+                <div className='flex items-center justify-center min-h-[50vh]'>
                   <i className='uil uil-spinner-alt text-3xl animate-spin text-gray-400' />
                 </div>
               }
