@@ -42,8 +42,8 @@ export default function Index() {
         <Team />
       </section>
 
-      <section className='w-screen min-h-[60vh] relative'>
-        <div className='flex flex-col lg:flex-row gap-6 w-full md:aspect-video'>
+      <section className='w-screen min-h-[40vh] relative'>
+        <div className='flex flex-col lg:flex-row gap-6 w-full h-full md:aspect-video'>
           <img
             src={EndImage}
             className='w-full h-full object-bottom object-cover'
@@ -51,7 +51,7 @@ export default function Index() {
           />
         </div>
         <div className='absolute top-20 translate-x-1/2 right-1/2 flex flex-col w-sm gap-6 justify-center'>
-          <img src={LogoDark} className='w-full' />
+          <img src={LogoDark} className='w-1/2 mx-auto' />
           <p className='font-bold text-dark text-center'>
             Karena setiap pribadi berhak untuk memiliki harapan.
           </p>
