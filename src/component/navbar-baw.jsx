@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-scroll';
-import { Link as Link2, NavLink } from 'react-router-dom';
+import { Link as Link2, NavLink, useLocation } from 'react-router-dom';
 
 import LogoLight from '../assets/images/logo-light.png';
-import LogoDark from '../assets/images/logo-dark.png';
-import IBROImage from '../assets/images/client/IBROImage.jpg';
-import IBROWhiteImage from '../assets/images/client/IBROWhiteImage.png';
-import DanaFoundationImage from '../assets/images/client/DanaFoundationImage.png';
 import TELImage from '../assets/images/client/TELImageWhite.png';
 
 export default function BawNavbar() {
   const [isOpen, setMenu] = useState(true);
   const [isSticky, setIsSticky] = useState(false);
+  const [isProgramsOpen, setProgramsOpen] = useState(false);
+  const [openSubMenu, setOpenSubMenu] = useState(null); // 'teaching' | 'baw' | null
+
+  const location = useLocation();
 
   useEffect(() => {
     window.addEventListener('scroll', windowScroll);
@@ -22,7 +21,14 @@ export default function BawNavbar() {
   }, []);
 
   const toggleMenu = () => {
-    setMenu(!isOpen);
+    setMenu((prev) => {
+      const next = !prev;
+      if (next) {
+        setProgramsOpen(false);
+        setOpenSubMenu(null);
+      }
+      return next;
+    });
   };
 
   function windowScroll() {
@@ -32,6 +38,38 @@ export default function BawNavbar() {
       setIsSticky(false);
     }
   }
+
+  const isProgramActive = [
+    '/teaching-the-healing-brain',
+    '/teaching-the-resilient-brain',
+    '/brain-awareness-week',
+    '/perempuan-punya-cerita',
+  ].some((path) => location.pathname.startsWith(path));
+
+  const handleTogglePrograms = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setProgramsOpen((prev) => {
+      const next = !prev;
+      if (!next) setOpenSubMenu(null);
+      return next;
+    });
+  };
+
+  const handleToggleSubMenu = (e, menuKey) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setOpenSubMenu((prev) => (prev === menuKey ? null : menuKey));
+  };
+
+  const handleLinkClick = () => {
+    setProgramsOpen(false);
+    setOpenSubMenu(null);
+    setMenu(true);
+  };
+
+  const isDesktopHover = () =>
+    typeof window !== 'undefined' && window.innerWidth >= 992;
 
   return (
     <>
@@ -57,16 +95,6 @@ export default function BawNavbar() {
                 className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
                 alt='Logo TEL'
               />
-              {/* <img
-                src={IBROWhiteImage}
-                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
-                alt='IBRO Logo'
-              />
-              <img
-                src={DanaFoundationImage}
-                className='max-h-5 md:max-h-12 w-auto object-contain flex-shrink'
-                alt='Dana Foundation Logo'
-              /> */}
             </Link2>
           </div>
 
@@ -104,50 +132,216 @@ export default function BawNavbar() {
           <div
             className={`${
               isOpen === true ? 'hidden' : 'block'
-            } navigation bg-white h-fit lg_992:order-1 lg_992:flex animate-[fadeDown_0.4s_ease-in-out] lg_992:bg-transparent lg_992:h-auto lg_992:shadow-none lg_992:!mt-0 lg_992:!p-0`}
+            } navigation relative z-30 bg-white w-full lg_992:w-auto h-fit lg_992:order-1 lg_992:flex animate-[fadeDown_0.4s_ease-in-out] lg_992:bg-transparent lg_992:h-auto lg_992:shadow-none lg_992:!mt-0 lg_992:!p-0`}
             id='menu-collapse'
           >
-            <div
-              onClick={toggleMenu}
-              className='absolute inset-0 min-h-screen bg-black/20 -z-10 block md:hidden'
-            ></div>
-            <ul className={`flex flex-col md:flex-row`} id='navbar-navlist'>
+            <ul
+              className={`relative z-10 flex flex-col lg_992:flex-row lg_992:items-center`}
+              id='navbar-navlist'
+            >
               <NavLink
                 to='/'
+                onClick={handleLinkClick}
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  `p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white lg_992:text-blue-dark lg_992:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'text-slate-800 lg_992:text-white'}`}`
                 }
               >
                 Home
               </NavLink>
-              <NavLink
-                to='/teaching-the-healing-brain'
-                className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
-                }
+
+              {/* Dropdown Programs */}
+              <li
+                className='relative list-none'
+                onMouseEnter={() => {
+                  if (isDesktopHover()) setProgramsOpen(true);
+                }}
+                onMouseLeave={() => {
+                  if (isDesktopHover()) {
+                    setProgramsOpen(false);
+                    setOpenSubMenu(null);
+                  }
+                }}
               >
-                Teaching The Healing Brain
-              </NavLink>
-              <NavLink
-                to='/brain-awareness-week'
-                className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
-                }
-              >
-                Brain Awareness Week
-              </NavLink>
+                <button
+                  type='button'
+                  aria-expanded={isProgramsOpen}
+                  onClick={handleTogglePrograms}
+                  className={`w-full lg_992:w-auto flex items-center justify-between gap-1.5 p-3 px-4 text-left cursor-pointer ${
+                    isProgramActive
+                      ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white lg_992:text-blue-dark lg_992:bg-white'} rounded-md`
+                      : `${isSticky ? 'text-blue-dark' : 'text-slate-800 lg_992:text-white'}`
+                  }`}
+                >
+                  <span>Programs</span>
+                  <i
+                    className={`uil uil-angle-down text-lg transition-transform duration-200 ${
+                      isProgramsOpen ? 'rotate-180' : ''
+                    }`}
+                  ></i>
+                </button>
+
+                {isProgramsOpen && (
+                  <div className='lg_992:absolute lg_992:left-0 lg_992:top-full lg_992:pt-2 z-50 w-full lg_992:w-64'>
+                    <ul className='bg-gray-50 lg_992:bg-white dark:bg-slate-900 rounded-xl lg_992:shadow-lg border border-gray-100 dark:border-gray-800 py-2 text-slate-800 dark:text-white list-none'>
+                      {/* 1. Teaching the Brain Series */}
+                      <li
+                        className='relative'
+                        onMouseEnter={() => {
+                          if (isDesktopHover()) setOpenSubMenu('teaching');
+                        }}
+                        onMouseLeave={() => {
+                          if (isDesktopHover()) setOpenSubMenu(null);
+                        }}
+                      >
+                        <button
+                          type='button'
+                          aria-expanded={openSubMenu === 'teaching'}
+                          onClick={(e) => handleToggleSubMenu(e, 'teaching')}
+                          className='w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark transition-colors text-left cursor-pointer'
+                        >
+                          <span>Teaching the Brain Series</span>
+                          <i
+                            className={`uil uil-angle-right text-base transition-transform duration-200 ${
+                              openSubMenu === 'teaching' ? 'rotate-90' : ''
+                            }`}
+                          ></i>
+                        </button>
+
+                        {openSubMenu === 'teaching' && (
+                          <div className='lg_992:absolute lg_992:left-full lg_992:top-0 lg_992:pl-1 w-full lg_992:w-64'>
+                            <ul className='bg-white dark:bg-slate-800 lg_992:dark:bg-slate-900 lg_992:rounded-xl lg_992:shadow-lg lg_992:border border-gray-100 dark:border-gray-800 py-1.5 list-none'>
+                              <li>
+                                <NavLink
+                                  to='/teaching-the-healing-brain'
+                                  onClick={handleLinkClick}
+                                  className={({ isActive }) =>
+                                    `block pl-8 lg_992:px-4 py-2 text-sm transition-colors ${
+                                      isActive
+                                        ? 'text-blue-dark font-semibold bg-blue-dark/5'
+                                        : 'text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark'
+                                    }`
+                                  }
+                                >
+                                  Teaching the Healing Brain - 2026
+                                </NavLink>
+                              </li>
+                              <li>
+                                <NavLink
+                                  to='/teaching-the-resilient-brain/'
+                                  onClick={handleLinkClick}
+                                  className={({ isActive }) =>
+                                    `block pl-8 lg_992:px-4 py-2 text-sm transition-colors ${
+                                      isActive
+                                        ? 'text-blue-dark font-semibold bg-blue-dark/5'
+                                        : 'text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark'
+                                    }`
+                                  }
+                                >
+                                  Teaching the Resilient Brain - 2027
+                                </NavLink>
+                              </li>
+                            </ul>
+                          </div>
+                        )}
+                      </li>
+
+                      {/* 2. Brain Awareness Week */}
+                      <li
+                        className='relative'
+                        onMouseEnter={() => {
+                          if (isDesktopHover()) setOpenSubMenu('baw');
+                        }}
+                        onMouseLeave={() => {
+                          if (isDesktopHover()) setOpenSubMenu(null);
+                        }}
+                      >
+                        <button
+                          type='button'
+                          aria-expanded={openSubMenu === 'baw'}
+                          onClick={(e) => handleToggleSubMenu(e, 'baw')}
+                          className='w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark transition-colors text-left cursor-pointer'
+                        >
+                          <span>Brain Awareness Week</span>
+                          <i
+                            className={`uil uil-angle-right text-base transition-transform duration-200 ${
+                              openSubMenu === 'baw' ? 'rotate-90' : ''
+                            }`}
+                          ></i>
+                        </button>
+
+                        {openSubMenu === 'baw' && (
+                          <div className='lg_992:absolute lg_992:left-full lg_992:top-0 lg_992:pl-1 w-full lg_992:w-64'>
+                            <ul className='bg-white dark:bg-slate-800 lg_992:dark:bg-slate-900 lg_992:rounded-xl lg_992:shadow-lg lg_992:border border-gray-100 dark:border-gray-800 py-1.5 list-none'>
+                              <li>
+                                <NavLink
+                                  to='/brain-awareness-week/2026'
+                                  onClick={handleLinkClick}
+                                  className={({ isActive }) =>
+                                    `block pl-8 lg_992:px-4 py-2 text-sm transition-colors ${
+                                      isActive
+                                        ? 'text-blue-dark font-semibold bg-blue-dark/5'
+                                        : 'text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark'
+                                    }`
+                                  }
+                                >
+                                  Kisah Otak yang Tangguh - 2026
+                                </NavLink>
+                              </li>
+                              <li>
+                                <NavLink
+                                  to='/brain-awareness-week/2027'
+                                  onClick={handleLinkClick}
+                                  className={({ isActive }) =>
+                                    `block pl-8 lg_992:px-4 py-2 text-sm transition-colors ${
+                                      isActive
+                                        ? 'text-blue-dark font-semibold bg-blue-dark/5'
+                                        : 'text-slate-700 dark:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark'
+                                    }`
+                                  }
+                                >
+                                  Your Voice in Medicine - 2027
+                                </NavLink>
+                              </li>
+                            </ul>
+                          </div>
+                        )}
+                      </li>
+
+                      {/* 3. Perempuan Punya Cerita */}
+                      <li>
+                        <NavLink
+                          to='/perempuan-punya-cerita'
+                          onClick={handleLinkClick}
+                          className={({ isActive }) =>
+                            `block px-4 py-2.5 text-sm font-medium transition-colors ${
+                              isActive
+                                ? 'text-blue-dark font-semibold bg-blue-dark/5'
+                                : 'hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-blue-dark'
+                            }`
+                          }
+                        >
+                          Perempuan Punya Cerita
+                        </NavLink>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </li>
+
               <NavLink
                 to='/articles'
+                onClick={handleLinkClick}
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  `p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white lg_992:text-blue-dark lg_992:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'text-slate-800 lg_992:text-white'}`}`
                 }
               >
                 Articles
               </NavLink>
               <NavLink
                 to='/volunteer'
+                onClick={handleLinkClick}
                 className={({ isActive }) =>
-                  ` p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white md:text-blue-dark md:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'md:text-white'}`}`
+                  `p-3 px-4 ${isActive ? `${isSticky ? 'bg-blue-dark text-white' : 'bg-blue-dark text-white lg_992:text-blue-dark lg_992:bg-white'} rounded-md` : `${isSticky ? 'text-blue-dark' : 'text-slate-800 lg_992:text-white'}`}`
                 }
               >
                 Volunteer

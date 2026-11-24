@@ -38,6 +38,9 @@ import VolunteerPage from './pages/volunteer.jsx';
 import VolunteerTwibbonPage from './pages/twibbonvolunteer.jsx';
 import AdminVolunteerPage from './pages/admin/VolunteerPage.jsx';
 import ArticlesPage from './pages/articles.jsx';
+import TTRBPage from './pages/ttrb.jsx';
+import Baw2027Page from './pages/baw2027.jsx';
+import PPCPage from './pages/ppc.jsx';
 
 export default function App() {
   const [loading, setLoading] = useState(false);
@@ -103,7 +106,10 @@ export default function App() {
           element={<TermsAndConditionsPage />}
         />
         <Route path='/teaching-the-healing-brain' element={<TTHBPage />} />
-        <Route path='/brain-awareness-week' element={<BawPage />} />
+        <Route path='/brain-awareness-week/2026' element={<BawPage />} />
+        <Route path='/teaching-the-resilient-brain/' element={<TTRBPage />} />
+        <Route path='/brain-awareness-week/2027' element={<Baw2027Page />} />
+        <Route path='/perempuan-punya-cerita' element={<PPCPage />} />
         <Route path='/volunteer' element={<VolunteerPage />} />
         <Route path='/volunteer/twibbon' element={<VolunteerTwibbonPage />} />
         <Route path='/assets' element={<NotFound />} />

@@ -511,7 +511,7 @@ export default function ArticlesPage() {
 
   return (
     <>
-      <div className='flex flex-col min-h-screen md:mt-10'>
+      <div className='flex flex-col min-h-screen'>
         <Navbar />
 
         {/* ─── 1. HERO ─── */}
