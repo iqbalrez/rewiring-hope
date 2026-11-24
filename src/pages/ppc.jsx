@@ -111,10 +111,10 @@ export default function PPCPage() {
             <div className='col-span-8 grid grid-cols-1 md:grid-cols-7 gap-4 items-center'>
               <div className='flex flex-col justify-center text-center md:text-start md:col-span-4'>
                 <h1 className='text-white lg:text-5xl text-3xl font-medium md:mb-4 mb-4 position-relative'>
-                  Your Voice
+                  Perempuan Punya
                   <br />
                   <TypeAnimation
-                    sequence={['in Medicine', 1000, 'i', 100]}
+                    sequence={['Cerita', 1000, 'C', 100]}
                     wrapper='span'
                     speed={12} // Faster speed for typing effect
                     repeat={Infinity}
